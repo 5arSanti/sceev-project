@@ -39,7 +39,7 @@ router.delete("/", async (request, response) => {
 
 		connection.query(query, (err) => {
 			if(err) {
-				return response.status(500).json({ Error: err.message })
+				return response.status(500).json({ Error: err.message });
 			}
 
 			return response.json({ Status: "Success", message: "Usuario eliminado correctamente" });

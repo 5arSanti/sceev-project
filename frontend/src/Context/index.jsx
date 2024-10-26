@@ -15,9 +15,6 @@ const AppProvider = ({children}) => {
         children: PropTypes.node.isRequired,
     }
 
-	//-------------------------------------
-    const [apiUri, setApiUri] = React.useState(api);
-
     //LOADING, ERROR
     const [loading, setLoading] = React.useState(null);
 
@@ -47,6 +44,7 @@ const AppProvider = ({children}) => {
         const endpoints = [
             "/users",
             "/users/types",
+            "/filters"
         ]
 
         fetchData(endpoints)
@@ -68,7 +66,6 @@ const AppProvider = ({children}) => {
     return (
         <AppContext.Provider
             value={{
-                apiUri,
                 loading,
                 setLoading,
                 

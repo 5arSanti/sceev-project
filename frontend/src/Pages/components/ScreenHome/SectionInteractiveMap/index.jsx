@@ -1,12 +1,18 @@
 
 import { MapContainer } from "../../MapContainer";
-import { WrapperContainer2 } from "../../WrapperContainers";
+import { SectionWrapper } from "../../SectionWrapper";
+import { SectionTitle } from "../../SectionWrapper/SectionTitle";
 
 const SectionInteractiveMap = () => {
     return (
-        <WrapperContainer2 flexDirection="column" padding={0}>
+        <SectionWrapper>
+            <SectionTitle
+                subTitle="Busca tu Oferta de Empleo"
+                title="Mapa interactivo"
+            />
+
             <MapContainer/>
-        </WrapperContainer2>
+        </SectionWrapper>
     );
 }
 

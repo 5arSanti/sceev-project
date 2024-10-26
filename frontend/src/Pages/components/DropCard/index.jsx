@@ -21,10 +21,7 @@ const DropCard = ({title, array=[], onClick, value, searchBox=true}) => {
 
             <Dropdown className="dropdown-card-container">
                 <Dropdown.Toggle id="dropdown-card-basic" className='dropdown-card-button'>
-                    {(value == 1 && "Si" ||  
-                    (value == "" || !value) && "Todo" ||
-                    value == 0 && "No" || 
-                    value)}
+                    {(value == "" || !value) && "Todo" || value}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu className="dropdown-card-grid-container">
@@ -43,11 +40,11 @@ const DropCard = ({title, array=[], onClick, value, searchBox=true}) => {
                     }
                     
                     <ScrollableWrapper maxHeight={400}>
-                        <Dropdown.Item style={{padding: 10}} onClick={() => onClick("")}>
-                            Todo
+                        <Dropdown.Item onClick={() => onClick("")}>
+                            <TextCard>Todo</TextCard>
                         </Dropdown.Item>
                         {filteredArray?.map((item, index) => (
-                            <Dropdown.Item key={index} style={{padding: 0}} onClick={() => {
+                            <Dropdown.Item key={index} onClick={() => {
                                     onClick(item)
                                     setSearchValue("");
                                 }}>

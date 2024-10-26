@@ -9,8 +9,8 @@ const authRouter = require("./auth")
 
 const graphRouter = require("./graph/index.js")
 
-
 const fileRouter = require("./file")
+const filtersRouter = require("./filters")
 
 const columnsRouter = require("./columns/index.js")
 
@@ -25,8 +25,8 @@ const routerApi = (app) => {
 
 	router.use("/graph", graphRouter);
 
-
 	router.use("/file", fileRouter);
+	router.use("/filters", filtersRouter)
 
 	router.use("/columns", columnsRouter);
 }

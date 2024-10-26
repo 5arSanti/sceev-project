@@ -12,6 +12,7 @@ import { GridContainer } from "../../components/GridContainer";
 import { DropCard } from "../../components/DropCard";
 import { SectionWrapper } from "../../components/SectionWrapper";
 import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
+import { SectionFiltersResults } from "../../components/ScreenHome/SectionResults";
 
 const Home = () => {
     return (
@@ -23,23 +24,9 @@ const Home = () => {
                     <SectionMainHome/>
                 </StyledSection>
                 
-                <SectionWrapper>
-                    <SectionTitle
-                        subTitle="Busca tu Oferta de Empleo"
-                        title="Mapa interactivo"
-                    />
-                    <SectionInteractiveMap/>
-
-                    <GridContainer className="grid-075-125">
-                        <WrapperContainer2>
-                            <DropCard
-                                title={"Departamentos"}
-                                array={[1,2,3,4,5,6,7,8,9,0,11,2,1341,123]}
-                            />
-                        </WrapperContainer2>
-                    </GridContainer>
-                    
-                </SectionWrapper>
+                <SectionInteractiveMap/>
+                
+                <SectionFiltersResults/>
 
                 <SectionAboutProject/>
 

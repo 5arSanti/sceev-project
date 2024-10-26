@@ -7,6 +7,8 @@
     align-items: center;
 
     max-width: 100%;
+
+    transition: all 0.3s ease;
 }
 
 .grid-025-175 {

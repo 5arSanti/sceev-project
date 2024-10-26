@@ -1,6 +1,6 @@
 import { getMonthsUntilCurrent, yearArray } from "../../../utils/dateFunctions";
 import { handleInputChange } from "../../../utils/handleInputChange";
-import { AllInfoGridContainer } from "../AllInfoContainer";
+import { GridContainer } from "../GridContainer";
 import { OptionInputCard } from "../InputsCards";
 
 const YearAndMonthFilterCard = ({state={}, setState, id, className="grid-1-1", year=true, month=true, padding=15}) => {
@@ -9,7 +9,7 @@ const YearAndMonthFilterCard = ({state={}, setState, id, className="grid-1-1", y
 
     return(
         
-            <AllInfoGridContainer className={`${className} ${!(year && month) && "grid-1"}`}>
+            <GridContainer className={`${className} ${!(year && month) && "grid-1"}`}>
                 {year && 
                     <OptionInputCard 
                         id={`${id}-year`} 
@@ -31,7 +31,7 @@ const YearAndMonthFilterCard = ({state={}, setState, id, className="grid-1-1", y
                         padding={padding}
                     />
                 }
-            </AllInfoGridContainer>
+            </GridContainer>
     );
 }
 

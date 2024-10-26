@@ -6,7 +6,7 @@ import { SubTitle } from "../../SubTitle";
 import { InputCard } from "../../InputsCards";
 import { handleInputChange } from "../../../../utils/handleInputChange";
 import { ButtonCard } from "../../ButtonCard";
-import { AllInfoGridContainer } from "../../AllInfoContainer";
+import { GridContainer } from "../../GridContainer";
 
 const UsersForm = () => {
     const context = React.useContext(AppContext);
@@ -59,7 +59,7 @@ const UsersForm = () => {
                     />
                 ))}
 
-                <AllInfoGridContainer className="grid-1-1">
+                <GridContainer>
                     <ButtonCard
                         title="Guardar Información"
                         type="submit"
@@ -74,7 +74,7 @@ const UsersForm = () => {
                         Cancelar
                     </ButtonCard>
 
-                </AllInfoGridContainer>
+                </GridContainer>
 
             </WrapperContainer1>
         </form>

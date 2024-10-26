@@ -1,8 +1,8 @@
 import React from "react";
 import { AppContext } from "../../../../Context";
-import { AllInfoContainer } from "../../AllInfoContainer";
 import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
 import { SpanCard, TextCard } from "../../TextComponents";
+import { GridContainer } from "../../GridContainer";
 
 
 const UploadLogsContainer = () => {
@@ -15,7 +15,7 @@ const UploadLogsContainer = () => {
     }
 
     return(
-        <AllInfoContainer>
+        <GridContainer>
             <WrapperContainer2>
                 {context.logs &&
                     Object.keys(context.logs)?.filter(item => context.logs?.[item] !== 0)?.map((item, index) => (
@@ -25,7 +25,7 @@ const UploadLogsContainer = () => {
                     ))
                 }
             </WrapperContainer2>
-        </AllInfoContainer>
+        </GridContainer>
     );
 }
 

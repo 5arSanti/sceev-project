@@ -2,13 +2,13 @@
 import React from "react";
 
 import { handleDeleteData } from "../../../../utils/handleData/handleDeleteData";
-import { AllInfoGridContainer } from "../../AllInfoContainer";
 import { EditDeleteCard } from "../../EditDeleteCard";
 import { SpanCard, TextCard } from "../../TextComponents";
 import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
 import { AppContext } from "../../../../Context";
 import { handleNotifications } from "../../../../utils/handleNotifications";
 import { formatNumbers } from "../../../../utils/formatNumbers";
+import { GridContainer } from "../../GridContainer";
 
 const UsersCard = ({item}) => {
     const context = React.useContext(AppContext)
@@ -25,7 +25,7 @@ const UsersCard = ({item}) => {
 
     return(
         <WrapperContainer1 padding={0}>
-            <AllInfoGridContainer className="grid-175-025" gap={10}>
+            <GridContainer className="grid-175-025" gap={10}>
                 <WrapperContainer2 flexDirection="column" justifyContent="center" padding={20}>
                     <TextCard><SpanCard>Cedula: </SpanCard> {formatNumbers(item?.id)}</TextCard>
                     <TextCard><SpanCard>Nombres: </SpanCard> {item?.names}</TextCard>
@@ -35,7 +35,7 @@ const UsersCard = ({item}) => {
                 </WrapperContainer2>
 
                 <EditDeleteCard item={item} onDelete={handleDeleteUser} onEdit={() => handleEditUser(item)}/>
-            </AllInfoGridContainer>
+            </GridContainer>
         </WrapperContainer1>
     );
 }

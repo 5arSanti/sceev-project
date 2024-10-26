@@ -10,7 +10,7 @@ const SectionAboutProject = () => {
                 title="Sobre el proyecto"
             />
             <TextCard textAlign="center">
-                Este proyecto se centra en la creación de un software especializado diseñado para optimizar la gestión de información en grandes empresas, con un enfoque en la exposición de vacantes laborales y el análisis de datos. 
+                Este proyecto se centra en un software especializado diseñado para optimizar la gestión de información en grandes empresas, con un enfoque en la exposición de vacantes laborales y el análisis de datos. 
             </TextCard>
         </SectionWrapper>
     );

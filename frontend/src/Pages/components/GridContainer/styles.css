@@ -1,28 +1,17 @@
-.all-info-container {
-    box-sizing: border-box;
-    width: 100%;
-
-    background-color: transparent;
-
-    border-radius: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    transition: all 0.2s ease;
-}
-
-.all-info-grid-container {
+.grid-container {
     box-sizing: border-box;
     width: 100%;
 
     display: grid;
     justify-content: center;
+    align-items: center;
 
     max-width: 100%;
 }
 
+.grid-025-175 {
+    grid-template-columns: 0.25fr 1.75fr;
+}
 .grid-05-15 {
     grid-template-columns: 0.5fr 1.5fr;
 }
@@ -38,6 +27,7 @@
 .grid-175-025 {
     grid-template-columns: 1.75fr 0.25fr;
 }
+
 
 
 .grid-1-1-1 {
@@ -59,9 +49,13 @@
     grid-template-columns: 0.75fr 0.25fr; 
 }
 
+.reverse {
+    order: -1;
+}
+
 
 @media(max-width: 1150px) {
-    .all-info-grid-container {
+    .grid-container {
         grid-template-columns: 1fr !important;
     }
 }

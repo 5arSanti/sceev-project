@@ -1,19 +1,18 @@
 import React from "react";
 import { AppContext } from "../../../../Context";
-import { AllInfoGridContainer } from "../../AllInfoContainer";
-import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
 import { UsersForm } from "../UsersForm";
 import { UsersGrid } from "../UsersGrid";
+import { GridContainer } from "../../GridContainer";
 
 const UsersInfoContainer = () => {
     const context = React.useContext(AppContext)
 
     return(
-        <AllInfoGridContainer>
+        <GridContainer>
             <UsersGrid/>
             {context.users && <UsersForm/>}
             
-        </AllInfoGridContainer>
+        </GridContainer>
     );
 }
 

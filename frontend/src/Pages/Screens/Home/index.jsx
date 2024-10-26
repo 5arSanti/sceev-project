@@ -7,7 +7,10 @@ import { mainHome } from "../../../assets";
 import { SectionMainHome } from "../../components/ScreenHome/SectionMainHomeInfo";
 import { SectionAboutProject } from "../../components/ScreenHome/SectionAboutProject";
 
-import "./styles.css"
+import { SectionInteractiveMap } from "../../components/ScreenHome/SectionInteractiveMap";
+import { GridContainer } from "../../components/GridContainer";
+import { DropCard } from "../../components/DropCard";
+import { SectionWrapper } from "../../components/SectionWrapper";
 
 const Home = () => {
     return (
@@ -18,6 +21,19 @@ const Home = () => {
                 <StyledSection image={mainHome}>
                     <SectionMainHome/>
                 </StyledSection>
+
+                <SectionInteractiveMap/>
+
+                <SectionWrapper border={false}>
+                    <GridContainer className="grid-075-125">
+                        <WrapperContainer2>
+                            <DropCard
+                                title={"Departamentos"}
+                                array={[1,2,3,4,5,6]}
+                            />
+                        </WrapperContainer2>
+                    </GridContainer>
+                </SectionWrapper>
 
                 <SectionAboutProject/>
 

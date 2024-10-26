@@ -1,15 +1,14 @@
-import { AllInfoGridContainer } from "../../AllInfoContainer";
-import { WrapperContainer2 } from "../../WrapperContainers";
+import { GridContainer } from "../../GridContainer";
 import { UploadForm } from "../UploadForm";
 import { UploadLogsContainer } from "../UploadLogsContainer";
 
 const UploadInfoContainer = () => {
     return(
-        <AllInfoGridContainer className="grid-1-1">
+        <GridContainer className="grid-1-1">
             <UploadForm/>
 
             <UploadLogsContainer/>
-        </AllInfoGridContainer>
+        </GridContainer>
     );
 }
 

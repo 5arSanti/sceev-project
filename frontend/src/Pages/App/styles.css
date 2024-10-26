@@ -1,0 +1,96 @@
+a {
+    text-decoration: none !important;
+    color: transparent;
+}
+button {
+    border: none;
+}
+
+svg {
+    width: 30px;
+    height: 30px;
+}
+
+.main-container {
+    background-image: url(../../../src/assets/Fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.border-left-style {
+    border: none !important;
+    border-left: 1px solid var(--lines-color) !important;
+}
+
+.shadow-style {
+    transition: all 0.15s ease !important;
+}
+.shadow-style:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25) !important;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25) !important;
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25) !important;
+}
+
+
+.animacion {
+    position: relative;
+}
+.animacion::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width .5s ease;
+}
+.animacion:hover::after {
+    width: 100%;
+}
+
+.animacion2 {
+    position: relative;
+}
+.animacion2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width .5s ease, left .5s ease;
+}
+.animacion2-blue::after {
+    background-color: var(--lines-color) !important;
+}
+
+.animacion2:hover::after {
+    left: 0%;
+    width: 100%;
+}
+
+.relative {
+    position: relative;
+}
+
+.archivo-font {
+    font-family: "Archivo", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+svg {
+    width: 40px;
+    height: 40px;
+}
+
+.white-color {
+    color: var(--white) !important;
+}
+
+.relative {
+    position: relative;
+}

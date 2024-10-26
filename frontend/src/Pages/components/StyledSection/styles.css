@@ -1,0 +1,37 @@
+.styled-home-main-container {    
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.styled-home-main-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gradient-container{
+    box-sizing: border-box;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+
+    /* background: linear-gradient(
+        90deg, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.5) 35%, 
+        rgba(0,0,0,0.5) 65%, 
+        rgba(0,0,0,0) 100%
+    ); */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

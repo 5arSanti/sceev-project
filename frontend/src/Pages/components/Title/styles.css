@@ -10,6 +10,8 @@
 .title {
     width: 100%;
 
+    font-family: "Syne";
+
     text-align: center;
     font-size: 50px;
     color: var(--main-title-color);

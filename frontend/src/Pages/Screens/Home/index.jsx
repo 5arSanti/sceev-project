@@ -1,13 +1,13 @@
-import { Title } from "../../components/Title";
-
 import { WrapperContainer2 } from "../../components/WrapperContainers";
 
 import { AuthWrapper } from "../../components/AuthWrapper";
 import { StyledSection } from "../../components/StyledSection";
 import { mainHome } from "../../../assets";
 
-import "./styles.css"
 import { SectionMainHome } from "../../components/ScreenHome/SectionMainHomeInfo";
+import { SectionAboutProject } from "../../components/ScreenHome/SectionAboutProject";
+
+import "./styles.css"
 
 const Home = () => {
     return (
@@ -19,9 +19,8 @@ const Home = () => {
                     <SectionMainHome/>
                 </StyledSection>
 
-                <Title>
-                    Bienvenidos al Sistema de Cargue, exposicion y estadistica de vacantes (SCEEV)
-                </Title>
+                <SectionAboutProject/>
+
             </WrapperContainer2>
         </AuthWrapper>
     );

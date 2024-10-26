@@ -1,0 +1,19 @@
+.section-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+
+    margin: 10px 0;
+
+    /* background: radial-gradient(circle at bottom right, var(--lines-color) 1%, rgba(255, 255, 255, 0)) 10%; */
+}
+
+.section-wrapper .section-decoration{
+    width: 85%;
+    box-sizing: border-box;
+
+    justify-self: center;
+    align-self: center;
+
+    border-top: 1px solid var(--lines-color);
+}

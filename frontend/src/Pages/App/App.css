@@ -4,7 +4,7 @@
     --footer-color:  #10002b;
 
     --main-body-color: #E6EFFD;
-    --main-title-color: #9d4edd;
+    --main-title-color: #e0aaff;
 
     --lines-color: #7b2cbf;
     --lines-color2: #240046;
@@ -46,7 +46,7 @@ p, span, div, h2, h1 {
 
 body {
     margin: 0;
-    font-family: Calibri !important;
+    font-family: "Syne", sans-serif !important;
     font-weight: 100;
     font-style: normal;
 

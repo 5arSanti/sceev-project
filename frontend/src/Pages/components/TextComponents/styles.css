@@ -3,6 +3,8 @@
 
     transition: all 0.1s ease;
     margin: 0;
+
+    font-family: "Syne" sans-serif;
 }
 
 .text-color {
@@ -15,6 +17,8 @@
     font-size: 16px;
 
     transition: all 0.1s ease;
+
+    font-family: "Syne" sans-serif;
 }
 .anchor-card {
     display: flex;
@@ -22,6 +26,8 @@
     color: var(--text-color);
 
     transition: all 0.1s ease;
+
+    font-family: "Syne" sans-serif;
 }
 .anchor-card svg {
     margin: 0 10px;

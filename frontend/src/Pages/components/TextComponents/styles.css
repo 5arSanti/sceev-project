@@ -1,19 +1,37 @@
 .text-card {
     width: 100%;
-    color: var(--text-color);
-
-    text-overflow: ellipsis;
-    overflow: hidden;
 
     transition: all 0.1s ease;
+    margin: 0;
 }
+
+.text-color {
+    color: var(--text-color);
+}
+
 .span-card {
     font-weight: bold;
-    color: var(--gov-accesibility-card);
+    color: var(--lines-color);
     font-size: 16px;
 
     transition: all 0.1s ease;
 }
+.anchor-card {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+
+    transition: all 0.1s ease;
+}
+.anchor-card svg {
+    margin: 0 10px;
+    width: 15px;
+    height: 15px;
+    color: var(--lines-color);
+}
 .bold {
     font-weight: bold;
+}
+.italic {
+    font-style: italic;
 }

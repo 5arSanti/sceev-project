@@ -1,11 +1,12 @@
 const express = require("express");
 const { getQuery } = require("../../database/query");
 const { connection } = require("../../database");
-const { validateObjectValues } = require("../../Utils/validateObjectValues");
-const { validatePassword } = require("../../Utils/validatePassword");
+
 
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
+const { validatePassword } = require("../../Utils/Validate/validatePassword");
 
 
 router.get("/", async (request, response) => {

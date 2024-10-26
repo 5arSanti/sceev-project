@@ -1,9 +1,8 @@
 const fs = require("fs");
 const readline = require('readline');
-
-const { getColumnNames } = require("./getColumnNames");
+const { getColumnNames } = require("../getColumnNames");
 const { readLine } = require("./readLine");
-const { deleteFile } = require("./files/deleteFile");
+const { deleteFile } = require("./deleteFile");
 
 const readFile = async (file) => {
 	try {

@@ -1,4 +1,5 @@
-const { insertInDatabase } = require("./insertInDatabase");
+const { insertInDatabase } = require("../insertInDatabase");
+
 
 const readLine = (rl, columns) => {
 	return new Promise((resolve, reject) => {

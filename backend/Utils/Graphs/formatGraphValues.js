@@ -1,5 +1,5 @@
-const { getQuery } = require("../database/query");
-const { formatDistinctToArray } = require("./formatDistincToArray");
+const { getQuery } = require("../../database/query");
+const { formatDistinctToArray } = require("../formatDistincToArray");
 
 const formatGraphValues = async (column, conditions, monthValue, yearValue) => {
 

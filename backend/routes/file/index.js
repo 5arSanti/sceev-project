@@ -1,7 +1,7 @@
 const express = require("express");
 const upload = require("../../middlewares/multer.config");
+const { readFile } = require("../../Utils/files/readFile");
 
-const { readFile } = require("../../Utils/readFile");
 
 const router = express.Router();
 

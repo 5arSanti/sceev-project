@@ -1,6 +1,4 @@
 const express = require("express");
-const { validateObjectValues } = require("../../Utils/validateObjectValues");
-const { validatePassword } = require("../../Utils/validatePassword");
 const { verifyUser } = require("../../middlewares/verifyUser");
 const { getQuery } = require("../../database/query");
 
@@ -8,6 +6,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 
 const PropertiesReader = require('properties-reader');
+const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
+const { validatePassword } = require("../../Utils/Validate/validatePassword");
 const properties = PropertiesReader('./app.properties.ini');
 
 const router = express.Router();

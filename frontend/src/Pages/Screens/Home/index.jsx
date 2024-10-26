@@ -6,12 +6,7 @@ import { mainHome } from "../../../assets";
 
 import { SectionMainHome } from "../../components/ScreenHome/SectionMainHomeInfo";
 import { SectionAboutProject } from "../../components/ScreenHome/SectionAboutProject";
-
 import { SectionInteractiveMap } from "../../components/ScreenHome/SectionInteractiveMap";
-import { GridContainer } from "../../components/GridContainer";
-import { DropCard } from "../../components/DropCard";
-import { SectionWrapper } from "../../components/SectionWrapper";
-import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { SectionFiltersResults } from "../../components/ScreenHome/SectionResults";
 
 const Home = () => {

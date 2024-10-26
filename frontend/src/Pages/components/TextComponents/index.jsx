@@ -1,6 +1,15 @@
+/* eslint-disable react/prop-types */
 import "./styles.css";
 
-const TextCard = ({children, textAlign="start", width="100%", className="", fontSize=16, white=false}) => {
+const TextCard = ({
+    children, 
+    textAlign="start", 
+    width="100%", 
+    className="", 
+    fontSize=16, 
+    white=false
+}) => {
+    
     return(
         <p 
             style={{
@@ -21,18 +30,29 @@ const SpanCard = ({children, className, fontSize=16}) => {
     );
 }
 
-const AnchorCard = ({children, uri="", className="", padding=0, width="100%", fontSize=16}) => {
+const AnchorCard = ({
+    children, 
+    uri="", 
+    className="", 
+    padding=0, 
+    width="100%", 
+    fontSize=16,
+    white=false
+}) => {
     if (uri === "" || uri == null) {
         return;
     }
     
     return (
-        <a href={uri} target="_blank" rel="noopener noreferrer" className={`anchor-card ${className}`} style={{
-            padding: padding,
-            width: width,
-            fontSize: fontSize,
+        <a href={uri} target="_blank" rel="noopener noreferrer" 
+            className={`anchor-card ${className} ${white && "white-color"}`} 
+            style={{
+                padding: padding,
+                width: width,
+                fontSize: fontSize,
 
-        }}>
+            }}
+        >
             {children}
         </a>
     );

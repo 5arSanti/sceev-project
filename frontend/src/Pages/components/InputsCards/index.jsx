@@ -2,20 +2,36 @@
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./styles.css";
 
-const InputCard = ({type="text", id, label, placeholder="placeholder", onChange, required=true, defaultValue="", className="input-container", haveLabel=true}) => {
-    return(
+const InputCard = ({
+    type="text", 
+    id, 
+    label, 
+    placeholder="placeholder", 
+    onChange, 
+    required=true, 
+    defaultValue="", 
+    className="input-container", 
+    haveLabel=true,
+    icon
+}) => {
+
+    return (
         <div className={`${className}`}>
             {haveLabel && <label htmlFor={id}>{label} {required && "*"}</label>}
             
-            <input
-                type={type}
-                placeholder={placeholder}
-                name={id}
-                id={id}
-                onChange={(event) => {onChange(event.target.value)}}
-                required={required}
-                defaultValue={defaultValue}
-            />
+            <div className="icon-input-container">
+                {icon && icon}
+
+                <input
+                    type={type}
+                    placeholder={placeholder}
+                    name={id}
+                    id={id}
+                    onChange={(event) => {onChange(event.target.value)}}
+                    required={required}
+                    defaultValue={defaultValue}
+                />
+            </div>
         </div>
     );
 }

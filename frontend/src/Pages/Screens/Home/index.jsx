@@ -11,6 +11,7 @@ import { SectionInteractiveMap } from "../../components/ScreenHome/SectionIntera
 import { GridContainer } from "../../components/GridContainer";
 import { DropCard } from "../../components/DropCard";
 import { SectionWrapper } from "../../components/SectionWrapper";
+import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 
 const Home = () => {
     return (
@@ -21,18 +22,23 @@ const Home = () => {
                 <StyledSection image={mainHome}>
                     <SectionMainHome/>
                 </StyledSection>
+                
+                <SectionWrapper>
+                    <SectionTitle
+                        subTitle="Busca tu Oferta de Empleo"
+                        title="Mapa interactivo"
+                    />
+                    <SectionInteractiveMap/>
 
-                <SectionInteractiveMap/>
-
-                <SectionWrapper border={false}>
                     <GridContainer className="grid-075-125">
                         <WrapperContainer2>
                             <DropCard
                                 title={"Departamentos"}
-                                array={[1,2,3,4,5,6]}
+                                array={[1,2,3,4,5,6,7,8,9,0,11,2,1341,123]}
                             />
                         </WrapperContainer2>
                     </GridContainer>
+                    
                 </SectionWrapper>
 
                 <SectionAboutProject/>

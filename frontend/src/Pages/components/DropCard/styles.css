@@ -7,9 +7,14 @@
 
 	transition: all 0.4s ease;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     background-color: transparent;
 
 	border: none;
+    border-radius: 0;
 	border-bottom: 3px solid;
     border-image: linear-gradient(90deg, var(--pallete-1) 0%, rgba(0,212,255,0) 100%);
     border-image-slice: 1;
@@ -35,49 +40,67 @@
     background-color: var(--white);
     padding: 0;
 
+    border: 0;
+    border-radius: 0;
+
     animation-name: dropdown;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
 
     transition: all 0.2s ease;
-
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
-    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
+}
+.dropdown-card-grid-container a {
+    width: 100%;
+    font-size: 12px;
 }
 
 @keyframes dropdown {
     100% {
-        transform: translateY(11%);
+        transform: translateY(45px);
     }
 }
 
-.dropdown-card-grid-container > div > div {
-    width: 100%;
-}
-.dropdown-card-grid-container > div > div:hover {
-    color: var(--lines-color);
-    cursor: pointer;
-    background-color: var(--results-image-hover);
-    transition: all 0.1s ease;
-}
-.dropdown-card-grid-container > div p {
-    font-size: 12px;
-    width: 100%;
-}
 
-.dropdown-card-search-input {
+.dropdown-card-search-input  {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px;
+
+    transition: all 0.3s ease;
 }
-.dropdown-card-search-input input {
+.dropdown-card-search-input .icon-input-container {
     width: 100%;
     padding: 5px 15px;
     background-color: transparent;
 
-    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    border-radius: 0px;
     border: 1px solid var(--lines-color);
     outline: none;
+
+    transition: all 0.3s ease;
+
+}
+.dropdown-card-search-input .icon-input-container svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--lines-color);
+    transition: all 0.3s ease;
+
+}
+.dropdown-card-search-input .icon-input-container input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+
+}
+
+.dropdown-card-search-input:hover svg, .dropdown-card-search-input:hover input {
+    transform: translateX(5px);
 }

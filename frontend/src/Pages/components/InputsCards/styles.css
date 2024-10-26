@@ -20,14 +20,15 @@ textarea {
 .input-container textarea {
     min-height: 75px;
 }
-.input-container input, .input-container textarea {
-    background-color: transparent;
+.input-container .icon-input-container, .input-container textarea {
+	background-color: transparent;
     color: var(--black-to-white-color);
     padding: 15px;
 
     border: 1px solid var(--lines-color);
     outline: none;
 }
+
 .input-container input::placeholder, .input-container textarea::placeholder{
 	color: var(--lines-color);
 

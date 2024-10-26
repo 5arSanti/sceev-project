@@ -1,19 +1,12 @@
-import { GridContainer } from "../../GridContainer";
+
 import { MapContainer } from "../../MapContainer";
-import { SectionWrapper } from "../../SectionWrapper";
-import { SectionTitle } from "../../SectionWrapper/SectionTitle";
+import { WrapperContainer2 } from "../../WrapperContainers";
 
 const SectionInteractiveMap = () => {
     return (
-        <SectionWrapper>
-            <SectionTitle
-                subTitle="Busca tu Oferta de Empleo"
-                title="Mapa interactivo"
-            />
-            <GridContainer className="grid-1">
-                <MapContainer/>
-            </GridContainer>
-        </SectionWrapper>
+        <WrapperContainer2 flexDirection="column" padding={0}>
+            <MapContainer/>
+        </WrapperContainer2>
     );
 }
 

@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { handleColorsByFilters } from "../utils/handleColors";
-
-import { api } from "../utils/api";
 import { fetchAllData } from "../utils/handleData/handleFetchData";
 import { handleNotifications } from "../utils/handleNotifications";
 
@@ -84,9 +81,6 @@ const AppProvider = ({children}) => {
                 //Informacion desde el serveidor
                 responseData,
                 setResponseData,
-
-                //COLORES POR FILTRO
-                handleColorsByFilters,
 
                 // Fetch info
                 fetchData

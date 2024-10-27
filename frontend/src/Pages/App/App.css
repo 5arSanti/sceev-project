@@ -1,6 +1,6 @@
 :root{
     /* Paleta de colores */
-    --navbar-color: #10002b;
+    --navbar-color: transparent;
     --footer-color:  #10002b;
 
     --main-body-color: #E6EFFD;
@@ -11,6 +11,7 @@
 
     --pallete-1: #c77dff;
     --pallete-2: #240046;
+    --pallete-3: #e0aaff;
 
     --text-color: #717171;
 
@@ -18,6 +19,8 @@
     --all-info-container-color: #E6EFFD;
     
     /* Variables varias */
+
+    --navbar-height: 75px;
 
     --black-to-white-color: #000000;
     --white-to-black-color: #FFFFFF;

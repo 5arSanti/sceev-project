@@ -4,7 +4,7 @@ import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 
 const handleLogout = () => {
-    axios.get(`${api}/user/logout`)
+    axios.get(`${api}/auth/logout`)
         .then(res => {
             const { data } = res;
 

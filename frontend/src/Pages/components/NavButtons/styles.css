@@ -3,7 +3,28 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+}
+
+
+.nav-buttons {
+	background-color: transparent;
+	color: var(--pallete-3);
+
+	display: flex;
+	gap: 5px;
+	justify-content: center;
+	align-items: center;
+
+	padding: 5px;
+
+	cursor: pointer;
+
+	font-size: 14px;
+}
+.nav-buttons svg {
+	width: 20px;
+	height: 20px;
 }
 
 .idioma-icon-barra-superior-govco {

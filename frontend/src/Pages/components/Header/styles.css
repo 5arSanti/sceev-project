@@ -1,0 +1,53 @@
+.nav-container {
+    width: 100%;
+    height: var(--navbar-height);
+    padding: 0px 50px;
+
+    box-sizing: border-box;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #FFFFFF;
+
+    transition: all 0.75s ease;
+
+    background-color: var(--navbar-color);
+}
+
+.nav-container img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.icon-responsive {
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+    transition: all 1s ease;
+}
+.icon-responsive svg{
+    fill: var(--white);
+    height: 100%;
+    width: 100%;
+}
+
+
+
+@media (max-width: 950px) {
+    .navbar {
+        display: none;
+    }
+    .icon-responsive{
+        display: flex;
+        align-items: center;
+    }
+}

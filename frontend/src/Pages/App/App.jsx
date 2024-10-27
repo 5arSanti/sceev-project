@@ -23,9 +23,9 @@ import { UploadScreen } from "../Screens/UploadScreen";
 //Components
 import { MainContainer } from "../components/MainContainer";
 import { Footer, SecondFooter } from "../components/Footer";
-import { GovNavbar } from "../components/GovNavbars";
 import { ToastContainer } from "react-toastify";
 import { LoadingCard } from "../components/LoadingCard";
+import { Header } from "../components/Header";
 
 //Utils
 import { scrollToValue } from "../../utils/scrollToValue";
@@ -66,7 +66,7 @@ const App = () => {
         <AppProvider>
             <HashRouter>
                 <Wrapper>
-                    <GovNavbar/>
+                    <Header/>
                     <LoadingCard/>
 
                     <MainContainer>

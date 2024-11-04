@@ -1,0 +1,8 @@
+cd backend
+npm version patch
+
+cd ../frontend
+npm version patch
+
+cd ../
+git add .

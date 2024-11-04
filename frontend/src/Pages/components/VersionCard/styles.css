@@ -1,0 +1,7 @@
+.version-container {
+    border-top: 1px solid var(--white);
+    background-color: var(--navbar-color);
+}
+.version-container p {
+    color: var(--white);
+}

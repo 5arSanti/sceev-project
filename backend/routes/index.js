@@ -14,6 +14,7 @@ const filtersRouter = require("./filters")
 
 const columnsRouter = require("./columns/index.js")
 
+const versionRouter = require("./version/index.js");
 
 const routerApi = (app) => {
 	const router = express.Router();
@@ -29,6 +30,8 @@ const routerApi = (app) => {
 	router.use("/filters", filtersRouter)
 
 	router.use("/columns", columnsRouter);
+
+	router.use("/version", versionRouter)
 }
 
 module.exports = routerApi;

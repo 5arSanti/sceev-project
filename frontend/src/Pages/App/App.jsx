@@ -30,6 +30,7 @@ import { Header } from "../components/Header";
 //Utils
 import { scrollToValue } from "../../utils/scrollToValue";
 import { UsersScreen } from "../Screens/UsersScreen";
+import { VersionCard } from "../components/VersionCard";
 
 const Wrapper = ({children}) => {
     const location = useLocation();
@@ -76,6 +77,7 @@ const App = () => {
                     <ToastContainer/>
                     <Footer/>
                     <SecondFooter/>
+                    <VersionCard/>
                 </Wrapper>
             </HashRouter>
         </AppProvider>

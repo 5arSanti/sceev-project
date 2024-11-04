@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./styles.css";
 
 const WrapperContainer1 = ({children, flexDirection = "row", padding = 20, gap = 15, justifyContent="start", alignItems="center"}) => {
@@ -14,7 +15,17 @@ const WrapperContainer1 = ({children, flexDirection = "row", padding = 20, gap =
     );
 }
 
-const WrapperContainer2 = ({children, flexDirection = "row", padding = 20, paddingVertical=null, gap = 15, justifyContent="start", alignItems="center", className=""}) => {
+const WrapperContainer2 = ({
+        children, 
+        flexDirection = "row", 
+        padding = 20, 
+        paddingVertical=null, 
+        gap = 15, 
+        justifyContent="start", 
+        alignItems="center", 
+        className="",
+        height="100%"
+    }) => {
     return(
         <div className={`wrapper-container2 ${className}`} style={{
             flexDirection: flexDirection,
@@ -23,7 +34,8 @@ const WrapperContainer2 = ({children, flexDirection = "row", padding = 20, paddi
             paddingBottom: paddingVertical || padding,
             gap: gap,
             justifyContent: justifyContent,
-            alignItems: alignItems
+            alignItems: alignItems,
+            height: height
         }}>
             {children}
         </div>

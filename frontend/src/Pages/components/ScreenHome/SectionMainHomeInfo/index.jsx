@@ -1,4 +1,5 @@
 import { FadeWrapper } from "../../FadeWrapper";
+import { GitHubRepoCard } from "../../GitHubRepoCard";
 import { TextCard } from "../../TextComponents";
 import { Title } from "../../Title";
 import { WrapperContainer2 } from "../../WrapperContainers";
@@ -7,7 +8,7 @@ import { WrapperContainer2 } from "../../WrapperContainers";
 const SectionMainHome = () => {
     return(
         <FadeWrapper>
-            <WrapperContainer2 justifyContent="space-evenly" alignItems="center" gap={5} flexDirection="column" padding={80}>
+            <WrapperContainer2 justifyContent="space-evenly" alignItems="center" gap={50} flexDirection="column" padding={80}>
                 <TextCard white={true} textAlign="center" fontSize={16}>Bienvenido a</TextCard>
 
                 <WrapperContainer2 justifyContent="center" alignItems="center" gap={5} flexDirection="column">
@@ -20,6 +21,8 @@ const SectionMainHome = () => {
 
                 </WrapperContainer2>
 
+
+                <GitHubRepoCard/>
             </WrapperContainer2>
         </FadeWrapper>
     );

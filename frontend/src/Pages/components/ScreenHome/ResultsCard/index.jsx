@@ -1,36 +1,50 @@
+import { Link } from "react-router-dom";
+
 import { GridContainer } from "../../GridContainer";
 import { ScrollableWrapper } from "../../ScrollableWrapper";
 import { SubTitle } from "../../SubTitle";
 import { SpanCard, TextCard } from "../../TextComponents";
 import { WrapperContainer2 } from "../../WrapperContainers";
 
-const ResultsCard = ({item}) => {
-    return(
-        <WrapperContainer2 height="auto" flexDirection="column">
-            <WrapperContainer2>
-                <SubTitle>{item.Titulo_Oferta}</SubTitle>
+import { FaArrowRight } from "react-icons/fa";
 
-                <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                    <TextCard>{item.Codigo_Oferta}</TextCard>
-                    <SpanCard className={"italic"} fontSize={12}>Codigo de la Oferta</SpanCard>
+import "./styles.css";
+
+const ResultsCard = ({item = {}}) => {
+    return(
+        <Link>
+            <WrapperContainer2 height="auto" flexDirection="column" className="results-card-container" padding={"15px 25px"}>
+                <WrapperContainer2 padding={0}>
+                    <SubTitle>{item.Titulo_Oferta || `Titulo Prueba`}</SubTitle>
+
+                    <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
+                        <TextCard textAlign="center">{item.Codigo_Oferta || 12345678}</TextCard>
+                        <SpanCard className={"italic"} fontSize={10}>Codigo de la Oferta</SpanCard>
+                    </WrapperContainer2>
+                </WrapperContainer2>
+
+                <ScrollableWrapper maxHeight={200}>
+                    <TextCard>
+                        {item.Descripcion_Oferta || ""} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi impedit voluptatum consequatur itaque, eos pariatur nulla, veritatis vero aliquid ipsum, sit ipsa fugiat unde quibusdam. Hic voluptatem esse beatae nihil?
+                    </TextCard>
+                </ScrollableWrapper>
+
+                <GridContainer padding={0}>
+                    <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
+                        <TextCard fontSize={14} className={"italic"} textAlign="center">{item.Nombre_Prestador || "Prestador Prueba"}</TextCard>
+                        <SpanCard  fontSize={10}>Prestador</SpanCard>
+                    </WrapperContainer2>
+                    <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
+                        <TextCard fontSize={14} className={"italic"} textAlign="center">{item.Fecha_Publicacion || "10/11/2024"}</TextCard>
+                        <SpanCard fontSize={10}>Fecha de publicacion</SpanCard>
+                    </WrapperContainer2>
+                </GridContainer>
+
+                <WrapperContainer2 className="slide-button" justifyContent="center" alignItems="center">
+                    <FaArrowRight/>
                 </WrapperContainer2>
             </WrapperContainer2>
-
-            <ScrollableWrapper>
-                {item.Descripcion_Oferta}
-            </ScrollableWrapper>
-
-            <GridContainer>
-                <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                    <TextCard>{item.Nombre_Prestador}</TextCard>
-                    <SpanCard className={"italic"} fontSize={12}>Prestador</SpanCard>
-                </WrapperContainer2>
-                <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                    <TextCard>{item.Fecha_Publicacion}</TextCard>
-                    <SpanCard className={"italic"} fontSize={12}>Fecha de publicacion</SpanCard>
-                </WrapperContainer2>
-            </GridContainer>
-        </WrapperContainer2>
+        </Link>
     );
 }
 

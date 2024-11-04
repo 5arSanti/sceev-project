@@ -66,7 +66,6 @@ const LoginScreen = () => {
                     placeholder="Ingrese su correo"
                     onChange={(event) => handleInputChange("email", event, setValues)}
                     defaultValue={values?.email}
-                    className="input2-card-container"
                 />
                 <InputCard
                     type="password"
@@ -75,7 +74,6 @@ const LoginScreen = () => {
                     placeholder="Ingrese su contraseña"
                     onChange={(event) => handleInputChange("password", event, setValues)}
                     defaultValue={values?.password}
-                    className="input2-card-container"
                 />
                 <button type="submit">Iniciar sesion</button>
             </form>

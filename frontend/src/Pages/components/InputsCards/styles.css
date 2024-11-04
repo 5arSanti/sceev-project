@@ -9,7 +9,7 @@ textarea {
     gap: 10px;
 }
 
-.input-container label{
+.input-container label {
     font-size: 16px;
     font-weight: bold;
     color: var(--text-color);
@@ -21,12 +21,33 @@ textarea {
     min-height: 75px;
 }
 .input-container .icon-input-container, .input-container textarea {
-	background-color: transparent;
-    color: var(--black-to-white-color);
-    padding: 15px;
+    width: 100%;
+    padding: 5px 15px;
+    background-color: transparent;
 
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    border-radius: 10px;
     border: 1px solid var(--lines-color);
     outline: none;
+
+    transition: all 0.3s ease;
+}
+.input-container .icon-input-container input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+	background-color: transparent;
+}
+.input-container .icon-input-container svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--lines-color);
+    transition: all 0.3s ease;
 }
 
 .input-container input::placeholder, .input-container textarea::placeholder{
@@ -46,40 +67,6 @@ textarea {
 }
 .input-container select:focus {
     outline: none;
-}
-
-/* Input Card 2 */
-.input2-card-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.input2-card-container label{
-    font-size: 12px;
-    font-weight: bold;
-    color: var(--text-color);
-    padding-left: 5px;
-}
-.input2-card-container input{
-	background-color: transparent;
-    color: var(--lines-color);
-    padding: 15px 20px;
-    border-radius: 30px;
-
-    border: 1px solid var(--lines-color);
-    outline: none;
-
-	transition: all 0.1s ease;
-}
-.input2-card-container input::placeholder{
-	color: var(--lines-color);
-}
-.input2-card-container input:focus, .input2-container input:hover{
-    border: 1px solid var(--gov-accesibility-card);
-	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.14);
-	-webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.14);
-	-moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.14);
 }
 
 /* Input File */

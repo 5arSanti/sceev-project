@@ -53,7 +53,6 @@ const RegisterScreen = () => {
                             placeholder="Ingrese su numero de cédula"
                             onChange={(event) => handleInputChange("id", event, setValues)}
                             defaultValue={values?.id}
-                            className="input2-card-container"
                         />
                         <InputCard
                             id={"name"}
@@ -61,7 +60,6 @@ const RegisterScreen = () => {
                             placeholder="Ingrese su nombre"
                             onChange={(event) => handleInputChange("name", event, setValues)}
                             defaultValue={values?.name}
-                            className="input2-card-container"
                         />
                         <InputCard
                             id={"surnames"}
@@ -69,7 +67,6 @@ const RegisterScreen = () => {
                             placeholder="Ingrese los apellidos"
                             onChange={(event) => handleInputChange("surnames", event, setValues)}
                             defaultValue={values?.surnames}
-                            className="input2-card-container"
                         />
                         <InputCard
                             type="email"
@@ -78,7 +75,6 @@ const RegisterScreen = () => {
                             placeholder="Ingrese su correo"
                             onChange={(event) => handleInputChange("email", event, setValues)}
                             defaultValue={values?.email}
-                            className="input2-card-container"
 
                         />
                         <InputCard
@@ -88,7 +84,6 @@ const RegisterScreen = () => {
                             placeholder="Ingrese su contraseña"
                             onChange={(event) => handleInputChange("password", event, setValues)}
                             defaultValue={values?.password}
-                            className="input2-card-container"
                         />
                         <InputCard
                             type="password"
@@ -97,7 +92,6 @@ const RegisterScreen = () => {
                             placeholder="Ingrese su contraseña"
                             onChange={(event) => handleInputChange("confirmPassword", event, setValues)}
                             defaultValue={values?.confirmPassword}
-                            className="input2-card-container"
                         />
                         <OptionInputCard
                             id={"user-types"}

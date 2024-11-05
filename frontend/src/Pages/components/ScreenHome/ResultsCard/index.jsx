@@ -40,7 +40,7 @@ const ResultsCard = ({item = {}}) => {
                     </WrapperContainer2>
                 </GridContainer>
 
-                <WrapperContainer2 className="slide-button" justifyContent="center" alignItems="center">
+                <WrapperContainer2 className="slide-button" justifyContent="flex-end" alignItems="center" padding={"0 50px 0 0"}>
                     <FaArrowRight/>
                 </WrapperContainer2>
             </WrapperContainer2>

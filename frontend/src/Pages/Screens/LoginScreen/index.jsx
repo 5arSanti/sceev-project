@@ -13,6 +13,12 @@ import { handleInputChange } from "../../../utils/handleInputChange";
 import { api } from "../../../utils/api";
 
 import "./styles.css";
+import { StyledSection } from "../../components/StyledSection";
+import { Title } from "../../components/Title";
+import { WrapperContainer2 } from "../../components/WrapperContainers";
+import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
+import { TextCard } from "../../components/TextComponents";
+import { FadeWrapper } from "../../components/FadeWrapper";
 
 const LoginScreen = () => {
     const context = React.useContext(AppContext);
@@ -51,33 +57,44 @@ const LoginScreen = () => {
     }
 
     return(
-        <div className="login-container shadow-style border-left-style">
-            <SubTitle
-                textAlign="center"
-            >
-                Iniciar Sesion
-            </SubTitle>
+        <StyledSection height="auto">
+            <FadeWrapper>
+                <WrapperContainer2 padding={30} flexDirection="column" justifyContent="center" alignItems="center">
+                    <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al"/>
 
-            <form className="login-form-container" onSubmit={handleSubmit}>
-                <InputCard
-                    type="email"
-                    id={"email"}
-                    label={"Correo:"}
-                    placeholder="Ingrese su correo"
-                    onChange={(event) => handleInputChange("email", event, setValues)}
-                    defaultValue={values?.email}
-                />
-                <InputCard
-                    type="password"
-                    id={"password"}
-                    label={"Contraseña:"}
-                    placeholder="Ingrese su contraseña"
-                    onChange={(event) => handleInputChange("password", event, setValues)}
-                    defaultValue={values?.password}
-                />
-                <button type="submit">Iniciar sesion</button>
-            </form>
-        </div>
+                    <WrapperContainer2 
+                        className="login-container" 
+                        flexDirection="column"
+                        padding={"50px 75px"} gap={30}
+                        height="auto"
+                    >
+                        <TextCard textAlign="center" white={true} fontSize={18}>
+                            Inicia sesión con tu cuenta
+                        </TextCard>
+
+                        <form className="login-form-container" onSubmit={handleSubmit}>
+                            <InputCard
+                                type="email"
+                                id={"email"}
+                                label={"Correo:"}
+                                placeholder="Ingrese su correo"
+                                onChange={(event) => handleInputChange("email", event, setValues)}
+                                defaultValue={values?.email}
+                            />
+                            <InputCard
+                                type="password"
+                                id={"password"}
+                                label={"Contraseña:"}
+                                placeholder="Ingrese su contraseña"
+                                onChange={(event) => handleInputChange("password", event, setValues)}
+                                defaultValue={values?.password}
+                            />
+                            <button type="submit">Iniciar sesion</button>
+                        </form>
+                    </WrapperContainer2>
+                </WrapperContainer2>
+            </FadeWrapper>
+        </StyledSection>
     );
 }
 

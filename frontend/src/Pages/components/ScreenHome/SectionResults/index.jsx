@@ -9,7 +9,7 @@ import { ScrollableWrapper } from "../../ScrollableWrapper";
 const SectionFiltersResults = () => {
     return (
         <SectionWrapper>
-            <SectionTitle title="Ofertas de Empleo"/>
+            <SectionTitle title="Ofertas de Empleo" subTitle="Encuentre todas las "/>
 
             <GridContainer className="grid-075-125" padding={0}>
                 <FiltersContainer/>

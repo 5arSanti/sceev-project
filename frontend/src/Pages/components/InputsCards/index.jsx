@@ -44,6 +44,7 @@ const OptionInputCard = ({
     defaultValue="", 
     none=false, 
     padding=15
+    required=false
 }) => {
 
     return(
@@ -55,6 +56,7 @@ const OptionInputCard = ({
                 onChange={(event) => {onChange(event.target.value)}}
                 value={defaultValue}
                 style={{padding: padding}}
+                required={required}
             >
                 {none && 
                     <option value="">Seleccionar</option>

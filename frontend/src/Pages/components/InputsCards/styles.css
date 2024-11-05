@@ -36,6 +36,8 @@ textarea {
     transition: all 0.3s ease;
 }
 .input-container .icon-input-container input {
+	color: var(--pallete-3);
+
     height: 100%;
     width: 100%;
     border: none;

@@ -1,14 +1,21 @@
+import { mainHome } from "../../../assets";
 import "./styles.css"
 
-const StyledSection = ({children, image=""}) => {
+const StyledSection = ({children, image, height="100vh"}) => {
 
     return (
-        <section className="styled-home-main-container" id="about">
+        <section 
+            className="styled-home-main-container" 
+            id="about"
+            style={{
+                height: height,
+            }}
+        >
             <div className="gradient-container">
                 {children}
             </div>
 
-            <img src={image} alt="Alternative text"/>
+            <img src={image || mainHome} alt="Alternative text"/>
         </section>
     );
 }

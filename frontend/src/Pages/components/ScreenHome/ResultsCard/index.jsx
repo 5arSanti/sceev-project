@@ -18,8 +18,8 @@ const ResultsCard = ({item = {}}) => {
                     <SubTitle>{item.Titulo_Oferta || `Titulo Prueba`}</SubTitle>
 
                     <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                        <TextCard textAlign="center">{item.Codigo_Oferta || 12345678}</TextCard>
                         <SpanCard className={"italic"} fontSize={10}>Codigo de la Oferta</SpanCard>
+                        <TextCard textAlign="center">{item.Codigo_Oferta || 12345678}</TextCard>
                     </WrapperContainer2>
                 </WrapperContainer2>
 

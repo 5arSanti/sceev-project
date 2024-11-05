@@ -43,7 +43,7 @@ const OptionInputCard = ({
     onChange, 
     defaultValue="", 
     none=false, 
-    padding=15
+    padding=15,
     required=false
 }) => {
 

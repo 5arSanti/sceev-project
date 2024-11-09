@@ -14,6 +14,11 @@
     height: 100%;
     object-fit: cover;
 }
+.styled-home-main-container svg{
+    width: 60px;
+    height: 60px;
+    color: var(--pallete-1);
+}
 
 .gradient-container{
     box-sizing: border-box;

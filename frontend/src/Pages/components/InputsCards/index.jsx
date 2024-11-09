@@ -64,9 +64,9 @@ const OptionInputCard = ({
                 {array && array?.map((item, index) => (
                     <option 
                         key={index}
-                        value={item.id}
+                        value={item.id || item}
                     >
-                        {item.name}
+                        {item.name || item}
                     </option>
                 ))}
             </select>

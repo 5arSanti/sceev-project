@@ -3,14 +3,21 @@ const mimeTypes = require("mime-types")
 const moment = require("moment");
 
 //Multer config
+let splitValue = "_$$_";
+
 let storage = multer.diskStorage({
-    destination: (request, file, callback) => {
-        callback(null, "./uploads");
+	destination: (request, file, callback) => {
+        callback(null, `./csv-process`);
     },
     filename: (request, file, callback) => {
-		const fileDate = moment().format("YYYY-MM-DD_HH-mm-ss");
+		const filePublicationDate = moment().format("YYYY-MM-DD&HH-mm-ss");
 
-		let formatName =`${fileDate}_${file.originalname}.${mimeTypes.extension(file.mimetype)}`;
+		const nameArray = [filePublicationDate, file.originalname];
+		const nameFile = nameArray.join(splitValue);
+
+		let formatName =`${nameFile}.${mimeTypes.extension(file.mimetype)}`;
+
+		request.body.fileName = file.originalname;
 
 		callback(null, formatName);
     }

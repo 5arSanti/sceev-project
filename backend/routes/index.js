@@ -5,16 +5,21 @@ const properties = PropertiesReader('./app.properties.ini');
 
 
 const usersRouter = require("./users/index.js")
+
 const authRouter = require("./auth")
 
 const graphRouter = require("./graph/index.js")
 
 const fileRouter = require("./file")
+
 const filtersRouter = require("./filters")
 
 const columnsRouter = require("./columns/index.js")
 
 const versionRouter = require("./version/index.js");
+
+const dataRouter = require("./data/index.js")
+
 
 const routerApi = (app) => {
 	const router = express.Router();
@@ -22,7 +27,7 @@ const routerApi = (app) => {
 
 	// Routes
 	router.use("/users", usersRouter);
-	router.use("/auth", authRouter)
+	router.use("/auth", authRouter);
 
 	router.use("/graph", graphRouter);
 
@@ -31,7 +36,9 @@ const routerApi = (app) => {
 
 	router.use("/columns", columnsRouter);
 
-	router.use("/version", versionRouter)
+	router.use("/version", versionRouter);
+
+	router.use("/data", dataRouter);
 }
 
 module.exports = routerApi;

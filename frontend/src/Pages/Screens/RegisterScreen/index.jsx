@@ -12,7 +12,6 @@ import { FadeWrapper } from "../../components/FadeWrapper";
 import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { TextCard } from "../../components/TextComponents";
 import { GridContainer } from "../../components/GridContainer";
-import { DropCard } from "../../components/DropCard";
 
 const RegisterScreen = () => {
     const context = React.useContext(AppContext);

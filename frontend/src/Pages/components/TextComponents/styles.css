@@ -13,7 +13,7 @@
 
 .span-card {
     font-weight: bold;
-    color: var(--lines-color);
+    color: var(--pallete-2);
     font-size: 16px;
 
     transition: all 0.1s ease;

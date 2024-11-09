@@ -5,11 +5,13 @@ import { handleNotifications } from "../../../../utils/handleNotifications";
 import { validateFile } from "../../../../utils/validate/validateFiles";
 import { OptionInputCard, UploadFileCard } from "../../InputsCards";
 import { SubTitle } from "../../SubTitle";
-import { WrapperContainer1 } from "../../WrapperContainers";
+import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
 import { AppContext } from "../../../../Context";
 import { ButtonCard } from "../../ButtonCard";
 import { reloadLocation } from "../../../../utils/realoadLocation";
 import { handleInputChange } from "../../../../utils/handleInputChange";
+import { GridContainer } from "../../GridContainer";
+import { FormTextRecommendations } from "../FormTextRecommendations";
 
 const ProcessCSVForm = () => {
     const context = React.useContext(AppContext);
@@ -52,37 +54,42 @@ const ProcessCSVForm = () => {
 
     
     return(
-        <WrapperContainer1 padding={30} gap={15}>
-            <form encType="multipart/form-data" className="upload-form-container" onSubmit={handleFileUpload}>
-                <SubTitle>
-                    Por favor seleccione un archivo
-                </SubTitle>
+        <WrapperContainer1 padding={50} gap={15}>
+            <form style={{width: "100%"}} encType="multipart/form-data" className="upload-form-container" onSubmit={handleFileUpload}>
+                <GridContainer className="grid-075-125">
+                    <UploadFileCard
+                        id={"process-file"}
+                        accept=".csv"
+                        onChange={(event) => handleFileChange(event, ['.csv'], setValues)}
+                        filesArray={values?.files}
+                        multiple={false}
+                        info="Archivo CSV (.csv)"
+                    />
+                    <WrapperContainer2 flexDirection="column" gap={25}>
+                        <SubTitle>
+                            Por favor seleccione un archivo
+                        </SubTitle>
 
-                <UploadFileCard
-                    id={"process-file"}
-                    accept=".csv"
-                    onChange={(event) => handleFileChange(event, ['.csv'], setValues)}
-                    filesArray={values?.files}
-                    multiple={false}
-                    info="Archivo CSV (.csv)"
-                />
+                        <FormTextRecommendations/>
 
-                <OptionInputCard
-                    id={"user-types"}
-                    label={"Selecciones la tabla"}
-                    none={true}
-                    array={["Disciplinas", "Municipios"]}
-                    onChange={(event) => handleInputChange("table", event, setValues)}
-                    defaultValue={values?.table}
-                    required={true}
-                />
+                        <OptionInputCard
+                            id={"user-types"}
+                            label={"Seleccione la tabla correspondiente"}
+                            none={true}
+                            array={["Disciplinas", "Municipios"]}
+                            onChange={(event) => handleInputChange("table", event, setValues)}
+                            defaultValue={values?.table}
+                            required={true}
+                        />
 
-                <ButtonCard 
-                    title="Guardar y Publicar Archivo"
-                    type="submit"
-                >
-                    Guardar y Publicar Archivo
-                </ButtonCard>
+                        <ButtonCard 
+                            title="Guardar y Publicar Archivo"
+                            type="submit"
+                        >
+                            Guardar y Publicar Archivo
+                        </ButtonCard>
+                    </WrapperContainer2>
+                </GridContainer>
             </form>
         </WrapperContainer1>
     );

@@ -14,7 +14,10 @@ const ProcessCSVInfoContainer = () => {
 
     return(
         <SectionWrapper>
-            <SectionTitle title="Carga Eficiente de Datos" subTitle="Maximiza la rapidez y precisión al integrar tus archivos en la base de datos del SCEEV"/>
+            <SectionTitle 
+                title="Carga Eficiente de Datos" 
+                subTitle="Maximiza la rapidez y precisión al integrar tus archivos en la base de datos del SCEEV"
+            />
 
             <WrapperContainer2 padding={0} flexDirection="column" gap={40}>
                 <ProcessCSVForm/>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import { Link } from "react-router-dom";
@@ -18,8 +19,7 @@ import "./styles.css";
 
 const NavButtons = ({className="nav-buttons animacion2"}) => {
     const context = React.useContext(AppContext)
-
-
+    
 
     return(
         <div className="nav-buttons-container">

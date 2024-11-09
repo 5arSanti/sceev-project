@@ -1,9 +1,15 @@
 import { SubTitle } from "../../SubTitle";
-import { SpanCard, TextCard } from "../../TextComponents";
+import { TextCard } from "../../TextComponents";
 import { VerifyLength } from "../../VerifyLengthWrapper";
-import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
+import { WrapperContainer2 } from "../../WrapperContainers";
 import { ShowInfoWrapper } from "./ShowInfoWapper";
 import { GridContainer } from "../../GridContainer";
+import { LogInfoCard } from "../../LogInfoCard";
+
+import { CiViewTable } from "react-icons/ci";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { BsDatabaseFillCheck } from "react-icons/bs";
+import { BsDatabaseFillX } from "react-icons/bs";
 
 const CsvLogCard = ({item={}}) => {
 
@@ -12,44 +18,54 @@ const CsvLogCard = ({item={}}) => {
     const incorrectRowsArray = item?.incorrectRows != "" ? item?.incorrectRows.split(",") : null;
 
     return(
-        <WrapperContainer1 flexDirection="column" padding={30} gap={30}>
-            <GridContainer className="grid-1-1">
-                <WrapperContainer2 flexDirection="column" padding={0}>
-                    <SubTitle>Información de los usuarios cargados</SubTitle>
-                    <TextCard><SpanCard>Numero total de usuarios: </SpanCard>{item?.totalRows}</TextCard>
-                    <TextCard><SpanCard>Usuarios registrados en BD: </SpanCard>{item?.usersInfo?.notFound?.length}</TextCard>
-                    <TextCard><SpanCard>Usuarios encontrados en BD: </SpanCard>{item?.usersInfo?.found?.length}</TextCard>
-                </WrapperContainer2>
+        <WrapperContainer2 flexDirection="column" padding={0} gap={30}>
+            <SubTitle fontSize={26} textAlign="center">
+                Auditoría e información del ultimo <br /> archivo procesado
+            </SubTitle>
 
-                <VerifyLength array={item?.usersInfo?.found}>
-                    <WrapperContainer2 flexDirection="column" padding={0}>
-                        <SubTitle>Usuarios ya registrados</SubTitle>
-                        <ShowInfoWrapper>
-                            <WrapperContainer2 flexDirection="column" padding={0} gap={2}>
-                                    {item?.usersInfo?.found?.map((item, index) => (
-                                        <TextCard key={index} fontSize={12}>
-                                            - (Fila #{item?.index}) El usuario con cedula {item?.userId} ya se encuentra en la base de Datos.
-                                        </TextCard>
-                                    ))}
-                            </WrapperContainer2>
-                        </ShowInfoWrapper>
-                    </WrapperContainer2>
-                </VerifyLength>
-            </GridContainer>
+                <GridContainer className="grid-125-075">
+                    <LogInfoCard 
+                        icon={null} 
+                        title="Nombre del Archivo" 
+                        text={`"${item?.nameFile}"`}
+                    />
+                    <LogInfoCard 
+                        icon={<CiViewTable/>} 
+                        title="Tabla seleccionada" 
+                        text={`"${item?.table}"`}
+                    />
+                </GridContainer>
 
-            <GridContainer className="grid-1-1" padding={0}>
-                <WrapperContainer2 flexDirection="column" padding={0}>
-                    <SubTitle>Información del archivo procesado</SubTitle>
-                
-                    <TextCard><SpanCard>Nombre del Archivo: </SpanCard>{item?.nameFile}</TextCard>
-                    <TextCard><SpanCard>Numero total de registros correctos: </SpanCard>{item?.correctRowsCount}</TextCard>
-                    <TextCard><SpanCard>Numero total de registros incorrectos: </SpanCard>{item?.incorrectRowsCount}</TextCard>
-                    <TextCard><SpanCard>Errores encontrados: </SpanCard>{item?.errors}</TextCard>
-                    <TextCard><SpanCard>Fecha de inicio: </SpanCard>{item?.startDate}</TextCard>
-                    <TextCard><SpanCard>Fecha de finalización: </SpanCard>{item?.endDate}</TextCard>
-                </WrapperContainer2>
+                <GridContainer className="grid-1-1-1">
+                    <LogInfoCard 
+                        icon={<IoMdCloseCircleOutline/>} 
+                        title="Errores encontrados" 
+                        text={item?.errors}
+                    />
+                    <LogInfoCard 
+                        icon={<BsDatabaseFillCheck/>} 
+                        title="Registros correctos" 
+                        text={item?.correctRowsCount}
+                    />
+                    <LogInfoCard 
+                        icon={<BsDatabaseFillX/>} 
+                        title="Registros incorrectos" 
+                        text={item?.incorrectRowsCount}
+                    />
+                </GridContainer>
 
-                <VerifyLength array={incorrectRowsArray}>
+                <GridContainer className="grid-1-1">
+                    <LogInfoCard
+                        title="Fecha de inicio" 
+                        text={item?.startDate}
+                    />
+                    <LogInfoCard
+                        title="Fecha de finalización" 
+                        text={item?.endDate}
+                    />
+                </GridContainer>
+
+                {/* <VerifyLength array={incorrectRowsArray}>
                     <WrapperContainer2 flexDirection="column" padding={0}>
                         <SubTitle>Registros incorrectos</SubTitle>
                         <ShowInfoWrapper>
@@ -60,10 +76,8 @@ const CsvLogCard = ({item={}}) => {
                             </WrapperContainer2>
                         </ShowInfoWrapper>
                     </WrapperContainer2>
-                </VerifyLength>
-
-            </GridContainer>
-        </WrapperContainer1>
+                </VerifyLength> */}
+        </WrapperContainer2>
     );
 }
 

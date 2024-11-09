@@ -44,7 +44,7 @@ const WrapperContainer2 = ({
 
 const WrapperContainer3 = ({children, flexDirection = "row", padding = 20, paddingVertical=null, gap = 15, justifyContent="start", alignItems="center", className=""}) => {
     return(
-        <div className={`wrapper-container3 border-left-style shadow-style ${className}`} style={{
+        <div className={`wrapper-container3 ${className}`} style={{
             flexDirection: flexDirection,
             padding: padding,
             paddingTop: paddingVertical || padding,

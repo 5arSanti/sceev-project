@@ -28,20 +28,33 @@
 .wrapper-container3 {
     width: 100%;
 
-    background-color: transparent;
+    background-color: var(--pallete-6);
     box-sizing: border-box;
+
+    border: 1px solid var(--pallete-3);
     
-    border-radius: 0px;
+    border-radius: 20px;
 
     display: flex;
     align-items: center;
     box-sizing: border-box;
 
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .wrapper-container3:hover {
-    border-radius: 20px;
+    background-color: var(--pallete-2);
+}
+.wrapper-container3:hover {
+    p {
+        color: var(--white);
+    } & 
+    span {
+        color: var(--white);
+    } &
+    svg {
+        fill: var(--white);
+    }
 }
 
 .wrapper-container4 {

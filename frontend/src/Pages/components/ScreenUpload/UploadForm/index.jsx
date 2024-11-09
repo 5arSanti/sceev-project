@@ -3,13 +3,11 @@ import "./styles.css";
 import { AppContext } from "../../../../Context";
 import { WrapperContainer1 } from "../../WrapperContainers";
 import { SubTitle } from "../../SubTitle";
-import { OptionInputCard, UploadFileCard } from "../../InputsCards";
+import { UploadFileCard } from "../../InputsCards";
 import { ButtonCard } from "../../ButtonCard";
 import { handleFileChange } from "../../../../utils/handleFileChange";
 import { handlePostFile } from "../../../../utils/handleData/handlePostData";
-import { handleInputChange } from "../../../../utils/handleInputChange";
 import { handleNotifications } from "../../../../utils/handleNotifications";
-import { reloadLocation } from "../../../../utils/realoadLocation";
 
 const UploadForm = () => {
     const context = React.useContext(AppContext);

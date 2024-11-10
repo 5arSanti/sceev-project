@@ -42,7 +42,7 @@ router.post("/", upload.single("process-file"), async (request, response) => {
 
 		let csvLog = {
 			nameFile: request.body.fileName,
-			totalRows: csvInfo.totalRows - 1,
+			totalRows: csvInfo.totalRows,
 			correctRowsCount:
 				csvInfo.correctRows.length == 0 ?
 				csvInfo.correctRows.length - 0 :

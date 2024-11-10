@@ -20,6 +20,8 @@ const versionRouter = require("./version/index.js");
 
 const dataRouter = require("./data/index.js")
 
+const ofertsRouter = require("./oferts/index.js");
+
 
 const routerApi = (app) => {
 	const router = express.Router();
@@ -32,13 +34,15 @@ const routerApi = (app) => {
 	router.use("/graph", graphRouter);
 
 	router.use("/file", fileRouter);
-	router.use("/filters", filtersRouter)
+	router.use("/filters", filtersRouter.router)
 
 	router.use("/columns", columnsRouter);
 
 	router.use("/version", versionRouter);
 
 	router.use("/data", dataRouter);
+
+	router.use("/oferts", ofertsRouter);
 }
 
 module.exports = routerApi;

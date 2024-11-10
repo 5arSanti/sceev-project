@@ -7,10 +7,12 @@ import { SubTitle } from "../SubTitle";
 import { InputCard } from "../InputsCards";
 
 import { CiSearch } from "react-icons/ci";
+import { handleInputChange } from "../../../utils/handleInputChange";
 
 const FiltersContainer = () => {
     const context = React.useContext(AppContext);
 
+    const { setVacancieFilters, vacancieFilters } = context;
     const { filters } = context.responseData || null;
 
     const array = filters ? Object.keys(filters) : null;
@@ -24,6 +26,8 @@ const FiltersContainer = () => {
                 haveLabel={false}
                 placeholder="Desarrollador"
                 icon={<CiSearch/>}
+                onChange={(event) => handleInputChange("Busqueda", event, setVacancieFilters)}
+                defaultValue={vacancieFilters?.Busqueda}
                 
             />
 
@@ -33,6 +37,8 @@ const FiltersContainer = () => {
                         key={index}
                         title={item}
                         array={filters[item]}
+                        onClick={(inputValue) => handleInputChange(item, inputValue, setVacancieFilters)}
+                        value={vacancieFilters?.[item]}
                     />
                 ))}
             </GridContainer>

@@ -10,7 +10,12 @@ const getColumnNames = async (tableName="Ofertas_Empleo_Desglosado", except=exce
 	`
 	const columns = await getQuery(query);
 
-	const formatedColumns = columns.map(row => row.column_name).filter(column => !except.includes(column));
+	if (tableName == "Ofertas_Empleo_Desglosado") {
+		except = [];
+	}
+
+	const formatedColumns = columns.map(row => row.column_name).
+		filter(column => !except.includes(column));
 
 	return formatedColumns;
 }

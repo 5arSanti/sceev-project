@@ -9,12 +9,17 @@ const insertValuesInTable = async (tableName, correctRows) => {
 		const promises = array.map(async (item) => {
 
 			const keys = Object.keys(item.data).join(", ");
-			const values = Object.values(item.data).map(item => typeof item === 'string' ? `'${item}'` : item).join(", ");
+			const values = Object.values(item.data).map(item =>
+				typeof item === 'string' ? `'${item}'` : item
+			).
+			join(", ");
 
-			await getQuery(`
+			const query = `
 				INSERT INTO ${tableName} (${keys}) VALUES
-				(${values})`
-			);
+				(${values})
+			`;
+
+			await getQuery(query);
 		});
 
 		await Promise.all(promises);

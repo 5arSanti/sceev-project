@@ -58,8 +58,27 @@ const AppProvider = ({children}) => {
         }
     
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-      }, []);
+        return () => (
+            window.removeEventListener('resize', handleResize)
+        );
+    }, []);
+
+    
+    // Filtros de vacantes
+    const [vacancieFilters, setVacancieFilters] = React.useState({});
+    console.log(vacancieFilters)
+    
+    React.useEffect(() => {
+        const filterParams = new URLSearchParams(vacancieFilters);
+
+        const endpoints = [
+            `/oferts?${filterParams.toString()}`
+        ]
+
+        fetchData(endpoints)
+    }, [vacancieFilters])
+
+
 
     return (
         <AppContext.Provider
@@ -84,7 +103,10 @@ const AppProvider = ({children}) => {
                 setResponseData,
 
                 // Fetch info
-                fetchData
+                fetchData,
+
+                vacancieFilters,
+                setVacancieFilters
             }}
         >
             {children}

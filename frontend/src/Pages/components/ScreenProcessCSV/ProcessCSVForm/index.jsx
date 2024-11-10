@@ -76,7 +76,7 @@ const ProcessCSVForm = () => {
                             id={"user-types"}
                             label={"Seleccione la tabla correspondiente"}
                             none={true}
-                            array={["Disciplinas", "Municipios"]}
+                            array={["Disciplinas", "Municipios", "Ofertas_Empleo_Desglosado"]}
                             onChange={(event) => handleInputChange("table", event, setValues)}
                             defaultValue={values?.table}
                             required={true}

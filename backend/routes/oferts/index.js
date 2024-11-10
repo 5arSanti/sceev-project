@@ -39,16 +39,16 @@ router.get("/", async (request, response) => {
 			SELECT COUNT(*) AS totalOfertas FROM Ofertas_empleo_completo
 		`);
 
-		// TOTAL REGISTROS POR DEPARTAMENTO
+		// Ofertas por departamento
         const totalByDepartment = await getQuery(`
-            SELECT Departamento, COUNT(*) AS departmentTotalValue
+            SELECT Departamentos, COUNT(*) AS departmentTotalValue
             FROM Ofertas_empleo_completo
             ${aditionalFilters}
-            GROUP BY Departamento
+            GROUP BY Departamentos
         `)
 
 		const formatDepartmentData = totalByDepartment.map(row => ({
-            department: row.Departamento,
+            department: row.Departamentos,
             totalOfertas: row.departmentTotalValue
         }));
 
@@ -78,6 +78,7 @@ router.get("/", async (request, response) => {
 		});
 	}
 	catch (err) {
+		console.log(err)
 		return response.status(500).json({Error: err.message});
 	}
 })

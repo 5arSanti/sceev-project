@@ -3,38 +3,5 @@
     border-radius: 10px;
     position: relative;
 
-    height: auto;
-}
-.slide-button {
-    transition: all 0.3s ease;
-
-    width: 35%;
-    height: 100%;
-
-    padding: 10px;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: white;
-    border: none;
-    cursor: pointer;
-
-    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, var(--pallete-5) 100%);
-
-    opacity: 0;
-
-    border-top-right-radius: 10px;
-}
-
-
-.slide-button svg {
-    width: 30px;
-    height: 30px;
-
-    fill: var(--pallete-2);
-}
-
-.results-card-container:hover .slide-button {
-    opacity: 1;
+    min-height: 225px;
 }

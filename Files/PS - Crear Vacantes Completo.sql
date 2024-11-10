@@ -16,16 +16,16 @@ BEGIN
 		Fecha_Publicacion,
 		Fecha_Vencimiento,
 		ID_Prestador,
-		Nombre_Prestador,
-		Contrato,
+		Prestadores,
+		Tipo_Contrato,
 		Nivel_Estudios,
-		Nombre_Disciplina,
+		Disciplinas,
 		ID_Empleador,
-		Nombre_Empleador,
+		Empleador,
 		Tipo_Documento_Empleador,
-		Departamento,
-		Municipio,
-		Region
+		Departamentos,
+		Municipios,
+		Regiones
 	)
 	SELECT 
 		oed.Codigo_Oferta,

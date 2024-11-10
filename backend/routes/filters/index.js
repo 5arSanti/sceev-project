@@ -4,13 +4,13 @@ const router = express.Router()
 
 const tableFilters = [
 	"Departamentos",
+	"Municipios",
+	"Regiones",
 	"Disciplinas",
 	"Empleador",
-	"Municipios",
 	"Nivel_Estudios",
 	"Prestadores",
 	"Regiones",
-	"Tipo_Prestadores",
 	"Tipo_Contrato"
 ]
 

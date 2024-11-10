@@ -1,14 +1,21 @@
 .log-info-card {
     cursor: pointer;
     height: 100%;
+    svg {
+        transition: transform 0.3s;
+    }
 }
 .log-info-card:hover {
     p {
         transform: scale(1.1)
+    } &
+    svg {
+        transform: scale(1.2)
     }
 }
 .log-info-card svg {
     width: 70px;
     height: 70px;
     fill: var(--pallete-2);
+    stroke: 0px;
 }

@@ -40,7 +40,7 @@ const ResultsCard = ({item = {}}) => {
                 <GridContainer padding={0}>
                     <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
                         <SpanCard  fontSize={10}>Prestador</SpanCard>
-                        <TextCard fontSize={14} className={"italic"} textAlign="center">{item.Nombre_Prestador}</TextCard>
+                        <TextCard fontSize={14} className={"italic"} textAlign="center">{item.Prestadores}</TextCard>
                     </WrapperContainer2>
                     <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
                         <SpanCard fontSize={10}>Fecha de publicacion</SpanCard>

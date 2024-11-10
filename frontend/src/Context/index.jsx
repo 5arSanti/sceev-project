@@ -65,18 +65,17 @@ const AppProvider = ({children}) => {
 
     
     // Filtros de vacantes
-    const [vacancieFilters, setVacancieFilters] = React.useState({});
-    console.log(vacancieFilters)
+    const [ofertsFilters, setOfertsFilter] = React.useState({});
     
     React.useEffect(() => {
-        const filterParams = new URLSearchParams(vacancieFilters);
+        const filterParams = new URLSearchParams(ofertsFilters);
 
         const endpoints = [
             `/oferts?${filterParams.toString()}`
         ]
 
         fetchData(endpoints)
-    }, [vacancieFilters])
+    }, [ofertsFilters])
 
 
 
@@ -105,8 +104,8 @@ const AppProvider = ({children}) => {
                 // Fetch info
                 fetchData,
 
-                vacancieFilters,
-                setVacancieFilters
+                ofertsFilters,
+                setOfertsFilter
             }}
         >
             {children}

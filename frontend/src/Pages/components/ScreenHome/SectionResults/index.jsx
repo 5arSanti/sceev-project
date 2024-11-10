@@ -9,15 +9,19 @@ import { ResultsCard } from "../ResultsCard";
 import { ScrollableWrapper } from "../../ScrollableWrapper";
 import { AppContext } from "../../../../Context";
 
-const SectionFiltersResults = () => {
+import { OfertsCountCard } from "../../OfertsCountCards";
 
+const SectionFiltersResults = () => {
     const context = React.useContext(AppContext);
 
-    const { oferts } = context.responseData?.ofertsData || [];
+    const { ofertsData } = context.responseData || [];
+    const { oferts } = ofertsData || [];
 
     return (
         <SectionWrapper>
-            <SectionTitle title="Ofertas de Empleo" subTitle="Encuentre todas las "/>
+            <SectionTitle subTitle="Encuentre todas las" title="Ofertas de Empleo"/>
+
+            <OfertsCountCard/>
 
             <GridContainer className="grid-075-125" padding={0}>
                 <FiltersContainer/>

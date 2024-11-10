@@ -12,7 +12,7 @@ import { handleInputChange } from "../../../utils/handleInputChange";
 const FiltersContainer = () => {
     const context = React.useContext(AppContext);
 
-    const { setVacancieFilters, vacancieFilters } = context;
+    const { ofertsFilters, setOfertsFilter } = context;
     const { filters } = context.responseData || null;
 
     const array = filters ? Object.keys(filters) : null;
@@ -26,8 +26,8 @@ const FiltersContainer = () => {
                 haveLabel={false}
                 placeholder="Desarrollador"
                 icon={<CiSearch/>}
-                onChange={(event) => handleInputChange("Busqueda", event, setVacancieFilters)}
-                defaultValue={vacancieFilters?.Busqueda}
+                onChange={(event) => handleInputChange("Busqueda", event, setOfertsFilter)}
+                defaultValue={ofertsFilters?.Busqueda}
                 
             />
 
@@ -37,8 +37,8 @@ const FiltersContainer = () => {
                         key={index}
                         title={item}
                         array={filters[item]}
-                        onClick={(inputValue) => handleInputChange(item, inputValue, setVacancieFilters)}
-                        value={vacancieFilters?.[item]}
+                        onClick={(inputValue) => handleInputChange(item, inputValue, setOfertsFilter)}
+                        value={ofertsFilters?.[item]}
                     />
                 ))}
             </GridContainer>

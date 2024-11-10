@@ -4,13 +4,13 @@ import { WrapperContainer3 } from "../WrapperContainers";
 
 import "./styles.css";
 
-const LogInfoCard = ({icon, title, text}) => {
+const LogInfoCard = ({icon, title, text, fontSize=24}) => {
     return(
         <FadeWrapper>
             <WrapperContainer3 flexDirection="column" gap={20} justifyContent="center" padding={40} className="log-info-card">
                 {icon || ""}
 
-                <TextCard white={true} fontSize={24} className="bold" textAlign="center">
+                <TextCard white={true} fontSize={fontSize} className="bold" textAlign="center">
                     {text}
                 </TextCard>
 

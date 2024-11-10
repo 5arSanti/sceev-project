@@ -28,10 +28,10 @@
 .wrapper-container3 {
     width: 100%;
 
-    background-color: var(--pallete-6);
+    background-color: transparent;
     box-sizing: border-box;
 
-    border: 1px solid var(--pallete-3);
+    border: 1px solid var(--pallete-2);
     
     border-radius: 20px;
 
@@ -54,6 +54,7 @@
     } &
     svg {
         fill: var(--white);
+        stroke: 0px;
     }
 }
 

@@ -4,10 +4,10 @@ const textColor = "#000";
 
 const getGraphData = (values) => {
     const data = {
-        labels: values?.labels,
+        labels: values?.graphValues,
         datasets: [
             {
-                label: values?.graphValues[0],
+                label: values?.datasetLabel[0],
                 data: values?.data[0],
 
                 backgroundColor: valuesColors[0],

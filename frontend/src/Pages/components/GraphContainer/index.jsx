@@ -4,8 +4,6 @@ import { SubTitle } from "../SubTitle";
 
 import { months } from "../../../utils/dateFunctions";
 
-import { TextCard } from "../TextComponents";
-
 
 const GraphContainer = ({graph={}, index=0, title=true, wrapper=false}) => {
     return(
@@ -20,7 +18,6 @@ const GraphContainer = ({graph={}, index=0, title=true, wrapper=false}) => {
 
                 <Graph index={index} values={graph} wrapper={wrapper}/>
 
-                <TextCard fontSize={12}>Total Nacional <br/> *SISE: Sistema de Información del Servicio Público de Empleo</TextCard>
             </WrapperContainer1>            
         </WrapperContainer2>
     );

@@ -7,14 +7,15 @@ import { getGraphData, getGraphOptions } from './Config';
 
 const Graph = ({values={}, index="", wrapper=false}) => {
 
-    const data = getGraphData(values);
-
-    const options = getGraphOptions(values);
-
-
+    
+    
     React.useEffect(() => {
-        const charContainer = document.getElementById(`myChart${index}`).getContext('2d');
-        const myChart = new Chart(charContainer, {
+        const data = getGraphData(values);
+    
+        const options = getGraphOptions(values);
+        
+        const ctx = document.getElementById(`myChart${index}`).getContext('2d');
+        const myChart = new Chart(ctx, {
             type: values?.graphType,
             data: data,
             options: options,

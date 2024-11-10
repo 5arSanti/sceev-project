@@ -21,10 +21,6 @@ const AuthWrapper = ({children}) => {
             .then(response => {
                 const { data } = response;
 
-                if (data.Error) {
-                    throw Error(data.Error);
-                }
-
                 if(data.Status === "Success") {
                     context.setAuth(true);
                     context.setUser(data.user);
@@ -34,7 +30,7 @@ const AuthWrapper = ({children}) => {
             })
             .catch(err => {
                 context.setAuth(false);
-                handleNotifications("error", err)
+                handleNotifications("error", err.message)
                 navigate("/home");
             })
     }, []);

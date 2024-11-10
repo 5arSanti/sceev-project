@@ -1,0 +1,30 @@
+.white-space {
+    white-space: nowrap;
+}
+.pagination-input-container input{
+    width: 40px;
+    max-width: 100px;
+
+    text-align: center;
+    padding: 3px 0px;
+    margin: 0 7px;
+
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gov-accesibility-card);
+
+    color: var(--text-color);
+    outline: none;  
+
+    transition: all 0.2s ease;
+}
+.pagination-input-container input:focus{
+    background-color: var(--white-025);
+    border: 1px solid var(--gov-accesibility-card);
+}
+.pagination-input-container input:hover{
+    background-color: var(--white-025);
+}
+.pagination-input-container input::placeholder{
+    color: var(--text-color);
+}

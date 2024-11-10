@@ -10,7 +10,7 @@ import { SlideButtonCard } from "./SlideButtonCard";
 
 import "./styles.css";
 
-const ResultsCard = ({item = {}}) => {
+const ResultsCard = ({item = {}, index=1}) => {
     return(
         <Link style={{width: "100%"}}>
             <WrapperContainer2 
@@ -22,14 +22,14 @@ const ResultsCard = ({item = {}}) => {
                 padding={"15px 25px"}
                 gap={25}
             >
-                <WrapperContainer2 padding={0}>
-                    <SubTitle>{item.Titulo_Oferta}</SubTitle>
+                <GridContainer className="grid-15-05">
+                    <SubTitle>({index + 1}) {item.Titulo_Oferta}</SubTitle>
 
                     <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
                         <SpanCard className={"italic"} fontSize={10}>Codigo de la Oferta</SpanCard>
                         <TextCard textAlign="center">{item.Codigo_Oferta}</TextCard>
                     </WrapperContainer2>
-                </WrapperContainer2>
+                </GridContainer>
 
                 <ScrollableWrapper maxHeight={200}>
                     <TextCard>
@@ -37,7 +37,7 @@ const ResultsCard = ({item = {}}) => {
                     </TextCard>
                 </ScrollableWrapper>
 
-                <GridContainer padding={0}>
+                <GridContainer padding={0} className="grid-15-05">
                     <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
                         <SpanCard  fontSize={10}>Prestador</SpanCard>
                         <TextCard fontSize={14} className={"italic"} textAlign="center">{item.Prestadores}</TextCard>

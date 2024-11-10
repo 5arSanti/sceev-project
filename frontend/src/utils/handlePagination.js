@@ -1,12 +1,25 @@
-const handlePagination = (type="home", setState, totalPages) => {
-    if (type == "back") 
-        setState((prevPage) => Math.max(prevPage - 1, 1));
-    else if (type == "next")
-        setState((prevPage) => Math.min(prevPage + 1, totalPages));
-    else if (type == "last")
-        setState(totalPages);
+import { handleInputChange } from "./handleInputChange";
+
+const handlePagination = (type="home", setState, totalPages, currentPage) => {
+    if (type == "back") {
+        handleInputChange(
+            "Page", 
+            Math.max(currentPage - 1, 1), 
+            setState
+        );
+    }
+    else if (type == "next") {
+        handleInputChange(
+            "Page", 
+            Math.min(currentPage + 1, totalPages), 
+            setState
+        );
+    }
+    else if (type == "last") {
+        handleInputChange("Page", totalPages, setState);
+    }
     else
-        setState(1);
+        handleInputChange("Page", 1, setState);
 }
 
 export { handlePagination }

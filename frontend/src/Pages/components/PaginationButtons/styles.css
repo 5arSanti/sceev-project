@@ -1,0 +1,5 @@
+@media (max-width: 600px) {
+    .graph-pagination-buttons {
+        flex-direction: column !important;
+    }
+}

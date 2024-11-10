@@ -12,12 +12,12 @@ router.get("/", async (request, response) => {
 	try {
 		const params = transformQueryParams(request.query);
 
-        const page = parseInt(params.page, 10) || 1;
+        const page = parseInt(params.Page, 10) || 1;
         const offset = (page - 1) * pageSize;
 
 		const Busqueda = params.Busqueda || "";
 
-		const conditions = formatToQuery(request.query, ["Busqueda"])
+		const conditions = formatToQuery(request.query, ["Busqueda", "Page"]);
 
 		const aditionalFilters = `
 			WHERE LOWER(Titulo_Oferta) LIKE LOWER('%${Busqueda}%')
@@ -70,15 +70,15 @@ router.get("/", async (request, response) => {
 		return response.status(200).json({
 			ofertsData: {
 				oferts: oferts,
-				totalPages,
 				totalOfertasByFilters,
 				totalOfertas,
-				totalByDepartment: formatDepartmentData
+				totalByDepartment: formatDepartmentData,
+				totalPages,
+				currentPage: page,
 			}
 		});
 	}
 	catch (err) {
-		console.log(err)
 		return response.status(500).json({Error: err.message});
 	}
 })

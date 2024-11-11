@@ -42,7 +42,17 @@ const WrapperContainer2 = ({
     );
 }
 
-const WrapperContainer3 = ({children, flexDirection = "row", padding = 20, paddingVertical=null, gap = 15, justifyContent="start", alignItems="center", className=""}) => {
+const WrapperContainer3 = ({
+    children, 
+    flexDirection = "row", 
+    padding = 20, 
+    paddingVertical=null, 
+    gap = 15, 
+    justifyContent="start", 
+    alignItems="center", 
+    className="",
+    height="auto"
+}) => {
     return(
         <div className={`wrapper-container3 ${className}`} style={{
             flexDirection: flexDirection,
@@ -51,7 +61,8 @@ const WrapperContainer3 = ({children, flexDirection = "row", padding = 20, paddi
             paddingBottom: paddingVertical || padding,
             gap: gap,
             justifyContent: justifyContent,
-            alignItems: alignItems
+            alignItems: alignItems,
+            height: height,
         }}>
             {children}
         </div>

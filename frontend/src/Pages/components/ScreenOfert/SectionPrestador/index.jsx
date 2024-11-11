@@ -1,23 +1,23 @@
-import { GridContainer } from "../../GridContainer";
-import { LogInfoCard } from "../../LogInfoCard";
-import { SectionWrapper } from "../../SectionWrapper";
+import { prestadorImage } from "../../../../assets";
+import { MainSectionInfoCard } from "../../MainSectionInfoCard";
 import { SectionTitle } from "../../SectionWrapper/SectionTitle";
 import { StyledSection } from "../../StyledSection";
-import { SubTitle } from "../../SubTitle";
+
+import { RiBuilding2Fill } from "react-icons/ri";
 
 const SectionPrestador = ({selectedOfert={}}) => {
     return(
-        <SectionWrapper>
-            <SectionTitle subTitle="El prestador que brindó la oferta" title="Prestador"/>
-
-            <GridContainer className="grid-05-15" padding={"50px 0px"} gap={50}>
-                <LogInfoCard title={"Codigo del prestador"} text={selectedOfert?.ID_Prestador}/>
-
-                <StyledSection height="auto">
-                    <SubTitle textAlign="end">{selectedOfert?.Prestadores}</SubTitle>
-                </StyledSection>
-            </GridContainer>
-        </SectionWrapper>
+        <>
+            <SectionTitle subTitle="La empresa que brindó esta oferta de empleo" title="Prestador"/>
+            <StyledSection image={prestadorImage} height={"90vh"}>
+                <MainSectionInfoCard
+                    title={`${selectedOfert.Prestadores}`}
+                    subTitle={`El codigo del prestador corresponde al numero ${selectedOfert.ID_Prestador}`}
+                    icon={<RiBuilding2Fill/>}
+                    white={true}
+                />
+            </StyledSection>
+        </>
     )
 }
 

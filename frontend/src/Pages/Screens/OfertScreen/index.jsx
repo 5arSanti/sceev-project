@@ -86,9 +86,23 @@ const OfertScreen = () => {
                     </WrapperContainer2>
                 </GridContainer>
 
-                <SectionPrestador selectedOfert={selectedOfert}/>
-
             </SectionWrapper>
+
+            <SectionWrapper>
+                <SectionTitle subTitle="Cantidad de Ofertas, tipo de oferta y mucho mas..." title="Información adicional"/>
+
+                <GridContainer className="grid-1-1-1">
+                    <LogInfoCard text={selectedOfert.Cantidad_Ofertas} title={"Cantidad de ofertas"}/>
+                    <LogInfoCard text={selectedOfert.Tipo_Contrato} title={"Tipo de contrato"}/>
+                    <LogInfoCard text={selectedOfert.Nivel_Estudios} title={"Nivel de estudios"}/>
+                </GridContainer>
+                <GridContainer>
+                    <LogInfoCard text={selectedOfert.Teletrabajo} title={"¿Teletrabajo?"}/>
+                    <LogInfoCard text={selectedOfert.Discapacidad} title={"¿Para discapacitados?"}/>
+                </GridContainer>
+            </SectionWrapper>
+
+            <SectionPrestador selectedOfert={selectedOfert}/>
         </AuthWrapper>
     );
 }

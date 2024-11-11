@@ -7,11 +7,13 @@ import "./styles.css";
 const LogInfoCard = ({icon, title, text, fontSize=24}) => {
     return(
         <FadeWrapper>
-            <WrapperContainer3 flexDirection="column" gap={20} justifyContent="center" padding={40} className="log-info-card">
+            <WrapperContainer3 height="100%" flexDirection="column" gap={20} justifyContent="center" padding={40} className="log-info-card">
                 {icon || ""}
 
                 <TextCard white={true} fontSize={fontSize} className="bold" textAlign="center">
-                    {text}
+                    {text == 1 && "Si" ||
+                    text == 0 && "No" ||
+                    text}
                 </TextCard>
 
                 <TextCard textAlign="center">

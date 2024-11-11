@@ -6,8 +6,8 @@ import { ToolTipMap } from "./ToolTipMap";
 
 import "./styles.css"
 
-const MapContainer = () => {
-    const [ selectedDepartment, setSelectedDepartment ] = React.useState(null);
+const MapContainer = ({ selectedDepartment }) => {
+    const [ hoveredDepartment, setHoveredDepartment ] = React.useState(null);
 
     const colombiaConfig = {
         scale: 1900,
@@ -25,13 +25,13 @@ const MapContainer = () => {
 
     return(
         <WrapperContainer2 padding={0}>
-            <ToolTipMap state={selectedDepartment}/>
+            <ToolTipMap hoveredDepartment={hoveredDepartment} selectedDepartment={selectedDepartment}/>
 
             <MapCard 
                 config={colombiaConfig} 
                 geoUrl={colombiaGeo} 
                 state={selectedDepartment} 
-                setState={setSelectedDepartment}
+                setState={setHoveredDepartment}
             />
 
             <div className="san-andres-container">
@@ -39,13 +39,13 @@ const MapContainer = () => {
                     config={sanAndresConfig} 
                     geoUrl={sanAndresGeo} 
                     state={selectedDepartment} 
-                    setState={setSelectedDepartment}
+                    setState={setHoveredDepartment}
                 />
                 <MapCard 
                     config={providenciaConfig} 
                     geoUrl={sanAndresGeo} 
                     state={selectedDepartment} 
-                    setState={setSelectedDepartment}
+                    setState={setHoveredDepartment}
                 />
             </div>
         </WrapperContainer2>

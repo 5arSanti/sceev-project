@@ -22,6 +22,7 @@ import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
 import { MdSavings } from "react-icons/md";
 import { MdCalendarMonth } from "react-icons/md";
 import { SectionEmpleador } from "../../components/ScreenOfert/SectionEmpleador";
+import { MapContainer } from "../../components/MapContainer";
 
 const OfertScreen = () => {
     const { id } = useParams();
@@ -97,17 +98,47 @@ const OfertScreen = () => {
                 <SectionTitle subTitle="Cantidad de Ofertas, tipo de oferta y mucho mas..." title="Información adicional"/>
 
                 <GridContainer className="grid-1-1-1">
-                    <LogInfoCard text={selectedOfert.Cantidad_Ofertas} title={"Cantidad de ofertas"}/>
-                    <LogInfoCard text={selectedOfert.Tipo_Contrato} title={"Tipo de contrato"}/>
-                    <LogInfoCard text={selectedOfert.Nivel_Estudios} title={"Nivel de estudios"}/>
+                    <LogInfoCard text={selectedOfert?.Cantidad_Ofertas} title={"Cantidad de ofertas"}/>
+                    <LogInfoCard text={selectedOfert?.Tipo_Contrato} title={"Tipo de contrato"}/>
+                    <LogInfoCard text={selectedOfert?.Nivel_Estudios} title={"Nivel de estudios"}/>
                 </GridContainer>
                 <GridContainer>
-                    <LogInfoCard text={selectedOfert.Teletrabajo} title={"¿Teletrabajo?"}/>
-                    <LogInfoCard text={selectedOfert.Discapacidad} title={"¿Para discapacitados?"}/>
+                    <LogInfoCard text={selectedOfert?.Teletrabajo} title={"¿Teletrabajo?"}/>
+                    <LogInfoCard text={selectedOfert?.Discapacidad} title={"¿Para discapacitados?"}/>
                 </GridContainer>
             </SectionWrapper>
 
-            
+            <SectionWrapper>
+                <SectionTitle subTitle="Visualiza tu proximo lugar de trabajo" title="Ubicación de la Oferta"/>
+
+                <GridContainer className="grid-05-15">
+                    <WrapperContainer2 flexDirection="column" padding={0} justifyContent="center" alignItems="center" gap={40}>
+                        <TextCard fontSize={14} textAlign="center">Encuentra la oferta ideal segun tu lugar de residencia o aspriación</TextCard>
+                        <SubInfoCard 
+                            titleSize={14} 
+                            textSize={30} 
+                            subTitle={"Municipio de la Oferta"} 
+                            text={selectedOfert?.Municipios}
+                            textAlign="center"
+                        />
+                        <SubInfoCard 
+                            titleSize={14} 
+                            textSize={30} 
+                            subTitle={"Departamento de la Oferta"} 
+                            text={selectedOfert?.Departamentos}
+                            textAlign="center"
+                        />
+                        <SubInfoCard 
+                            titleSize={14} 
+                            textSize={30} 
+                            subTitle={"Región de la Oferta"} 
+                            text={selectedOfert?.Regiones}
+                            textAlign="center"
+                        />
+                    </WrapperContainer2>
+                    <MapContainer selectedDepartment={selectedOfert?.Departamentos}/>
+                </GridContainer>
+            </SectionWrapper>
 
             <SectionPrestador selectedOfert={selectedOfert}/>
             <SectionEmpleador selectedOfert={selectedOfert}/>

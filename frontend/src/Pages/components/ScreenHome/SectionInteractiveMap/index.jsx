@@ -1,9 +1,15 @@
 
+import React from "react";
+import { AppContext } from "../../../../Context";
 import { MapContainer } from "../../MapContainer";
 import { SectionWrapper } from "../../SectionWrapper";
 import { SectionTitle } from "../../SectionWrapper/SectionTitle";
 
 const SectionInteractiveMap = () => {
+    const context = React.useContext(AppContext);
+
+    const { ofertsFilters } = context || {};
+
     return (
         <SectionWrapper>
             <SectionTitle
@@ -11,7 +17,7 @@ const SectionInteractiveMap = () => {
                 title="Mapa interactivo"
             />
 
-            <MapContainer/>
+            <MapContainer selectedDepartment={ofertsFilters?.Departamentos}/>
         </SectionWrapper>
     );
 }

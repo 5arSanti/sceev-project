@@ -8,19 +8,19 @@ import "./styles.css";
 import { departmentColors } from "./departmentColors";
 import { handleInputChange } from "../../../../utils/handleInputChange";
 
-const MapCard = ({config, geoUrl, setState}) => {
+const MapCard = ({config, geoUrl, setState, state}) => {
     const context = React.useContext(AppContext);
 
-    const { ofertsFilters, setOfertsFilter } = context;
+    const { setOfertsFilter } = context;
     const { totalByDepartment } = context.responseData?.ofertsData || {};
 
     const departmentColorSelect = (properties) => {
 
-        if (!ofertsFilters?.Departamentos) {
+        if (!state) {
           return departmentColors[properties.NOMBRE_DPT];
         }
 
-        if (ofertsFilters?.Departamentos === properties.NOMBRE_DPT) {
+        if (state === properties.NOMBRE_DPT) {
             return departmentColors[properties.NOMBRE_DPT];
         }
 

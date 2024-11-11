@@ -8,10 +8,10 @@ import "./styles.css";
 import { ButtonCard } from "../../ButtonCard";
 import { handleInputChange } from "../../../../utils/handleInputChange";
 
-const ToolTipMap = ({ state={} }) => {
+const ToolTipMap = ({ hoveredDepartment={}, selectedDepartment }) => {
     const context = React.useContext(AppContext);
 
-    const { ofertsFilters, setOfertsFilter } = context;
+    const { setOfertsFilter } = context;
     const { totalByDepartment } = context.responseData?.ofertsData || {};
 
     return (
@@ -20,14 +20,20 @@ const ToolTipMap = ({ state={} }) => {
 
             <WrapperContainer2 height="auto" flexDirection="column" padding={0} gap={15}>
                 <TextCard fontSize={14}>
-                    <SpanCard fontSize={14}>Departamento:</SpanCard> {ofertsFilters?.Departamentos && ofertsFilters?.Departamentos || state?.department}
+                    <SpanCard fontSize={14}>Departamento:</SpanCard> {
+                        selectedDepartment && selectedDepartment || 
+                        hoveredDepartment?.department
+                    }
                 </TextCard>
 
                 <TextCard fontSize={14}>
-                    <SpanCard fontSize={14}>Ofertas de Empleo:</SpanCard> {ofertsFilters?.Departamentos && totalByDepartment[ofertsFilters?.Departamentos] || state?.total}
+                    <SpanCard fontSize={14}>Ofertas de Empleo:</SpanCard> {
+                        selectedDepartment && totalByDepartment[selectedDepartment] || 
+                        hoveredDepartment?.total
+                    }
                 </TextCard>
 
-                {ofertsFilters?.Departamentos  &&
+                {selectedDepartment  &&
                     <ButtonCard
                         title="Borrar selección"
                         onClick={() => handleInputChange("Departamentos", "", setOfertsFilter)}

@@ -19,6 +19,10 @@ import { StyledSection } from "../../components/StyledSection";
 import { IoMdBriefcase } from "react-icons/io";
 import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
 
+import { MdSavings } from "react-icons/md";
+import { MdCalendarMonth } from "react-icons/md";
+import { SectionEmpleador } from "../../components/ScreenOfert/SectionEmpleador";
+
 const OfertScreen = () => {
     const { id } = useParams();
     
@@ -47,6 +51,7 @@ const OfertScreen = () => {
             </StyledSection>
 
             <SectionWrapper>
+                <SectionTitle subTitle="Toda la información centralizada" title="Detalles de la Oferta"/>
                 <GridContainer className="grid-125-075">
                     <WrapperContainer2 justifyContent="start" alignItems="start" flexDirection="column" gap={35}>
                         <SubTitle fontSize={24}>{selectedOfert?.Titulo_Oferta}</SubTitle>
@@ -81,8 +86,8 @@ const OfertScreen = () => {
                     </WrapperContainer2>
                     <WrapperContainer2 flexDirection="column">
                         <LogInfoCard title={"Codigo de la Oferta"} text={selectedOfert?.Codigo_Oferta}/>
-                        <LogInfoCard title={"Salario"} text={"$ " + formatNumbers(selectedOfert?.Salario_Ingresado)}/>
-                        <LogInfoCard title={"Meses de experiencia"} text={selectedOfert?.Experiencia}/>
+                        <LogInfoCard title={"Salario"} text={"$ " + formatNumbers(selectedOfert?.Salario_Ingresado)} icon={<MdSavings/>}/>
+                        <LogInfoCard title={"Meses de experiencia"} text={selectedOfert?.Experiencia} icon={<MdCalendarMonth/>}/>
                     </WrapperContainer2>
                 </GridContainer>
 
@@ -102,7 +107,10 @@ const OfertScreen = () => {
                 </GridContainer>
             </SectionWrapper>
 
+            
+
             <SectionPrestador selectedOfert={selectedOfert}/>
+            <SectionEmpleador selectedOfert={selectedOfert}/>
         </AuthWrapper>
     );
 }

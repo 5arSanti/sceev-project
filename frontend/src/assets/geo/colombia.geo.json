@@ -11,7 +11,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "05",
-                "NOMBRE_DPT": "ANTIOQUIA",
+                "NOMBRE_DPT": "Antioquia",
                 "AREA": 63351855546.895,
                 "PERIMETER": 1963728.843,
                 "HECTARES": 6335185.555
@@ -4720,7 +4720,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "08",
-                "NOMBRE_DPT": "ATLÁNTICO",
+                "NOMBRE_DPT": "Atlántico",
                 "AREA": 3360765349.961,
                 "PERIMETER": 240936.172,
                 "HECTARES": 336076.535
@@ -5449,7 +5449,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "11",
-                "NOMBRE_DPT": "BOGOTÁ, D.C.",
+                "NOMBRE_DPT": "Bogotá, D.C.",
                 "AREA": 1650947779.134,
                 "PERIMETER": 323322.54,
                 "HECTARES": 165094.778
@@ -6474,7 +6474,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "13",
-                "NOMBRE_DPT": "BOLÍVAR",
+                "NOMBRE_DPT": "Bolívar",
                 "AREA": 26141894527.75,
                 "PERIMETER": 1309427.968,
                 "HECTARES": 2614189.453
@@ -9603,7 +9603,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "15",
-                "NOMBRE_DPT": "BOYACÁ",
+                "NOMBRE_DPT": "Boyacá",
                 "AREA": 23352582463.939,
                 "PERIMETER": 1364539.911,
                 "HECTARES": 2335258.246
@@ -14204,7 +14204,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "17",
-                "NOMBRE_DPT": "CALDAS",
+                "NOMBRE_DPT": "Caldas",
                 "AREA": 7558199875.556,
                 "PERIMETER": 603282.457,
                 "HECTARES": 755819.988
@@ -16241,7 +16241,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "18",
-                "NOMBRE_DPT": "CAQUETÁ",
+                "NOMBRE_DPT": "Caquetá",
                 "AREA": 90180868828.821,
                 "PERIMETER": 1888506.901,
                 "HECTARES": 9018086.883
@@ -21162,7 +21162,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "19",
-                "NOMBRE_DPT": "CAUCA",
+                "NOMBRE_DPT": "Cauca",
                 "AREA": 29742787301.199,
                 "PERIMETER": 1243388.952,
                 "HECTARES": 2974278.73
@@ -24489,7 +24489,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "20",
-                "NOMBRE_DPT": "CESAR",
+                "NOMBRE_DPT": "Cesar",
                 "AREA": 22973095679.788,
                 "PERIMETER": 1080343.678,
                 "HECTARES": 2297309.568
@@ -27154,7 +27154,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "23",
-                "NOMBRE_DPT": "CÓRDOBA",
+                "NOMBRE_DPT": "Córdoba",
                 "AREA": 25059485605.512,
                 "PERIMETER": 814093.372,
                 "HECTARES": 2505948.561
@@ -29195,7 +29195,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "25",
-                "NOMBRE_DPT": "CUNDINAMARCA",
+                "NOMBRE_DPT": "Cundinamarca",
                 "AREA": 22800258637.523,
                 "PERIMETER": 1164175.024,
                 "HECTARES": 2280025.864
@@ -32796,7 +32796,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "27",
-                "NOMBRE_DPT": "CHOCÓ",
+                "NOMBRE_DPT": "Chocó",
                 "AREA": 46838522629.87,
                 "PERIMETER": 1797897.873,
                 "HECTARES": 4683852.263
@@ -37205,7 +37205,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "41",
-                "NOMBRE_DPT": "HUILA",
+                "NOMBRE_DPT": "Huila",
                 "AREA": 20318702519.012,
                 "PERIMETER": 929144.166,
                 "HECTARES": 2031870.252
@@ -39746,7 +39746,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "44",
-                "NOMBRE_DPT": "LA GUAJIRA",
+                "NOMBRE_DPT": "La Guajira",
                 "AREA": 21012349660.45,
                 "PERIMETER": 936598.02,
                 "HECTARES": 2101234.966
@@ -41587,7 +41587,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "47",
-                "NOMBRE_DPT": "MAGDALENA",
+                "NOMBRE_DPT": "Magdalena",
                 "AREA": 22846394629.859,
                 "PERIMETER": 916642.47,
                 "HECTARES": 2284639.463
@@ -43808,7 +43808,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "50",
-                "NOMBRE_DPT": "META",
+                "NOMBRE_DPT": "Meta",
                 "AREA": 85389685783.838,
                 "PERIMETER": 1680541.812,
                 "HECTARES": 8538968.578
@@ -46837,7 +46837,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "52",
-                "NOMBRE_DPT": "NARIÑO",
+                "NOMBRE_DPT": "Nariño",
                 "AREA": 33283045970.747,
                 "PERIMETER": 1015680.966,
                 "HECTARES": 3328304.597
@@ -49114,7 +49114,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "54",
-                "NOMBRE_DPT": "NORTE DE SANTANDER",
+                "NOMBRE_DPT": "Norte de Santander",
                 "AREA": 21443330911.239,
                 "PERIMETER": 914288.244,
                 "HECTARES": 2144333.091
@@ -51643,7 +51643,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "63",
-                "NOMBRE_DPT": "QUINDIO",
+                "NOMBRE_DPT": "Quindío",
                 "AREA": 1732025801.293,
                 "PERIMETER": 207948.857,
                 "HECTARES": 173202.58
@@ -52408,7 +52408,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "66",
-                "NOMBRE_DPT": "RISARALDA",
+                "NOMBRE_DPT": "Risaralda",
                 "AREA": 4042733125.761,
                 "PERIMETER": 436988.677,
                 "HECTARES": 404273.313
@@ -53849,7 +53849,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "68",
-                "NOMBRE_DPT": "SANTANDER",
+                "NOMBRE_DPT": "Santander",
                 "AREA": 30290221671.891,
                 "PERIMETER": 1036566.662,
                 "HECTARES": 3029022.167
@@ -57006,7 +57006,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "70",
-                "NOMBRE_DPT": "SUCRE",
+                "NOMBRE_DPT": "Sucre",
                 "AREA": 10823789104.326,
                 "PERIMETER": 688869.681,
                 "HECTARES": 1082378.91
@@ -58827,7 +58827,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "73",
-                "NOMBRE_DPT": "TOLIMA",
+                "NOMBRE_DPT": "Tolima",
                 "AREA": 23421273474.061,
                 "PERIMETER": 853045.779,
                 "HECTARES": 2342127.347
@@ -61464,7 +61464,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "76",
-                "NOMBRE_DPT": "VALLE DEL CAUCA",
+                "NOMBRE_DPT": "Valle del Cauca",
                 "AREA": 22146825343.909,
                 "PERIMETER": 995449.434,
                 "HECTARES": 2214682.534
@@ -64385,7 +64385,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "81",
-                "NOMBRE_DPT": "ARAUCA",
+                "NOMBRE_DPT": "Arauca",
                 "AREA": 24196379863.35,
                 "PERIMETER": 843446.026,
                 "HECTARES": 2419637.986
@@ -66174,7 +66174,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "85",
-                "NOMBRE_DPT": "CASANARE",
+                "NOMBRE_DPT": "Casanare",
                 "AREA": 44714094970.35,
                 "PERIMETER": 1101844.91,
                 "HECTARES": 4471409.497
@@ -68847,7 +68847,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "86",
-                "NOMBRE_DPT": "PUTUMAYO",
+                "NOMBRE_DPT": "Putumayo",
                 "AREA": 24707681631.591,
                 "PERIMETER": 1194372.666,
                 "HECTARES": 2470768.163
@@ -71604,7 +71604,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "91",
-                "NOMBRE_DPT": "AMAZONAS",
+                "NOMBRE_DPT": "Amazonas",
                 "AREA": 110029418235.446,
                 "PERIMETER": 2562641.642,
                 "HECTARES": 11002941.824
@@ -77333,7 +77333,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "94",
-                "NOMBRE_DPT": "GUAINÍA",
+                "NOMBRE_DPT": "Guainía",
                 "AREA": 72111494561.286,
                 "PERIMETER": 1882807.19,
                 "HECTARES": 7211149.456
@@ -80994,7 +80994,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "95",
-                "NOMBRE_DPT": "GUAVIARE",
+                "NOMBRE_DPT": "Guaviare",
                 "AREA": 55671476686.65,
                 "PERIMETER": 1555059.349,
                 "HECTARES": 5567147.669
@@ -84983,7 +84983,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "97",
-                "NOMBRE_DPT": "VAUPÉS",
+                "NOMBRE_DPT": "Vaupés",
                 "AREA": 53087838626.98,
                 "PERIMETER": 1666564.449,
                 "HECTARES": 5308783.863
@@ -89216,7 +89216,7 @@
             "type": "Feature",
             "properties": {
                 "DPTO": "99",
-                "NOMBRE_DPT": "VICHADA",
+                "NOMBRE_DPT": "Vichada",
                 "AREA": 100055282904.151,
                 "PERIMETER": 1781121.957,
                 "HECTARES": 10005528.29

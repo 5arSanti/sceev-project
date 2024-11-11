@@ -21,7 +21,7 @@ router.get("/", async (request, response) => {
 
 		const aditionalFilters = `
 			WHERE LOWER(Titulo_Oferta) LIKE LOWER('%${Busqueda}%')
-			AND (Descripcion_Oferta) LIKE ('%${Busqueda}%')
+			OR (Descripcion_Oferta) LIKE ('%${Busqueda}%')
 
 			${conditions ? `AND ${conditions}` : ""}
 		`;
@@ -64,7 +64,7 @@ router.get("/", async (request, response) => {
 
         const oferts = await getQuery(baseQuery);
 
-        const totalPages = Math.ceil(totalOfertas / pageSize);
+        const totalPages = Math.ceil(totalOfertasByFilters / pageSize);
 
 
 		return response.status(200).json({

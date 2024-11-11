@@ -1,0 +1,75 @@
+.tool-tip-container {
+    box-sizing: border-box;
+
+    z-index: 1;
+    width: 250px;
+    min-height: 150px;
+
+    position: absolute;
+    top: 130px;
+    right: 0;
+
+    background-color: rgba(255, 255, 255, 0.25);
+    border-right: 2px solid var(--main-title-color);
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tool-tip-info-container {
+    width: 100%;
+    height: 60px;
+    max-height: 50px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    overflow: hidden;
+}
+.tool-tip-info-container p:nth-child(1) {
+    color: var(--main-title-color);
+    font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+}
+.tool-tip-info-container p:nth-child(2) {
+    color: var(--tool-tip-map-text-color);
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.tool-tip-container button {
+    border-radius: 5px;
+    color: var(--white);
+    cursor: pointer;
+
+    padding: 5px;
+    background-color: var(--delete-selection-button-color);
+    opacity: .8;
+
+    transition: all 0.2s ease;
+}
+.tool-tip-container button:hover {
+    opacity: 1;
+}
+
+
+@media (max-width: 1100px) {
+    .tool-tip-container {
+        top: 180px;
+    }
+}
+@media (max-width: 1000px) {
+    .tool-tip-container {
+        top: 80px;
+    }
+}
+@media (max-width: 800px) {
+    .tool-tip-container {
+        top: 0px;
+    }
+}

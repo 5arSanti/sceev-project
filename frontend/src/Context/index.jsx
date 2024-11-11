@@ -66,7 +66,6 @@ const AppProvider = ({children}) => {
     
     // Filtros de vacantes
     const [ofertsFilters, setOfertsFilter] = React.useState({});
-    console.log(ofertsFilters)
     
     React.useEffect(() => {
         const filterParams = new URLSearchParams(ofertsFilters);

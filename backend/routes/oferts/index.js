@@ -21,7 +21,7 @@ router.get("/", async (request, response) => {
 
 		const aditionalFilters = `
 			WHERE LOWER(Titulo_Oferta) LIKE LOWER('%${Busqueda}%')
-			OR (Descripcion_Oferta) LIKE ('%${Busqueda}%')
+			-- AND (Descripcion_Oferta) LIKE ('%${Busqueda}%')
 
 			${conditions ? `AND ${conditions}` : ""}
 		`;
@@ -47,10 +47,10 @@ router.get("/", async (request, response) => {
             GROUP BY Departamentos
         `)
 
-		const formatDepartmentData = totalByDepartment.map(row => ({
-            department: row.Departamentos,
-            totalOfertas: row.departmentTotalValue
-        }));
+		const formatDepartmentData = totalByDepartment.reduce((acc, row) => {
+			acc[row.Departamentos] = row.departmentTotalValue;
+			return acc;
+		}, {});
 
 
 		// Obtener ofertas de empleo

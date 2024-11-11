@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { AppContext } from "../../../../Context";
 
@@ -5,20 +6,26 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
 import "./styles.css";
 import { departmentColors } from "./departmentColors";
+import { handleInputChange } from "../../../../utils/handleInputChange";
 
-const MapCard = ({config, geoUrl}) => {
+const MapCard = ({config, geoUrl, setState}) => {
     const context = React.useContext(AppContext);
 
-    const departmentColorSelect = ({properties}) => {
-        const color = context.selectedDepartment ? 
-            context.selectedDepartment === properties.NOMBRE_DPT ? 
-            departmentColors[properties.NOMBRE_DPT] :
-            "#D3D3D3" : 
-            departmentColors[properties.NOMBRE_DPT];
+    const { ofertsFilters, setOfertsFilter } = context;
+    const { totalByDepartment } = context.responseData?.ofertsData || {};
 
-        
-        return color;
-    }
+    const departmentColorSelect = (properties) => {
+
+        if (!ofertsFilters?.Departamentos) {
+          return departmentColors[properties.NOMBRE_DPT];
+        }
+
+        if (ofertsFilters?.Departamentos === properties.NOMBRE_DPT) {
+            return departmentColors[properties.NOMBRE_DPT];
+        }
+
+        return "#D9D9D9";
+      };
 
 
     return(
@@ -33,11 +40,18 @@ const MapCard = ({config, geoUrl}) => {
                         <Geography
                             key={index}
                             geography={geo}
-                            fill={departmentColorSelect(geo)}
+                            fill={departmentColorSelect(geo.properties)}
                             stroke={"#FFF"}
-                            onMouseEnter={(event) => {context.handleMapMouseEnter(event, geo)}}
-                            onMouseLeave={context.handleMapMouseLeave}
-                            onClick={() => {context.saveSelectedDepartment(geo.properties.NOMBRE_DPT)}}
+                            onMouseEnter={() => {
+                                setState({
+                                    department: geo.properties.NOMBRE_DPT,
+                                    total: totalByDepartment?.[geo.properties.NOMBRE_DPT],
+                                });
+                            }}
+                            onMouseLeave={() => {setState(null)}}
+                            onClick={() => {
+                                handleInputChange("Departamentos", geo.properties.NOMBRE_DPT, setOfertsFilter)
+                            }}
                         />
                     ))
                 )}

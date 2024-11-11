@@ -9,6 +9,8 @@ import { WrapperContainer2 } from "../../WrapperContainers";
 import { SlideButtonCard } from "./SlideButtonCard";
 
 import "./styles.css";
+import { SubInfoCard } from "./SubInfoCard";
+import { formatNumbers } from "../../../../utils/formatNumbers";
 
 const ResultsCard = ({item = {}, index=1}) => {
     return(
@@ -25,27 +27,23 @@ const ResultsCard = ({item = {}, index=1}) => {
                 <GridContainer className="grid-15-05">
                     <SubTitle>({index + 1}) {item.Titulo_Oferta}</SubTitle>
 
-                    <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                        <SpanCard className={"italic"} fontSize={10}>Codigo de la Oferta</SpanCard>
-                        <TextCard textAlign="center">{item.Codigo_Oferta}</TextCard>
-                    </WrapperContainer2>
+                    <SubInfoCard subTitle={"Codigo de la Oferta"} text={item.Codigo_Oferta}/>
                 </GridContainer>
 
-                <ScrollableWrapper maxHeight={200}>
-                    <TextCard>
-                        {item.Descripcion_Oferta}
-                    </TextCard>
-                </ScrollableWrapper>
+                <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
+                    <SubInfoCard textAlign="start" subTitle={"Salario."} text={`$ ${formatNumbers(item.Salario_Ingresado)}`}/>
+                    
+                    <TextCard><SpanCard fontSize={10}>Descripcion: </SpanCard></TextCard>
+                    <ScrollableWrapper maxHeight={200}>
+                        <TextCard>
+                            {item.Descripcion_Oferta}
+                        </TextCard>
+                    </ScrollableWrapper>
+                </WrapperContainer2>
 
                 <GridContainer padding={0} className="grid-15-05">
-                    <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                        <SpanCard  fontSize={10}>Prestador</SpanCard>
-                        <TextCard fontSize={14} className={"italic"} textAlign="center">{item.Prestadores}</TextCard>
-                    </WrapperContainer2>
-                    <WrapperContainer2 flexDirection="column" padding={0} gap={5}>
-                        <SpanCard fontSize={10}>Fecha de publicacion</SpanCard>
-                        <TextCard fontSize={14} className={"italic"} textAlign="center">{moment(item.Fecha_Publicacion).format("DD-MM-YYYY")}</TextCard>
-                    </WrapperContainer2>
+                    <SubInfoCard subTitle={"Prestador"} text={item.Prestadores}/>
+                    <SubInfoCard subTitle={"Fecha de publicación"} text={moment(item.Fecha_Publicacion).format("DD-MM-YYYY")}/>
                 </GridContainer>
 
                 <SlideButtonCard/>

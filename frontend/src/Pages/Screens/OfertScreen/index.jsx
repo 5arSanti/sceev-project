@@ -23,6 +23,7 @@ import { MdSavings } from "react-icons/md";
 import { MdCalendarMonth } from "react-icons/md";
 import { SectionEmpleador } from "../../components/ScreenOfert/SectionEmpleador";
 import { MapContainer } from "../../components/MapContainer";
+import { formatTextYearOrNo } from "../../../utils/Format/formatTextYesOrNo";
 
 const OfertScreen = () => {
     const { id } = useParams();
@@ -52,7 +53,7 @@ const OfertScreen = () => {
             </StyledSection>
 
             <SectionWrapper>
-                <SectionTitle subTitle="Toda la información centralizada" title="Detalles de la Oferta"/>
+                <SectionTitle subTitle="Toda la información centralizada..." title="Detalles de la Oferta"/>
                 <GridContainer className="grid-125-075">
                     <WrapperContainer2 justifyContent="start" alignItems="start" flexDirection="column" gap={35}>
                         <SubTitle fontSize={24}>{selectedOfert?.Titulo_Oferta}</SubTitle>
@@ -103,8 +104,10 @@ const OfertScreen = () => {
                     <LogInfoCard text={selectedOfert?.Nivel_Estudios} title={"Nivel de estudios"}/>
                 </GridContainer>
                 <GridContainer>
-                    <LogInfoCard text={selectedOfert?.Teletrabajo} title={"¿Teletrabajo?"}/>
-                    <LogInfoCard text={selectedOfert?.Discapacidad} title={"¿Para discapacitados?"}/>
+                    <LogInfoCard 
+                        text={formatTextYearOrNo(selectedOfert?.Teletrabajo)} 
+                        title={"¿Teletrabajo?"}/>
+                    <LogInfoCard text={formatTextYearOrNo(selectedOfert?.Discapacidad)} title={"¿Para discapacitados?"}/>
                 </GridContainer>
             </SectionWrapper>
 

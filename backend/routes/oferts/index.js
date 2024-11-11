@@ -4,9 +4,22 @@ const { getQuery } = require("../../database/query");
 const { transformQueryParams } = require("../../Utils/transformQueryParams");
 const router = express.Router();
 
-// POST
+// GET
 
 const pageSize = 25;
+
+router.get("/:Codigo_Oferta", async (request, response) => {
+	try {
+		const { Codigo_Oferta } = request.params;
+
+		const selectedOfert = await getQuery(`SELECT * FROM Ofertas_empleo_completo WHERE Codigo_Oferta = '${Codigo_Oferta}'`);
+
+		return response.status(200).json({selectedOfert: selectedOfert[0]});
+	}
+	catch (err) {
+		return response.status(500).json({Error: err.message});
+	}
+})
 
 router.get("/", async (request, response) => {
 	try {

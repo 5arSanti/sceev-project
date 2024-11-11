@@ -1,7 +1,10 @@
 import { AuthWrapper, IsAuthWrapper } from "../../components/AuthWrapper";
 import { ProcessCSVInfoContainer } from "../../components/ScreenProcessCSV/ProcessCSVInfoContainer";
 import { StyledSection } from "../../components/StyledSection";
-import { SectionMainUpload } from "../../components/ScreenUpload/SectionMainUpload";
+import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
+
+import { FaDatabase } from "react-icons/fa";
+
 
 
 const UploadScreen = () => {
@@ -9,7 +12,11 @@ const UploadScreen = () => {
         <AuthWrapper>
             <IsAuthWrapper notFound={true}>
                 <StyledSection height="auto">
-                    <SectionMainUpload/>
+                    <MainSectionInfoCard
+                        title="Carga de datos e información"
+                        subTitle="Realice el cargue de ofertas y vacantes de empleo"
+                        icon={<FaDatabase/>}
+                    />
                 </StyledSection>
                 
                 <ProcessCSVInfoContainer/>

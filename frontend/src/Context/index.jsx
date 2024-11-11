@@ -78,6 +78,8 @@ const AppProvider = ({children}) => {
     }, [ofertsFilters])
 
 
+    // Oferta seleccionada
+    const [selectedOfert, setSelectedOfert] = React.useState(null);
 
     return (
         <AppContext.Provider
@@ -105,7 +107,11 @@ const AppProvider = ({children}) => {
                 fetchData,
 
                 ofertsFilters,
-                setOfertsFilter
+                setOfertsFilter,
+
+                
+                selectedOfert,
+                setSelectedOfert,
             }}
         >
             {children}

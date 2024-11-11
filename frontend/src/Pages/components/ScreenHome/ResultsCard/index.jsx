@@ -7,14 +7,14 @@ import { SubTitle } from "../../SubTitle";
 import { SpanCard, TextCard } from "../../TextComponents";
 import { WrapperContainer2 } from "../../WrapperContainers";
 import { SlideButtonCard } from "./SlideButtonCard";
+import { formatNumbers } from "../../../../utils/formatNumbers";
 
 import "./styles.css";
-import { SubInfoCard } from "./SubInfoCard";
-import { formatNumbers } from "../../../../utils/formatNumbers";
+import { SubInfoCard } from "../../SubInfoCard";
 
 const ResultsCard = ({item = {}, index=1}) => {
     return(
-        <Link style={{width: "100%"}}>
+        <Link to={`/ofert/${item.Codigo_Oferta}`} style={{width: "100%"}}>
             <WrapperContainer2 
                 height="auto" 
                 flexDirection="column" 

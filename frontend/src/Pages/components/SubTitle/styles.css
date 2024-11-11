@@ -5,7 +5,7 @@
 .sub-title h2 {
     width: 100%;
 
-    font-weight: 300;
+    font-weight: bold;
 
     display: inline-block;
     position: relative;
@@ -16,14 +16,20 @@
 
     font-weight: 600;
 }
-.sub-title h2::before {
+
+.sub-title-style::before {
     content: '';
     position: absolute;
 
-    left: 0;
     bottom: 0;
 
     width: 30%; 
     height: 3px; 
     background-color: var(--pallete-2); 
+}
+.sub-title-style-left::before {
+    left: 0;
+}
+.sub-title-style-right::before {
+    right: 0;
 }

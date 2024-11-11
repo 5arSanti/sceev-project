@@ -8,6 +8,7 @@ import { UploadScreen } from "../Screens/UploadScreen";
 import { UsersScreen } from "../Screens/UsersScreen";
 import { RegisterScreen } from "../Screens/RegisterScreen";
 import { LoginScreen } from "../Screens/LoginScreen";
+import { OfertScreen } from "../Screens/OfertScreen";
 
 const AppRoutes = () => {
 
@@ -17,6 +18,7 @@ const AppRoutes = () => {
     let routes = useRoutes([
         {path: "/home", element: <Home/>},
         {path: "/stats", element: <StatsDataScreen/>},
+        {path: "/ofert/:id", element: <OfertScreen/>},
 
         {path: "/*", element: <Navigate replace to={"/home"}/>},
         {path: "/upload", element: <UploadScreen/>},

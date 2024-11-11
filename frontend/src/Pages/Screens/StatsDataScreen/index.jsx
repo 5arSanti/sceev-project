@@ -1,10 +1,12 @@
 import React from "react";
 import { AuthWrapper } from "../../components/AuthWrapper";
 import { GraphContainer } from "../../components/GraphContainer";
-import { SectionMainStatsData } from "../../components/ScreenStatsData/SectionMainStatsData";
 import { SectionWrapper } from "../../components/SectionWrapper";
 import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { StyledSection } from "../../components/StyledSection";
+import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
+
+import { SlGraph } from "react-icons/sl";
 
 const StatsDataScreen = () => {
     const [graph, setGraph] = React.useState({
@@ -22,7 +24,11 @@ const StatsDataScreen = () => {
     return (
         <AuthWrapper>
             <StyledSection>
-                <SectionMainStatsData/>
+                <MainSectionInfoCard
+                    title="Visualizacion estadistica de Ofertas"
+                    subTitle="Explora gráficos interactivos y estadísticas detalladas para un análisis preciso"
+                    icon={<SlGraph/>}
+                />
             </StyledSection>
             <SectionWrapper>
                 <SectionTitle title="Informacion grafica"/>

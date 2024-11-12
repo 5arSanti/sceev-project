@@ -20,10 +20,17 @@ import { IoMdBriefcase } from "react-icons/io";
 import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
 
 import { MdSavings } from "react-icons/md";
-import { MdCalendarMonth } from "react-icons/md";
 import { SectionEmpleador } from "../../components/ScreenOfert/SectionEmpleador";
 import { MapContainer } from "../../components/MapContainer";
 import { formatTextYearOrNo } from "../../../utils/Format/formatTextYesOrNo";
+
+import { IoIosConstruct } from "react-icons/io";
+import { FaRegCalendarCheck } from "react-icons/fa";
+import { FaRegCalendarTimes } from "react-icons/fa";
+import { FaPenAlt } from "react-icons/fa";
+import { IoMdSchool } from "react-icons/io";
+import { MdPhonelink } from "react-icons/md";
+import { FaWheelchair } from "react-icons/fa";
 
 const OfertScreen = () => {
     const { id } = useParams();
@@ -80,16 +87,24 @@ const OfertScreen = () => {
                         />
 
                         <GridContainer>
-                            <LogInfoCard title={"Fecha de publicacion"} text={moment(selectedOfert?.Fecha_Publicacion).format("DD-MM-YYYY HH:MM:SS")}/>
-                            <LogInfoCard title={"Fecha de vencimiento"} text={moment(selectedOfert?.Fecha_Vencimiento).format("DD-MM-YYYY HH:MM:SS")}/>
+                            <LogInfoCard 
+                                title={"Fecha de publicacion"} 
+                                text={moment(selectedOfert?.Fecha_Publicacion).format("DD-MM-YYYY HH:MM:SS")}
+                                icon={<FaRegCalendarCheck/>}
+                            />
+                            <LogInfoCard 
+                                title={"Fecha de vencimiento"} 
+                                text={moment(selectedOfert?.Fecha_Vencimiento).format("DD-MM-YYYY HH:MM:SS")}
+                                icon={<FaRegCalendarTimes/>}
+                            />
                         </GridContainer>
 
 
                     </WrapperContainer2>
                     <WrapperContainer2 flexDirection="column">
                         <LogInfoCard title={"Codigo de la Oferta"} text={selectedOfert?.Codigo_Oferta}/>
-                        <LogInfoCard title={"Salario"} text={"$ " + formatNumbers(selectedOfert?.Salario_Ingresado)} icon={<MdSavings/>}/>
-                        <LogInfoCard title={"Meses de experiencia"} text={selectedOfert?.Experiencia} icon={<MdCalendarMonth/>}/>
+                        <LogInfoCard title={"Salario"} text={`$ ${formatNumbers(selectedOfert?.Salario_Ingresado)}`} icon={<MdSavings/>}/>
+                        <LogInfoCard title={"Meses de experiencia"} text={selectedOfert?.Experiencia} icon={<IoIosConstruct/>}/>
                     </WrapperContainer2>
                 </GridContainer>
 
@@ -99,15 +114,33 @@ const OfertScreen = () => {
                 <SectionTitle subTitle="Cantidad de Ofertas, tipo de oferta y mucho mas..." title="Información adicional"/>
 
                 <GridContainer className="grid-1-1-1">
-                    <LogInfoCard text={selectedOfert?.Cantidad_Ofertas} title={"Cantidad de ofertas"}/>
-                    <LogInfoCard text={selectedOfert?.Tipo_Contrato} title={"Tipo de contrato"}/>
-                    <LogInfoCard text={selectedOfert?.Nivel_Estudios} title={"Nivel de estudios"}/>
+                    <LogInfoCard 
+                        text={selectedOfert?.Cantidad_Ofertas} 
+                        title={"Cantidad de ofertas"}
+                        icon={<IoMdBriefcase/>}
+                    />
+                    <LogInfoCard 
+                        text={selectedOfert?.Tipo_Contrato} 
+                        title={"Tipo de contrato"}
+                        icon={<FaPenAlt/>}
+                    />
+                    <LogInfoCard 
+                        text={selectedOfert?.Nivel_Estudios} 
+                        title={"Nivel de estudios"}
+                        icon={<IoMdSchool/>}
+                    />
                 </GridContainer>
                 <GridContainer>
                     <LogInfoCard 
                         text={formatTextYearOrNo(selectedOfert?.Teletrabajo)} 
-                        title={"¿Teletrabajo?"}/>
-                    <LogInfoCard text={formatTextYearOrNo(selectedOfert?.Discapacidad)} title={"¿Para discapacitados?"}/>
+                        title={"¿Teletrabajo?"}
+                        icon={<MdPhonelink/>}
+                    />
+                    <LogInfoCard 
+                        text={formatTextYearOrNo(selectedOfert?.Discapacidad)} 
+                        title={"¿Para discapacitados?"}
+                        icon={<FaWheelchair/>}
+                    />
                 </GridContainer>
             </SectionWrapper>
 

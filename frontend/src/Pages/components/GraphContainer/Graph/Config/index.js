@@ -2,37 +2,26 @@ const valuesColors = ["rgba(90,91,93, .6)", "rgba(224,22,30, .6)", "rgba(28,123,
 
 const textColor = "#000";
 
-const getGraphData = (values) => {
+const getGraphData = (graph) => {
     const data = {
-        labels: values?.graphValues,
-        datasets: [
-            {
-                label: values?.datasetLabel[0],
-                data: values?.data[0],
+        labels: graph?.dataLabels,
+        datasets: graph?.datasetLabel?.map((item, index) => ({
+            label: graph?.datasetLabel,
+            data: graph?.data,
 
-                backgroundColor: valuesColors[0],
-                borderColor: valuesColors[0],
-                borderWidth: 1,
-                color: textColor,
-            },
-            {
-                label: values?.datasetLabel[1],
-                data: values?.data[1],
-
-                backgroundColor: valuesColors[1],
-                borderColor: valuesColors[1],
-                borderWidth: 1,
-                color: textColor
-            },
-        ],
+            backgroundColor: valuesColors[index],
+            borderColor: valuesColors[index],
+            borderWidth: 1,
+            color: textColor,
+        })),
     };
 
     return data;
 }
 
-const getGraphOptions = (values) => {
+const getGraphOptions = (graph) => {
     const options = {
-        indexAxis: values?.indexAxis,
+        indexAxis: graph?.indexAxis,
         scales: {
             y: {
                 beginAtZero: true,

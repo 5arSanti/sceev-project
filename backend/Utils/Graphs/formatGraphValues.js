@@ -1,31 +1,32 @@
 const { getQuery } = require("../../database/query");
 const { formatDistinctToArray } = require("../formatDistincToArray");
 
-const formatGraphValues = async (column, conditions, monthValue, yearValue) => {
+const formatGraphValues = async (column, conditions) => {
 
-	const columnValues = await formatDistinctToArray(column);
+	const columnValues = await formatDistinctToArray(column, "Ofertas_empleo_completo");
 
 	const promises = columnValues.map(async (item) => {
-		const query = `SELECT COUNT (*) AS '${yearValue}' FROM colocaciones WHERE ${column} = '${item}' ${conditions ? ` AND ${conditions}` : ""}`;
-		const secondQuery = `SELECT COUNT (*) AS '${yearValue - 1}' FROM colocaciones WHERE ${column} = '${item}' AND anio_coloca = '${yearValue - 1}' AND mes_coloca = '${monthValue}'`;
+		const query = `
+			SELECT COUNT (*)
+			FROM Ofertas_empleo_completo
+			WHERE ${column} = '${item}'
+			-- ${conditions ? ` AND ${conditions}` : ""}
+		`;
 
-		const [valuesCurrentYear] = await getQuery(query);
-        const [valuesPreviousYear] = await getQuery(secondQuery);
+		const [values] = await getQuery(query);
 
 		return {
-            [item]: {
-                [`${yearValue}`]: valuesCurrentYear[`${yearValue}`],
-                [`${yearValue - 1}`]: valuesPreviousYear[`${yearValue - 1}`]
-            }
+            [item]:  values,
         };
 	})
 	const values = await Promise.all(promises);
 
 	const result = values.reduce((acc, row) => {
-        const key = Object.keys(row)[0];
-        acc[key] = row[key];
-        return acc;
-    }, {});
+		const key = Object.keys(row)[0];
+		const value = row[key][''];
+		acc[key] = value;
+		return acc;
+	  }, {});
 
 	return result;
 

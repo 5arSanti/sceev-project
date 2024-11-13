@@ -9,7 +9,7 @@ import { IoSearch } from "react-icons/io5";
 
 import "./styles.css";
 
-const DropCard = ({title, array=[], onClick, value, searchBox=true}) => {
+const DropCard = ({title, array=[], onClick, value, searchBox=true, seeAllOption=true}) => {
 
     const [searchValue, setSearchValue] = React.useState("");
 
@@ -40,9 +40,11 @@ const DropCard = ({title, array=[], onClick, value, searchBox=true}) => {
                     }
                     
                     <ScrollableWrapper maxHeight={400}>
-                        <Dropdown.Item onClick={() => onClick("")}>
-                            <TextCard>Todo</TextCard>
-                        </Dropdown.Item>
+                        {seeAllOption &&
+                            <Dropdown.Item onClick={() => onClick("")}>
+                                <TextCard>Todo</TextCard>
+                            </Dropdown.Item>
+                        }
                         {filteredArray?.map((item, index) => (
                             <Dropdown.Item key={index} onClick={() => {
                                     onClick(item)

@@ -14,15 +14,15 @@ router.get("/", async (request, response) => {
 
 		validateObjectValues(params, "Por favor ingrese el tipo de Datos");
 
-		const { column, mes_coloca, anio_coloca  } = request.query;
+		const { column } = params;
 
-		const conditions = formatToQuery(request.query, ["column"])
+		// const conditions = formatToQuery(params, ["column"])
 
-		const values = await formatGraphValues(column, conditions, mes_coloca, anio_coloca);
+		const values = await formatGraphValues(column);
 
 		const graphValues = formatValuesForGraph(values);
 
-		return response.json({graphValues: graphValues})
+		return response.json({graph: graphValues})
 
 	} catch (err) {
 		return response.status(500).json({Error: err.message});

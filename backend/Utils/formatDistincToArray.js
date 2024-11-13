@@ -1,6 +1,6 @@
 const { getQuery } = require("../database/query");
 
-const formatDistinctToArray = async (column, table) => {
+const formatDistinctToArray = async (column, table="Ofertas_empleo_completo") => {
 	const columnValues = await getQuery(`
 		SELECT DISTINCT ${column} AS value
 		FROM ${table}

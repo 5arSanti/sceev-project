@@ -42,7 +42,8 @@ const AppProvider = ({children}) => {
             "/version",
             "/users",
             "/users/types",
-            "/filters"
+            "/filters",
+            "/columns"
         ]
 
         fetchData(endpoints)

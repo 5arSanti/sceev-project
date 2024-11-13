@@ -2,21 +2,22 @@
 import Chart from 'chart.js/auto';
 import React from 'react';
 
-import "./styles.css"
 import { getGraphData, getGraphOptions } from './Config';
 
-const Graph = ({values={}, index="", wrapper=false}) => {
+import "./styles.css"
 
-    
+const Graph = ({graphValues={}, index="", wrapper=false}) => {
+
+    const graph = graphValues?.graph || {};
     
     React.useEffect(() => {
-        const data = getGraphData(values);
+        const data = getGraphData(graph);
     
-        const options = getGraphOptions(values);
+        const options = getGraphOptions(graphValues);
         
         const ctx = document.getElementById(`myChart${index}`).getContext('2d');
         const myChart = new Chart(ctx, {
-            type: values?.graphType,
+            type: graphValues?.graphType,
             data: data,
             options: options,
         });
@@ -24,7 +25,7 @@ const Graph = ({values={}, index="", wrapper=false}) => {
         return () => {
             myChart.destroy();
         };
-    }, [values]);
+    }, [graphValues]);
 
     return (
         <div className={`${wrapper ? "graph-container" : ""}`}>

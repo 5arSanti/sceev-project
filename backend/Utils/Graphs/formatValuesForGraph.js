@@ -1,12 +1,10 @@
 const formatValuesForGraph = (object) => {
-    const labels = Object.keys(object);
-    const datasetLabel = Object.keys(object[labels[0]]);
+    const dataLabels = Object.keys(object);
+    const datasetLabel = ["Ofertas de empleo"] || Object.keys(object[dataLabels[0]]);
 
-    const values = datasetLabel.map(year => {
-        return labels.map(label => object[label][year]);
-    });
+    const data = dataLabels.map(label => object[label]);
 
-    return { values, labels, datasetLabel };
+    return { data, dataLabels, datasetLabel };
 }
 
 module.exports =  { formatValuesForGraph };

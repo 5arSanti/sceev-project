@@ -1,4 +1,4 @@
-const valuesColors = ["rgba(90,91,93, .6)", "rgba(224,22,30, .6)", "rgba(28,123,251,.6)"];
+const valuesColors = ["rgba(235, 54, 120, .6)", "rgba(28,123,251,.6)"];
 
 const textColor = "#000";
 

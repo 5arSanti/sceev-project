@@ -24,11 +24,10 @@ const DynamicGraphCard = () => {
     }, [graphValues?.selectedColumn])
 
     return (
-        <WrapperContainer2 flexDirection="column" padding={0}>
-            <GraphConfigOptions graphValues={graphValues} setGraphValues={setGraphValues}/>
+        <WrapperContainer2 flexDirection="column" padding={0} gap={30}>
+            <GraphConfigOptions graphValues={graphValues} setGraphValues={setGraphValues} wrapper={false}/>
 
-            <GraphContainer graphValues={graphValues} index={1} wrapper={true}/>
-
+            <GraphContainer graphValues={graphValues} index={1} wrapper={false}/>
         </WrapperContainer2>
     );
 }

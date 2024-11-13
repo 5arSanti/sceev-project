@@ -1,7 +1,7 @@
 import React from "react";
 import { handleInputChange } from "../../../../utils/handleInputChange"
 import { InputCard } from "../../InputsCards"
-import { WrapperContainer2 } from "../../WrapperContainers"
+import { WrapperContainer1, WrapperContainer2, WrapperContainer3 } from "../../WrapperContainers"
 import { AppContext } from "../../../../Context";
 import { GridContainer } from "../../GridContainer";
 import { DropCard } from "../../DropCard";
@@ -11,12 +11,17 @@ import { FaDatabase } from "react-icons/fa6";
 
 import "./styles.css"
 import { graphIcons } from "../../../../utils/Graphs/graphIcons";
+import { SubTitle } from "../../SubTitle";
 
 const GraphConfigOptions = ({ graphValues={}, setGraphValues }) => {
     const context = React.useContext(AppContext);
 
     return(
-        <WrapperContainer2 flexDirection="column" padding={0} gap={35}>
+        <WrapperContainer2 flexDirection="column" className="border-left-style shadow-style" padding={35} gap={35}>
+            <SubTitle textAlign="center" fontSize={26}>
+                Configuracion de la Gráfica
+            </SubTitle>
+
             <InputCard
                 id={"graph-title"}
                 label={"Ingresa el titulo de tu grafica"}

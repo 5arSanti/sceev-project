@@ -5,6 +5,9 @@ import { FaChartPie } from "react-icons/fa";
 import { PiChartPolarFill } from "react-icons/pi";
 import { AiOutlineRadarChart } from "react-icons/ai";
 
+import { TbAxisX } from "react-icons/tb";
+import { TbAxisY } from "react-icons/tb";
+
 const graphIcons = {
     "bar": <MdBarChart />,
     "doughnut": <BiSolidDoughnutChart />,
@@ -14,4 +17,9 @@ const graphIcons = {
     "radar": <AiOutlineRadarChart />, 
 }
 
-export { graphIcons }; 
+const axisIcons = {
+    "x": <TbAxisX />,
+    "y": <TbAxisY />,
+}
+
+export { graphIcons, axisIcons }; 

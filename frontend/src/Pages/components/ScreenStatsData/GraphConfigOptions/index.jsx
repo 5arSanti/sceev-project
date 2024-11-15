@@ -7,7 +7,7 @@ import { GridContainer } from "../../GridContainer";
 import { DropCard } from "../../DropCard";
 import { chartTypes } from "../../../../utils/chartTypes";
 
-import { graphIcons } from "../../../../utils/Graphs/graphIcons";
+import { axisIcons, graphIcons } from "../../../../utils/Graphs/graphIcons";
 import { SubTitle } from "../../SubTitle";
 import { ButtonCard } from "../../ButtonCard";
 import { FaDatabase } from "react-icons/fa6";
@@ -43,7 +43,7 @@ const GraphConfigOptions = ({ graphValues={}, setGraphValues, item={}, removeGra
                 required={false}
             />
             
-            <GridContainer>
+            <GridContainer className="grid-1-1-1">
                 <WrapperContainer2 padding={0} gap={30} className="graph-option-wrapper">
                     <FaDatabase/>
                     <DropCard
@@ -55,6 +55,7 @@ const GraphConfigOptions = ({ graphValues={}, setGraphValues, item={}, removeGra
                         seeAllOption={false}
                     />
                 </WrapperContainer2>
+                
                 <WrapperContainer2 padding={0} gap={30} className="graph-option-wrapper">
                     {graphIcons[graphValues?.graphType]}
                     <DropCard
@@ -63,6 +64,17 @@ const GraphConfigOptions = ({ graphValues={}, setGraphValues, item={}, removeGra
                         array={chartTypes}
                         value={graphValues?.graphType}
                         onClick={(event) => handleInputChange("graphType", event, setGraphValues)}
+                    />
+                </WrapperContainer2>
+
+                <WrapperContainer2 padding={0} gap={30} className="graph-option-wrapper">
+                    {axisIcons[graphValues?.indexAxis]}
+                    <DropCard
+                        seeAllOption={false}
+                        title={"Orientación de la gráfica"}
+                        array={["x", "y"]}
+                        value={graphValues?.indexAxis}
+                        onClick={(event) => handleInputChange("indexAxis", event, setGraphValues)}
                     />
                 </WrapperContainer2>
 

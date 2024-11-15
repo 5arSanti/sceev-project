@@ -1,6 +1,6 @@
 const { getQuery } = require("../database/query");
 
-const exceptValues = ["ID_Disciplina", "ID_Municipio", "ID_Departamento"]
+const exceptValues = ["ID_Disciplina", "ID_Municipio"]
 
 const getColumnNames = async (tableName="Ofertas_Empleo_Desglosado", except=exceptValues) => {
 	const query = `

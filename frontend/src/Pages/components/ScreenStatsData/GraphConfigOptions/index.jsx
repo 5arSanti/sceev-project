@@ -7,20 +7,32 @@ import { GridContainer } from "../../GridContainer";
 import { DropCard } from "../../DropCard";
 import { chartTypes } from "../../../../utils/chartTypes";
 
-import { FaDatabase } from "react-icons/fa6";
-
-import "./styles.css"
 import { graphIcons } from "../../../../utils/Graphs/graphIcons";
 import { SubTitle } from "../../SubTitle";
+import { ButtonCard } from "../../ButtonCard";
+import { FaDatabase } from "react-icons/fa6";
 
-const GraphConfigOptions = ({ graphValues={}, setGraphValues }) => {
+import { MdDeleteOutline } from "react-icons/md";
+
+import "./styles.css"
+
+const GraphConfigOptions = ({ graphValues={}, setGraphValues, item={}, removeGraphCard, index }) => {
     const context = React.useContext(AppContext);
 
     return(
-        <WrapperContainer2 flexDirection="column" className="border-left-style shadow-style" padding={35} gap={35}>
+        <WrapperContainer2 flexDirection="column" className="relative" padding={0} gap={35}>
             <SubTitle textAlign="center" fontSize={26}>
-                Configuracion de la Gráfica
+                Configuracion de la Gráfica ({index})
             </SubTitle>
+
+            <ButtonCard
+            padding={0}
+                onClick={() => removeGraphCard(item?.id)}
+                title={`Eliminar Grafica ${index}`}
+                className="delete-graph-button"
+            >
+                <MdDeleteOutline/>
+            </ButtonCard>
 
             <InputCard
                 id={"graph-title"}

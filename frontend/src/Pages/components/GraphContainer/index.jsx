@@ -9,7 +9,7 @@ import { graphIcons } from "../../../utils/Graphs/graphIcons";
 
 const GraphContainer = ({graphValues={}, index=0, title=true, wrapper=false}) => {
     return(
-        <WrapperContainer2 flexDirection="column" gap={35}>
+        <WrapperContainer2 flexDirection="column" gap={35} padding={0}>
             {title && 
                 <SubTitle textAlign="center" fontSize={26}>
                     {graphValues?.selectedColumn} - {graphValues?.title || `Gráfica de tipo ${graphValues?.graphType}`}

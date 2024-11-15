@@ -4,3 +4,21 @@
 
     fill: var(--pallete-2);
 }
+
+.delete-graph-button {
+    position: absolute;
+
+    top: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-graph-button svg {
+    width: 25px;
+    height: 25px;
+}

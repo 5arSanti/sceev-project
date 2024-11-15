@@ -4,7 +4,7 @@ import { WrapperContainer2 } from "../../WrapperContainers";
 import { AppContext } from "../../../../Context";
 import { GraphConfigOptions } from "../GraphConfigOptions";
 
-const DynamicGraphCard = () => {
+const DynamicGraphCard = ({item, removeGraphCard, index}) => {
     const context = React.useContext(AppContext);
 
     const [ graphValues, setGraphValues ] = React.useState({
@@ -24,10 +24,21 @@ const DynamicGraphCard = () => {
     }, [graphValues?.selectedColumn])
 
     return (
-        <WrapperContainer2 flexDirection="column" padding={0} gap={30}>
-            <GraphConfigOptions graphValues={graphValues} setGraphValues={setGraphValues} wrapper={false}/>
+        <WrapperContainer2 className="shadow-style" flexDirection="column" padding={40} gap={40}>
+            <GraphConfigOptions 
+                graphValues={graphValues} 
+                setGraphValues={setGraphValues} 
+                wrapper={false} 
+                item={item} 
+                removeGraphCard={removeGraphCard}
+                index={index}
+            />
 
-            <GraphContainer graphValues={graphValues} index={1} wrapper={false}/>
+            <GraphContainer 
+                graphValues={graphValues} 
+                index={index} 
+                wrapper={false}
+            />
         </WrapperContainer2>
     );
 }

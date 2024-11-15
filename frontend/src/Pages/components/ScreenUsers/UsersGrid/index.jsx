@@ -16,7 +16,7 @@ const UsersGrid = () => {
     const { users } = context.responseData || [];
 
     return(
-        <WrapperContainer2 flexDirection="column" gap={20}>
+        <WrapperContainer2 flexDirection="column" gap={20} padding={0}>
             <ButtonCard 
                 title="Crear usuario"
                 onClick={() => navigate("/register")}

@@ -4,8 +4,6 @@
     display: flex;
 
     margin: 10px 0;
-
-    /* background: radial-gradient(circle at bottom right, var(--lines-color) 1%, rgba(255, 255, 255, 0)) 10%; */
 }
 
 .section-wrapper .section-decoration{
@@ -16,4 +14,10 @@
     align-self: center;
 
     border-top: 1px solid var(--pallete-2);
+}
+
+@media (max-width: 800px) {
+    .secondary-section-wrapper {
+        padding: 30px !important;
+    }
 }

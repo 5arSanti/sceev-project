@@ -15,7 +15,7 @@ const StyledSection = ({children, image, height="100vh"}) => {
                 {children}
             </div>
 
-            <img src={image || mainHome} alt="Alternative text"/>
+            <img src={image || mainHome} alt="Main home imagen"/>
         </section>
     );
 }

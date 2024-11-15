@@ -3,9 +3,10 @@ import { AppContext } from "../../../../Context";
 import { WrapperContainer2 } from "../../WrapperContainers";
 import { UsersCard } from "../UsersCard";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ButtonCard } from "../../ButtonCard";
 import { VerifyLength } from "../../VerifyLengthWrapper";
+import { TableContainer } from "../../TableContainer";
 
 const UsersGrid = () => {
     const context = React.useContext(AppContext);
@@ -24,10 +25,8 @@ const UsersGrid = () => {
             </ButtonCard>
 
 
-            <VerifyLength array={context.responseData?.users}>
-                {users?.map((item, index) => (
-                    <UsersCard key={index} item={item}/>
-                ))}
+            <VerifyLength array={users}>
+                <TableContainer data={users}/>
             </VerifyLength>
         </WrapperContainer2>
     );

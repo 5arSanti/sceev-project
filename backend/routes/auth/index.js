@@ -42,7 +42,20 @@ router.post("/login", async (request, response) => {
 
 		const { email, password } = request.body;
 
-		const query = `SELECT * FROM Usuarios WHERE Correo = '${email}'`;
+		const query = `
+			SELECT
+				u.Cedula_Usuario,
+				u.Nombre,
+				u.Apellidos,
+				u.Correo,
+				u.Contraseña,
+				tu.ID_Tipo_Usuarios,
+				tu.Nombre AS Tipo_Usuario
+			FROM Usuarios u
+			JOIN Tipo_Usuarios tu ON u.ID_Tipo_De_Usuario = tu.ID_Tipo_Usuarios
+
+			WHERE u.Correo = '${email}'
+		`;
 
 		const dbUser = await getQuery(query);
 

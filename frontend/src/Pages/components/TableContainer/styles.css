@@ -1,0 +1,9 @@
+.scroll-wrapper {
+	width: 100%;
+	overflow-x: auto;
+	padding-bottom: 5px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

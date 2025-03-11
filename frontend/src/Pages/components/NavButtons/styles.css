@@ -59,7 +59,6 @@
 
 @media (max-width: 700px) {
 	.nav-buttons-container {
-		flex-direction: column;
 		gap: 5px;
 	}
 

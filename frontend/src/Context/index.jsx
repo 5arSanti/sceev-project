@@ -40,8 +40,6 @@ const AppProvider = ({children}) => {
     React.useEffect(() => {
         const endpoints = [
             "/version",
-            "/users",
-            "/users/types",
             "/filters",
             "/columns"
         ]

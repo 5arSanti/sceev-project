@@ -1,36 +1,34 @@
 const express = require("express");
-const { verifyUser } = require("../../middlewares/verifyUser");
+const { verifyUser, handleUserInfo } = require("../../middlewares/verifyUser");
 const { getQuery } = require("../../database/query");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 
-const PropertiesReader = require('properties-reader');
 const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
 const { validatePassword } = require("../../Utils/Validate/validatePassword");
-const properties = PropertiesReader('./app.properties.ini');
 
 const router = express.Router();
 
 const salt = 10;
 
 
-router.get("/", verifyUser, (request, response) => {
+router.get("/", handleUserInfo, (request, response) => {
 	try {
-		return response.status(200).json({Status: "Success", ...request.user});
+		return response.status(200).json({ Status: "Success", ...request.user });
 	}
 	catch (err) {
-		return response.status(500).json({Error: err.message});
+		return response.status(500).json({ Error: err.message });
 	}
 });
 
 router.get("/logout", (request, response) => {
 	try {
 		response.clearCookie("authToken")
-		return response.json({Status: "Success", message: "Sesion Cerrada Correctamente"});
+		return response.json({ Status: "Success", message: "Sesion Cerrada Correctamente" });
 	}
 	catch (err) {
-		return response.status(500).json({Error: err.message});
+		return response.status(500).json({ Error: err.message });
 	}
 
 })
@@ -65,22 +63,22 @@ router.post("/login", async (request, response) => {
 
 		const passStatus = await bcrypt.compare(password.toString(), dbUser[0].Contraseña);
 
-		if(!passStatus) { return response.status(404).json({ Error: "La contraseña es incorrecta" }); }
+		if (!passStatus) { return response.status(404).json({ Error: "La contraseña es incorrecta" }); }
 
 
 		const user = dbUser[0];
-		const token = jwt.sign({user: user}, `${properties.get("app.login.token")}`, {expiresIn: "1d"});
+		const token = jwt.sign({ user: user }, `${process.env.LOGIN_TOKEN}`, { expiresIn: "1d" });
 		response.cookie("authToken", token);
 
-		return response.json({ Status: "Success", message: "Sesión iniciada correctamente"});
+		return response.json({ Status: "Success", message: "Sesión iniciada correctamente" });
 
 	} catch (err) {
-		return response.json({Error: err.message})
+		return response.json({ Error: err.message })
 	}
 });
 
 
-router.post("/register", async (request, response) => {
+router.post("/register", verifyUser, async (request, response) => {
 	try {
 		validateObjectValues(request.body);
 
@@ -90,7 +88,7 @@ router.post("/register", async (request, response) => {
 
 		const dbUser = await getQuery(`SELECT * FROM Usuarios WHERE Cedula_Usuario = ${id} OR Correo = '${email}'`);
 
-		if(dbUser.length !== 0) { return response.json({Error: "El usuario con este numero de cedula o correo ya esta registrado"}); }
+		if (dbUser.length !== 0) { return response.json({ Error: "El usuario con este numero de cedula o correo ya esta registrado" }); }
 
 		const hash = await bcrypt.hash(password.toString(), salt);
 
@@ -102,10 +100,10 @@ router.post("/register", async (request, response) => {
 
 		await getQuery(query);
 
-		return response.json({Status: "Success", message: "Usuario creado correctamente"});
+		return response.json({ Status: "Success", message: "Usuario creado correctamente" });
 	}
 	catch (err) {
-		return response.json({Error: err.message})
+		return response.json({ Error: err.message })
 	}
 });
 

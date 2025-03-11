@@ -1,20 +1,13 @@
-const PropertiesReader = require("properties-reader");
-const properties = PropertiesReader("./app.properties.ini")
 const jwt = require("jsonwebtoken");
 
-
-
-const verifyUser = (request, response, next) => {
+const handleUserInfo = (request, response, next) => {
 	const token = request.cookies.authToken;
 
-	if(!token) {
-		return response.json({Error: "No estas Autenticado"})
-	}
+	if (!token) { return }
 
-
-	jwt.verify(token, `${properties.get("app.login.token")}`, (err, decoded) => {
+	jwt.verify(token, `${process.env.LOGIN_TOKEN}`, (err, decoded) => {
 		if (err) {
-			return response.json({Error: "Error con el Token de autenticación"})
+			return response.status(401).json({ Error: "Error con el Token de autenticación" })
 		}
 
 		request.user = decoded;
@@ -22,4 +15,22 @@ const verifyUser = (request, response, next) => {
 	})
 }
 
-module.exports = { verifyUser };
+const verifyUser = (request, response, next) => {
+	const token = request.cookies.authToken;
+
+	if (!token) {
+		return response.status(401).json({ Error: "No estas Autenticado" })
+	}
+
+
+	jwt.verify(token, `${process.env.LOGIN_TOKEN}`, (err, decoded) => {
+		if (err) {
+			return response.status(401).json({ Error: "Error con el Token de autenticación" })
+		}
+
+		request.user = decoded;
+		next();
+	})
+}
+
+module.exports = { verifyUser, handleUserInfo };

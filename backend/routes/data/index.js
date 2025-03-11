@@ -14,9 +14,10 @@ const { getDate } = require("../../Utils/getDate");
 const { arrayToString } = require("../../Utils/arrayToString");
 const { validateFiles } = require("../../Utils/Files/validateFiles");
 const { insertValuesInTable } = require("../../Utils/Tables/insertValuesInTable");
+const { verifyUser } = require("../../middlewares/verifyUser");
 
 // POST
-router.post("/", upload.single("process-file"), async (request, response) => {
+router.post("/", verifyUser, upload.single("process-file"), async (request, response) => {
 	try {
 		const startDate = getDate();
 

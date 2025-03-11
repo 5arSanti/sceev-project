@@ -1,14 +1,10 @@
 const sql = require("mssql");
 
-
-const PropertiesReader = require('properties-reader');
-const properties = PropertiesReader('./app.properties.ini');
-
 const sqlConfig = {
-	user: `${properties.get('app.database.user')}`,
-	password: `${properties.get('app.database.password')}`,
-	database: `${properties.get('app.database.database')}`,
-	server: `${properties.get('app.database.server')}`,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_DATABASE,
+	server: process.env.DB_SERVER,
 	pool: {
 		max: 10,
 		min: 0,

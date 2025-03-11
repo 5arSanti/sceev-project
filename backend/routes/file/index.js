@@ -1,11 +1,12 @@
 const express = require("express");
 const upload = require("../../middlewares/multer.config");
 const { readFile } = require("../../Utils/files/readFile");
+const { verifyUser } = require("../../middlewares/verifyUser");
 
 
 const router = express.Router();
 
-router.post("/upload", upload.single("file"), async (request, response) => {
+router.post("/upload", verifyUser, upload.single("file"), async (request, response) => {
 	try {
 		const uploadedFile = request.file;
 

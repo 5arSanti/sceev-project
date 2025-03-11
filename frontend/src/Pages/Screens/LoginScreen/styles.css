@@ -40,5 +40,6 @@
 @media (max-width: 1100px ) {
 	.login-container {
 		width: 90%;
+        padding: 50px !important;
 	}
 }

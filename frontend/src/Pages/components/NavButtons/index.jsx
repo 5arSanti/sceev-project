@@ -17,29 +17,30 @@ import { IoLogOutOutline } from "react-icons/io5";
 import "./styles.css";
 
 
-const NavButtons = ({className="nav-buttons animacion2"}) => {
-    const context = React.useContext(AppContext)
-    
+const NavButtons = ({ className = "nav-buttons animacion2" }) => {
+    const { auth, windowWidth } = React.useContext(AppContext)
 
-    return(
+    const seeDetails = windowWidth > 800;
+
+    return (
         <div className="nav-buttons-container">
-            <Link to={"/home"} className={className}>Home <FaHome/></Link>
-            <Link to={"/stats"} className={className}>Estadistica <SlGraph/></Link>
+            <Link to={"/home"} className={className}>{seeDetails ? "Home" : ""} <FaHome /></Link>
+            <Link to={"/stats"} className={className}>{seeDetails ? "Estadistica" : ""} <SlGraph /></Link>
 
-            {!context.auth && 
-                <Link to={"/login"} className={`${className}`}>Iniciar Sesión <FaUser/></Link>
+            {!auth &&
+                <Link to={"/login"} className={`${className}`}>{seeDetails ? "Iniciar Sesión" : ""} <FaUser /></Link>
             }
 
             <IsAuthWrapper>
-                <Link to={"/upload"} className={`${className}`}>Publicar <MdUploadFile/></Link>
-                <Link to={"/users"} className={`${className}`}>Usuarios <FaUsers/></Link>
-                
-                <button  
-                    className={`${className}`} 
+                <Link to={"/upload"} className={`${className}`}>{seeDetails ? "Publicar" : ""} <MdUploadFile /></Link>
+                <Link to={"/users"} className={`${className}`}>{seeDetails ? "Usuarios" : ""} <FaUsers /></Link>
+
+                <button
+                    className={`${className}`}
                     onClick={handleLogout}
                 >
                     Cerrar Sesión
-                    <IoLogOutOutline/>
+                    <IoLogOutOutline />
                 </button>
             </IsAuthWrapper>
         </div>

@@ -1,0 +1,15 @@
+const { normalizePort } = require('../Utils/Normalize/normalizePort');
+
+var serverApp = require('../server.js');
+var http = require('http');
+
+
+var port = normalizePort(process.env.PORT || '3080');
+
+serverApp.set('port', port);
+
+var server = http.createServer(serverApp);
+
+server.listen(port, () => {
+	console.log(`Server is running on port http://localhost:${port}`);
+});

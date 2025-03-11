@@ -1,12 +1,13 @@
 {
   "name": "sceev-backend",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "private": "false",
   "description": "Backend for SCEEV project",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "prod": "node index.js"
+    "dev": "nodemon --env-file=.env bin/www",
+    "prod": "node --env-file=.env bin/www",
+    "start": "node bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

@@ -2,7 +2,6 @@ const express = require("express");
 
 const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
 const { transformQueryParams } = require("../../Utils/transformQueryParams");
-const { formatToQuery } = require("../../Utils/formatToQuery");
 const { formatGraphValues } = require("../../Utils/graphs/formatGraphValues");
 const { formatValuesForGraph } = require("../../Utils/graphs/formatValuesForGraph");
 

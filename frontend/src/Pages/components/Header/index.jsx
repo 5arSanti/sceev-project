@@ -10,7 +10,7 @@ const Header = () => {
 
     return(
         <nav className="nav-container animacion-nav">
-            <NavLink to="/">
+            <NavLink to="/home">
                 {/* <img src={mainLogo} alt="" /> */}
                 <TextCard fontSize={18} className="nav-buttons animacion2">SCEEV</TextCard>
             </NavLink>

@@ -3,7 +3,6 @@ import axios from "axios";
 
 import { AppContext } from "../../../Context";
 
-import { SubTitle } from "../../components/SubTitle";
 import { useNavigate } from "react-router-dom";
 
 import { handleNotifications } from "../../../utils/handleNotifications";
@@ -14,7 +13,6 @@ import { api } from "../../../utils/api";
 
 import "./styles.css";
 import { StyledSection } from "../../components/StyledSection";
-import { Title } from "../../components/Title";
 import { WrapperContainer2 } from "../../components/WrapperContainers";
 import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { TextCard } from "../../components/TextComponents";
@@ -59,15 +57,16 @@ const LoginScreen = () => {
 
     return(
         <AuthWrapper>
-            <StyledSection height="auto">
-                <FadeWrapper>
-                    <WrapperContainer2 padding={30} flexDirection="column" justifyContent="center" alignItems="center">
+            <StyledSection>
+                <FadeWrapper height="auto">
+                    <WrapperContainer2 height="auto" padding={30} flexDirection="column" justifyContent="center" alignItems="center">
                         <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al"/>
 
                         <WrapperContainer2 
                             className="login-container" 
                             flexDirection="column"
-                            padding={"50px 75px"} gap={30}
+                            padding={"50px 75px"} 
+                            gap={30}
                             height="auto"
                         >
                             <TextCard textAlign="center" white={true} fontSize={18}>

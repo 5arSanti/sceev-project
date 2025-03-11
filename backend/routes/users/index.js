@@ -7,9 +7,10 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
 const { validatePassword } = require("../../Utils/Validate/validatePassword");
+const { verifyUser } = require("../../middlewares/verifyUser");
 
 
-router.get("/", async (request, response) => {
+router.get("/", verifyUser, async (request, response) => {
 	try {
 		const query = `
 			SELECT
@@ -32,7 +33,7 @@ router.get("/", async (request, response) => {
 	}
 });
 
-router.delete("/", async (request, response) => {
+router.delete("/", verifyUser, async (request, response) => {
 	try {
 		const cedulaUsuario = request.body.id;
 
@@ -52,7 +53,7 @@ router.delete("/", async (request, response) => {
 });
 
 const salt = 10;
-router.patch("/", async (request, response) => {
+router.patch("/", verifyUser, async (request, response) => {
 	try {
 		const id = request.body.id;
 
@@ -87,7 +88,7 @@ router.patch("/", async (request, response) => {
 	}
 });
 
-router.get("/types", async (request, response) => {
+router.get("/types", verifyUser, async (request, response) => {
 	try {
 		const userTypes = await getQuery(`
 			SELECT

@@ -4,6 +4,8 @@ import { handleNotifications } from "../handleNotifications";
 
 
 axios.defaults.withCredentials = true;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 const handleAuthRequest = async (context, navigate) => {
     const { setUser, setAuth } = context;

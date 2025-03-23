@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const handleUserInfo = (request, response, next) => {
 	const token = request.cookies.authToken;
 
-	if (!token) { return }
+	if (!token) { return response.json({ Error: "Token no proporcionado" });  }
 
 	jwt.verify(token, `${process.env.LOGIN_TOKEN}`, (err, decoded) => {
 		if (err) {

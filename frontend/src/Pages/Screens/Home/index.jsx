@@ -11,7 +11,6 @@ import { SectionFiltersResults } from "../../components/ScreenHome/SectionResult
 
 const Home = () => {
     return (
-
         <AuthWrapper>
             <WrapperContainer2 flexDirection="column" padding={0} gap={0}>
 

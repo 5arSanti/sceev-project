@@ -68,7 +68,12 @@ router.post("/login", async (request, response) => {
 
 		const user = dbUser[0];
 		const token = jwt.sign({ user: user }, `${process.env.LOGIN_TOKEN}`, { expiresIn: "1d" });
-		response.cookie("authToken", token);
+		response.cookie("authToken", token, {
+			httpOnly: true,
+			maxAge: 24 * 60 * 60 * 1000,
+			sameSite: "none",
+			secure: true
+		});
 
 		return response.json({ Status: "Success", message: "Sesión iniciada correctamente" });
 

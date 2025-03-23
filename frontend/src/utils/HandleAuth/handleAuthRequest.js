@@ -10,7 +10,7 @@ axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 const handleAuthRequest = async (context, navigate) => {
     const { setUser, setAuth } = context;
 
-    await axios.get(`${api}/auth/`, { mode: "cors" })
+    axios.get(`${api}/auth/`)
         .then(response => {
             const { data } = response;
 

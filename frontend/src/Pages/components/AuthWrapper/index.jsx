@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { NotFoundCard } from "../NotFoundCard";
 import { handleAuthRequest } from "../../../utils/HandleAuth/handleAuthRequest";
 
-const AuthWrapper = ({children}) => {
+const AuthWrapper = ({ children }) => {
     const context = React.useContext(AppContext);
 
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ const AuthWrapper = ({children}) => {
     );
 }
 
-const IsAuthWrapper = ({children, notFound=false}) => {
+const IsAuthWrapper = ({ children, notFound = false }) => {
     const context = React.useContext(AppContext);
 
     const { auth } = context || false;
@@ -30,7 +30,7 @@ const IsAuthWrapper = ({children, notFound=false}) => {
     }
 
     if (notFound) {
-        return <NotFoundCard/>
+        return <NotFoundCard />
     }
 
     return;

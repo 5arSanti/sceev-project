@@ -33,39 +33,39 @@ const LoginScreen = () => {
 
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
-    
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         context.setLoading(true);
         event.preventDefault();
 
-        axios.post(`${api}/auth/login`, values)
+        await axios.post(`${api}/auth/login`, values, { withCredentials: true })
             .then(response => {
-                const {data} = response;
+                const { data } = response;
 
-                if(data.Status === "Success") {
+                if (data.Status === "Success") {
                     handleNotifications("success", data.message);
                     navigate("/home");
                 } else {
                     handleNotifications("error", data.Error)
                 }
-                
+
                 return;
             })
             .catch(err => { handleNotifications("error", err.message) })
             .finally(() => { context.setLoading(false); });
     }
 
-    return(
+    return (
         <AuthWrapper>
             <StyledSection>
                 <FadeWrapper height="auto">
                     <WrapperContainer2 height="auto" padding={30} flexDirection="column" justifyContent="center" alignItems="center">
-                        <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al"/>
+                        <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al" />
 
-                        <WrapperContainer2 
-                            className="login-container" 
+                        <WrapperContainer2
+                            className="login-container"
                             flexDirection="column"
-                            padding={"50px 75px"} 
+                            padding={"50px 75px"}
                             gap={30}
                             height="auto"
                         >

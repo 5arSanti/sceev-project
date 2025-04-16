@@ -9,10 +9,12 @@ const SectionGraphs = () => {
     const [graphCards, setGraphCards] = React.useState([]);
 
     const addGraphCard = () => {
-        setGraphCards([...graphCards, { id: Date.now() }]);
+        if (graphCards.length < 5) {
+            setGraphCards([...graphCards, { id: Date.now() }]);
+        }
     };
-    
-      const removeGraphCard = (id) => {
+
+    const removeGraphCard = (id) => {
         setGraphCards(graphCards.filter((card) => card.id !== id));
     };
 
@@ -20,24 +22,28 @@ const SectionGraphs = () => {
         addGraphCard();
     }, [])
 
-    return(
+    return (
         <SectionWrapper>
-            <SectionTitle title="Informacion grafica" subTitle="Visualiza tus oportunidades..."/>
+            <SectionTitle title="Informacion grafica" subTitle="Visualiza tus oportunidades..." />
 
             {graphCards?.map((item, index) => (
-                <DynamicGraphCard 
+                <DynamicGraphCard
                     key={index}
                     index={index + 1}
-                    item={item} 
+                    item={item}
                     removeGraphCard={removeGraphCard}
                 />
             ))}
-            <ButtonCard
-                title="Añadir nueva informacion Grafica"
-                onClick={addGraphCard}
-            >
-                Añadir nueva visualización gráfica <IoIosAddCircleOutline/>
-            </ButtonCard>
+            {graphCards.length < 5 &&
+                <ButtonCard
+                    title="Añadir nueva informacion Grafica"
+                    onClick={addGraphCard}
+                    disabled={graphCards.length >= 5}
+                >
+
+                    Añadir nueva visualización gráfica <IoIosAddCircleOutline />
+                </ButtonCard>
+            }
         </SectionWrapper>
     );
 }

@@ -22,7 +22,7 @@ let storage = multer.diskStorage({
 	}
 })
 
-const fileFilter = (request, file, callback) => {
+const fileFilter = (_, file, callback) => {
 	const allowedMimeTypes = [
 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 		"application/vnd.ms-excel"

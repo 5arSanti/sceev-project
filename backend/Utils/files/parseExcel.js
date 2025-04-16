@@ -17,7 +17,10 @@ const parseExcel = async (filePath, columns) => {
 
 		const rows = xlsx.utils.sheet_to_json(sheet, { defval: null });
 
+		if (rows.length === 0) { throw new Error("El archivo Excel está vacío."); }
+
 		const headers = Object.keys(rows[0] || {});
+
 		const missingColumns = columns.filter((col) => !headers.includes(col));
 
 		if (missingColumns.length > 0) {

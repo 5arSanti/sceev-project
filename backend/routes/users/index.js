@@ -1,9 +1,7 @@
 const express = require("express");
 const { getQuery } = require("../../database/query");
-const { connection } = require("../../database");
 
 const router = express.Router();
-const bcrypt = require("bcrypt");
 
 const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
 const { verifyUser } = require("../../middlewares/verifyUser");

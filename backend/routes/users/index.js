@@ -2,11 +2,10 @@ const express = require("express");
 const { getQuery } = require("../../database/query");
 const { connection } = require("../../database");
 
-
 const router = express.Router();
 const bcrypt = require("bcrypt");
+
 const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
-const { validatePassword } = require("../../Utils/Validate/validatePassword");
 const { verifyUser } = require("../../middlewares/verifyUser");
 
 
@@ -26,10 +25,10 @@ router.get("/", verifyUser, async (request, response) => {
 
 		const users = await getQuery(query)
 
-		return response.json({users: users})
+		return response.json({ users: users })
 	}
 	catch (err) {
-		return response.json({Error: err.message})
+		return response.json({ Error: err.message })
 	}
 });
 
@@ -39,52 +38,33 @@ router.delete("/", verifyUser, async (request, response) => {
 
 		const query = `DELETE FROM Usuarios WHERE Cedula_Usuario = ${cedulaUsuario}`;
 
-		connection.query(query, (err) => {
-			if(err) {
-				return response.status(500).json({ Error: err.message });
-			}
+		await getQuery(query);
 
-			return response.json({ Status: "Success", message: "Usuario eliminado correctamente" });
-		});
+		return response.json({ Status: "Success", message: "Usuario eliminado correctamente" });
 	}
 	catch (err) {
-		return response.status(500).json({Error: err.message});
+		return response.status(500).json({ Error: err.message });
 	}
 });
 
-const salt = 10;
 router.patch("/", verifyUser, async (request, response) => {
 	try {
-		const id = request.body.id;
+		const { id, names, surnames, userTypeId } = request.body;
 
 		validateObjectValues(request.body);
-		validatePassword(request.body.password, request.body.confirmPassword)
 
 		const query = `
-			UPDATE login
-			SET name=?, email=?, password=?
-			WHERE id = ?
+			UPDATE Usuarios
+			SET Nombre = ${names}, Apellidos = ${surnames}, ID_Tipo_De_Usuario = ${userTypeId}
+			WHERE Cedula_Usuario = ${id}
 		`;
 
-		bcrypt.hash(request.body.password.toString(), salt, (err, hash) => {
-			if (err) { return response.json({Error: "Error hashing password"}); }
+		await getQuery(query)
 
-			const values = [
-				request.body.name,
-				request.body.email,
-				hash,
-				id,
-			]
-
-			connection.query(query, [...values], (err) => {
-				if(err) { return response.json({Error: "Error editando el usuario"}) }
-
-				return response.json({Status: "Success", message: "Usuario editado correctamente"});
-			});
-		});
+		return response.status(200).json({ Status: "Success", message: "Usuario actualizado correctamente" });
 	}
 	catch (err) {
-		return response.status(500).json({Error: err.message});
+		return response.status(500).json({ Error: err.message });
 	}
 });
 
@@ -97,10 +77,10 @@ router.get("/types", verifyUser, async (request, response) => {
 			FROM Tipo_Usuarios
 		`);
 
-		return response.status(200).json({userTypes: userTypes})
+		return response.status(200).json({ userTypes: userTypes })
 	}
 	catch (err) {
-		return response.status(500).json({Error: err.message});
+		return response.status(500).json({ Error: err.message });
 	}
 })
 

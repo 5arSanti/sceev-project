@@ -3,15 +3,15 @@ import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 
 
-const handlePostData = async (event, object, endpoint, callback = reloadLocation, headers={}) => {
+const handlePostData = async (event, object, endpoint, callback = reloadLocation, headers = {}) => {
     event.preventDefault();
 
     try {
         const url = `${api}${endpoint}`;
 
         const options = {
-            method: 'POST', 
-            mode:'cors',
+            method: 'POST',
+            mode: 'cors',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
@@ -20,11 +20,11 @@ const handlePostData = async (event, object, endpoint, callback = reloadLocation
             },
             body: JSON.stringify(object)
         };
-      
+
         const response = await fetch(url, options);
         const data = await response.json();
 
-        if(data.Status === "Success") {
+        if (data.Status === "Success") {
             handleNotifications("success", data.message);
             callback();
 
@@ -32,7 +32,7 @@ const handlePostData = async (event, object, endpoint, callback = reloadLocation
         } else {
             handleNotifications("error", data.Error)
         }
-      
+
     } catch (err) {
         handleNotifications('error', err);
     }
@@ -42,28 +42,27 @@ const handlePostData = async (event, object, endpoint, callback = reloadLocation
 
 const handlePostFile = async (event, object, endpoint, callback = reloadLocation) => {
     event.preventDefault();
-
     try {
         const url = `${api}${endpoint}`;
 
         const options = {
-            method: 'POST', 
-            mode:'cors',
-
+            method: 'POST',
+            mode: 'cors',
+            credentials: 'include',
             body: object
         };
-      
+
         const response = await fetch(url, options);
         const data = await response.json();
 
-        if(data.Status === "Success") {
+        if (data.Status === "Success") {
             handleNotifications("success", data.message);
-            
+
             callback(data);
         } else {
             handleNotifications("error", data.Error)
         }
-      
+
     } catch (err) {
         handleNotifications('error', err);
     }

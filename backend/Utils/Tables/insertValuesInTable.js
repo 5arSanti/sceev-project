@@ -1,34 +1,25 @@
 const { getQuery } = require("../../database/query");
 
 const insertValuesInTable = async (tableName, correctRows) => {
-	try {
-		if (!correctRows) { return };
 
-		const array = correctRows;
-
-		const promises = array.map(async (item) => {
-
-			const keys = Object.keys(item.data).join(", ");
-			const values = Object.values(item.data).map(item =>
-				typeof item === 'string' ? `'${item}'` : item
-			).
-			join(", ");
-
-			const query = `
-				INSERT INTO ${tableName} (${keys}) VALUES
-				(${values})
-			`;
-
-			await getQuery(query);
-		});
-
-		await Promise.all(promises);
-
+	if (!correctRows || correctRows.length === 0) {
 		return;
 	}
-	catch (err) {
-		throw new Error(err);
-	}
-}
+
+	const keys = Object.keys(correctRows[0].data).join(", ");
+
+	const values = correctRows.map((item) => {
+		return `(${Object.values(item.data)
+			.map((value) => (typeof value === "string" ? `'${value}'` : value))
+			.join(", ")})`;
+	}).join(", ");
+
+	const query = `
+		INSERT INTO ${tableName} (${keys}) VALUES
+		${values}
+	`;
+
+	return await getQuery(query);
+};
 
 module.exports = { insertValuesInTable };

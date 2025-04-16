@@ -35,9 +35,9 @@ const validateFileOption = (option) => {
 const validateFileExtension = (file) => {
 	const extension = file.filename.split('.').pop();
 
-    const message = `Por favor, cargue un archivo csv, no un archivo ${extension}.`;
+    const message = `Por favor, cargue un archivo xlsx, no un archivo ${extension}.`;
 
-    if (extension != "csv") {
+    if (extension != "xlsx") {
         throw new Error(message);
     }
     return;

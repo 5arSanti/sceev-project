@@ -1,5 +1,6 @@
 *.pdf
 *.xlsx
+*.csv
 
 *.properties.env
 *.env

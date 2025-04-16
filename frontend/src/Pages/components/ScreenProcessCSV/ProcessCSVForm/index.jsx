@@ -22,9 +22,9 @@ const ProcessCSVForm = () => {
     });
 
     const handleFileUpload = async (event) => {
+        context.setLoading(true);
+        
         try {
-            context.setLoading(true);
-            
             event.preventDefault();
 
             validateFile(values?.files);
@@ -59,11 +59,11 @@ const ProcessCSVForm = () => {
                 <GridContainer className="grid-075-125">
                     <UploadFileCard
                         id={"process-file"}
-                        accept=".csv"
-                        onChange={(event) => handleFileChange(event, ['.csv'], setValues)}
+                        accept=".xlsx"
+                        onChange={(event) => handleFileChange(event, ['.xlsx'], setValues)}
                         filesArray={values?.files}
                         multiple={false}
-                        info="Archivo CSV (.csv)"
+                        info="Archivo Excel (.xlsx)"
                     />
                     <WrapperContainer2 flexDirection="column" gap={25}>
                         <SubTitle>

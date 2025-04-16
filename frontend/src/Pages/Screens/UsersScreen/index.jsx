@@ -1,7 +1,6 @@
 import React from "react";
 import { AuthWrapper, IsAuthWrapper } from "../../components/AuthWrapper";
 import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
-import { SectionActualUser } from "../../components/ScreenUsers/SectionActualUser";
 import { SectionUsersList } from "../../components/ScreenUsers/SectionUsersList";
 import { StyledSection } from "../../components/StyledSection";
 
@@ -30,8 +29,6 @@ const UsersScreen = () => {
                         icon={<FaUsers />}
                     />
                 </StyledSection>
-
-                <SectionActualUser />
 
                 <SectionUsersList />
             </IsAuthWrapper>

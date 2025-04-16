@@ -25,29 +25,29 @@ const SectionActualUser = () => {
                     textAlign="center"
                     titleSize={14}
                     textSize={20}
-                    text={user.Nombre}
                     subTitle={"Nombre:"}
+                    text={user.Nombre}
                 />
                 <SubInfoCard
                     textAlign="center"
                     titleSize={14}
                     textSize={20}
-                    text={user.Apellidos}
                     subTitle={"Apellidos:"}
+                    text={user.Apellidos}
                 />
                 <SubInfoCard
                     textAlign="center"
                     titleSize={14}
                     textSize={20}
-                    text={user.Correo}
                     subTitle={"Correo electronico:"}
+                    text={user.Correo}
                 />
                 <SubInfoCard
                     textAlign="center"
                     titleSize={14}
                     textSize={20}
-                    text={user.Tipo_Usuario}
                     subTitle={"Tipo de usuario:"}
+                    text={user.Tipo_Usuario}
                 />
             </WrapperContainer2>
 

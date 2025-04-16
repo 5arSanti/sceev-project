@@ -1,6 +1,6 @@
 {
   "name": "sceev-frontend",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "private": "false",
   "description": "Frontend for SCEEV project",
   "type": "module",
@@ -21,6 +21,7 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
+    "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.23.1",
     "react-simple-maps": "^3.0.0",
     "react-slick": "^0.30.2",

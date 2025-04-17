@@ -27,7 +27,7 @@ def test_scroll_to_interactive_map(driver, base_url):
     time.sleep(1)
     
     home.scroll_to_element_smooth(home.SEARCH_INPUT)
-    home.get_input_and_type_text(home.SEARCH_INPUT, "Analista")
+    home.get_input_and_type_text(home.SEARCH_INPUT, "Ingeniero")
     
     time.sleep(1)
     

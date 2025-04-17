@@ -45,6 +45,7 @@ const SectionFiltersResults = () => {
                             />
                         ))}
                     </ScrollableWrapper>
+                    
                     <PaginationButtons data={ofertsData} setState={context.setOfertsFilter}/>
                 </WrapperContainer2>
             </GridContainer>

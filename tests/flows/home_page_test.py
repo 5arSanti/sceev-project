@@ -67,7 +67,7 @@ def test_scroll_to_interactive_map(driver, base_url):
     
     home.scroll_to_element_smooth(home.OFERTS_RESULTS)
     time.sleep(1)
-    home.get_input_and_type_text(home.SEARCH_INPUT, "")
+    home.get_input_and_type_text(home.SEARCH_INPUT, "oferta")
     
     time.sleep(1)
     
@@ -81,6 +81,8 @@ def test_scroll_to_interactive_map(driver, base_url):
     time.sleep(3)
     
     
+    home.scroll_to_element_smooth(home.NEXT_BTN)
+    time.sleep(2)
     home.wait_and_click(home.NEXT_BTN)
     time.sleep(2)
     home.wait_and_click(home.NEXT_BTN)

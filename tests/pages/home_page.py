@@ -19,10 +19,10 @@ class HomePage:
     OPTION_DOCTORADO = (By.CSS_SELECTOR, "a#option-Doctorado")
     OPTION_TODO = (By.CSS_SELECTOR, "a#option-todo-Nivel_Estudios")
     
-    HOME_BTN = (By.CSS_SELECTOR, "button[id*='home-page-pagination']")
-    BACK_BTN = (By.CSS_SELECTOR, "button[id*='back-page-pagination']")
-    NEXT_BTN = (By.CSS_SELECTOR, "button[id*='next-page-pagination']")
-    LAST_BTN = (By.CSS_SELECTOR, "button[id*='last-page-pagination']")
+    HOME_BTN = (By.CSS_SELECTOR, "button.home-page-pagination")
+    BACK_BTN = (By.CSS_SELECTOR, "button.back-page-pagination")
+    NEXT_BTN = (By.CSS_SELECTOR, "button.next-page-pagination")
+    LAST_BTN = (By.CSS_SELECTOR, "button.last-page-pagination")
 
 
     def __init__(self, driver, base_url):

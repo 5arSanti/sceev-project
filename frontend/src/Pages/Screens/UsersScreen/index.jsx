@@ -26,8 +26,6 @@ const UsersScreen = () => {
         userTypeId: null,
     })
 
-    console.log(values)
-
     React.useEffect(() => {
         const endpoints = [
             "/users",
@@ -49,7 +47,9 @@ const UsersScreen = () => {
 
     const handleUpdate = async (updatedValues) => {
         setLoading(true);
+        
         await handlePatchData(updatedValues, "/users");
+        
         setLoading(false);
     };
 

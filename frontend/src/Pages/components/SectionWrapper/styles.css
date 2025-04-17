@@ -6,7 +6,7 @@
     margin: 10px 0;
 }
 
-.section-wrapper .section-decoration{
+.section-wrapper .section-decoration {
     width: 85%;
     box-sizing: border-box;
 
@@ -16,7 +16,7 @@
     border-top: 1px solid var(--pallete-2);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
     .secondary-section-wrapper {
         padding: 30px !important;
     }

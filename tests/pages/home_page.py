@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class HomePage:
+    
     URL = "#/home"
     SECTION_INTERACTIVE_MAP = (By.ID, "section-interactive-map")
     DEPARTMENT = (By.NAME, "Huila")
@@ -12,6 +13,9 @@ class HomePage:
     SEARCH_INPUT = (By.NAME, "search")
     OFERTS_RESULTS = (By.CLASS_NAME, "oferts-results-grid")
     CLEAR_DEPARTMENT_SELECTION_BTN = (By.CLASS_NAME, "clear-department-selection")
+    RESULTS_SCROLLABLE_WRAPPER = (By.CSS_SELECTOR, ".oferts-results-grid .scrollable-wrapper-container")
+    FIRST_RESULT = (By.CSS_SELECTOR, ".oferts-results-grid .scrollable-wrapper-container a")
+
 
     def __init__(self, driver, base_url):
         self.driver = driver
@@ -43,4 +47,5 @@ class HomePage:
             EC.element_to_be_clickable(locator)
         )
         element.click()
+
 

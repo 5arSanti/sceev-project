@@ -5,11 +5,9 @@ import { AppContext } from "../../../Context";
 
 import { useNavigate } from "react-router-dom";
 
-import { handleNotifications } from "../../../utils/handleNotifications";
 import { scrollToValue } from "../../../utils/scrollToValue";
 import { InputCard } from "../../components/InputsCards";
 import { handleInputChange } from "../../../utils/handleInputChange";
-import { api } from "../../../utils/api";
 
 import "./styles.css";
 import { StyledSection } from "../../components/StyledSection";

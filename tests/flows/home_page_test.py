@@ -8,8 +8,27 @@ def test_scroll_to_interactive_map(driver, base_url):
     home.open()
     
     time.sleep(2)
+    
+    home.scroll_to_element_smooth(home.OFERTS_RESULTS)
+    
+    time.sleep(2)
 
     home.scroll_to_element_smooth(home.SECTION_INTERACTIVE_MAP)
+    
+    time.sleep(1)
+    
+    element = home.get_element_by_id(home.DEPARTMENT)
+    home.click_on_element(element)    
 
+    time.sleep(1)
+    
+    home.scroll_to_element_smooth(home.SEARCH_INPUT)
+    home.get_input_and_type_text(home.SEARCH_INPUT, "Analista")
+    
+    time.sleep(1)
+    
+    home.scroll_to_element_smooth(home.OFERTS_RESULTS)
+    
     time.sleep(2)
+    
     

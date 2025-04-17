@@ -29,7 +29,7 @@ const SectionFiltersResults = () => {
             <GridContainer className="grid-075-125" padding={0} gap={30}>
                 <FiltersContainer/>
 
-                <WrapperContainer2 padding={0} flexDirection="column">
+                <WrapperContainer2 padding={0} flexDirection="column" className="oferts-results-grid">
                     <SubTitle>Resultados.</SubTitle>
                     <TextCard fontSize={16}>
                         Usted se encuentra en la pagina ({ofertsData?.currentPage}) de ({ofertsData?.totalPages}). <br />

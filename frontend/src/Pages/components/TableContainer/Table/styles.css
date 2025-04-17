@@ -2,13 +2,19 @@
 	width: 100%;
 
 	box-sizing: border-box;
-	border: 1px solid #FFF;
+
+	padding: 5px;
+	box-sizing: border-box;
+
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 .table-container th {
 	max-width: 250px;
 
 	background-color: var(--lines-color);
+
 	border: 1px solid var(--white);
 	color: var(--white);
 	border-top: none;
@@ -19,6 +25,8 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-align: center;
+
+	font-size: 14px;
 }
 
 .table-container td {
@@ -26,10 +34,25 @@
 
 	box-sizing: border-box;
 	border: 1px solid var(--white);
-	padding: 7px 15px;
 
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-align: center;
+
+	font-size: 14px;
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+.table-container tr:nth-child(even) {
+	background-color: rgb(220, 237, 255);
+}
+
+
+.action-row {
+	min-width: 150px;
 }

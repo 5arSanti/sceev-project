@@ -16,21 +16,25 @@ const AppRoutes = () => {
     const { auth } = context;
 
     let routes = useRoutes([
-        {path: "/home", element: <Home/>},
-        {path: "/stats", element: <StatsDataScreen/>},
-        {path: "/ofert/:id", element: <OfertScreen/>},
-
-        {path: "/*", element: <Navigate replace to={"/home"}/>},
-        {path: "/upload", element: <UploadScreen/>},
-        {path: "/users", element: <UsersScreen/>},
+        { path: "/*", element: <Navigate replace to={"/home"} /> },
         
+        { path: "/home", element: <Home /> },
 
-        {path: "/register", element: <RegisterScreen/>},
+        { path: "/stats", element: <StatsDataScreen /> },
 
-        {path: "/login", element: !auth ? <LoginScreen/> : <Navigate replace to={"/home"}/>},
+        { path: "/ofert/:id", element: <OfertScreen /> },
+        
+        { path: "/upload", element: <UploadScreen /> },
+        
+        { path: "/users/", element: <UsersScreen /> },
+        { path: "/users/:action", element: <UsersScreen /> },
+
+        { path: "/register", element: <RegisterScreen /> },
+
+        { path: "/login", element: !auth ? <LoginScreen /> : <Navigate replace to={"/home"} /> },
     ]);
-    
+
     return routes;
 }
 
-export { AppRoutes}
+export { AppRoutes }

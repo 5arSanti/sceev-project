@@ -8,6 +8,6 @@ class OfertDetailsPage:
     SECTION_OFERT_LOCATION = (By.ID, "section-ofert-location")
     SECTION_PRESTADOR = (By.ID, "section-prestador")
     SECTION_EMPLEADOR = (By.ID, "section-empleador")
-    
+        
     def __init__(self, driver):
         self.driver = driver

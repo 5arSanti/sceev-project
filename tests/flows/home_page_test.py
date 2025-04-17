@@ -1,11 +1,13 @@
 import pytest
 from pages.home_page import HomePage
 from pages.ofert_details_page import OfertDetailsPage
+from pages.nav_bar_component import NavbarComponent
 import time
 
 def test_scroll_to_interactive_map(driver, base_url):
     home = HomePage(driver, base_url)
     ofertDetail = OfertDetailsPage(driver)
+    navbarComponent = NavbarComponent(driver)
 
     home.open()
     
@@ -56,7 +58,10 @@ def test_scroll_to_interactive_map(driver, base_url):
     home.scroll_to_element_smooth(ofertDetail.SECTION_EMPLEADOR)
     time.sleep(2)
     home.scroll_to_element_smooth(ofertDetail.SECTION_STYLED_OFERT)
+    
     time.sleep(2)
     
+    navbarComponent.go_back_home()
+    time.sleep(2)
     
     

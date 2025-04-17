@@ -4,7 +4,7 @@ import { TextCard } from "../../TextComponents";
 
 const SectionAboutProject = () => {
     return(
-        <SectionWrapper>
+        <SectionWrapper id={"section-about-project"}>
             <SectionTitle 
                 subTitle="Sistema de Cargue, Espocision y Estadistica de Vacantes"
                 title="Sobre el proyecto"

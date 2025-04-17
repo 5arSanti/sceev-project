@@ -21,7 +21,7 @@ const SectionFiltersResults = () => {
     const { oferts } = ofertsData || [];
 
     return (
-        <SectionWrapper>
+        <SectionWrapper id={"section-filter-results"}>
             <SectionTitle subTitle="Encuentre todas las" title="Ofertas de Empleo"/>
 
             <OfertsCountCard/>

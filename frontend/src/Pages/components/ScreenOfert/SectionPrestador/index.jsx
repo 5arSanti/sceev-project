@@ -9,7 +9,7 @@ import { WrapperContainer1 } from "../../WrapperContainers";
 
 const SectionPrestador = ({selectedOfert={}}) => {
     return(
-        <SectionWrapper>
+        <SectionWrapper id={"section-prestador"}>
             <SectionTitle subTitle="La empresa que brindó esta oferta de empleo" title="Prestador"/>
             <WrapperContainer1 flexDirection="column" padding={0}>
                 <StyledSection image={prestadorImage} height={"90vh"} id={"section-styled-prestador"}>

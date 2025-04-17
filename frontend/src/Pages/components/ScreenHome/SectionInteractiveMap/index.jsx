@@ -11,7 +11,7 @@ const SectionInteractiveMap = () => {
     const { ofertsFilters } = context || {};
 
     return (
-        <SectionWrapper>
+        <SectionWrapper id={"section-interactive-map"}>
             <SectionTitle
                 subTitle="Busca tu Oferta de Empleo"
                 title="Mapa interactivo"

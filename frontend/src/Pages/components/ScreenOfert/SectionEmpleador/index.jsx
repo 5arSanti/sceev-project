@@ -9,7 +9,7 @@ import { WrapperContainer1, WrapperContainer3 } from "../../WrapperContainers";
 
 const SectionEmpleador = ({selectedOfert={}}) => {
     return (
-        <SectionWrapper>
+        <SectionWrapper id={"section-empleador"}>
             <SectionTitle subTitle="La empresa que brindó esta oferta de empleo" title="Empleador"/>
 
             <WrapperContainer1 flexDirection="column" padding={0}>

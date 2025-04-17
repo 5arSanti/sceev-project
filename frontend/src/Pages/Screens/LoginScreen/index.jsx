@@ -5,11 +5,9 @@ import { AppContext } from "../../../Context";
 
 import { useNavigate } from "react-router-dom";
 
-import { handleNotifications } from "../../../utils/handleNotifications";
 import { scrollToValue } from "../../../utils/scrollToValue";
 import { InputCard } from "../../components/InputsCards";
 import { handleInputChange } from "../../../utils/handleInputChange";
-import { api } from "../../../utils/api";
 
 import "./styles.css";
 import { StyledSection } from "../../components/StyledSection";
@@ -18,6 +16,7 @@ import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { TextCard } from "../../components/TextComponents";
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { AuthWrapper } from "../../components/AuthWrapper";
+import { handlePostData } from "../../../utils/handleData/handlePostData";
 
 const LoginScreen = () => {
     const context = React.useContext(AppContext);
@@ -35,29 +34,17 @@ const LoginScreen = () => {
     axios.defaults.withCredentials = true;
 
     const handleSubmit = async (event) => {
-        context.setLoading(true);
         event.preventDefault();
+        context.setLoading(true);
 
-        await axios.post(`${api}/auth/login`, values, { withCredentials: true })
-            .then(response => {
-                const { data } = response;
+        await handlePostData(event, values, "/auth/login", () => { navigate("/home") })
 
-                if (data.Status === "Success") {
-                    handleNotifications("success", data.message);
-                    navigate("/home");
-                } else {
-                    handleNotifications("error", data.Error)
-                }
-
-                return;
-            })
-            .catch(err => { handleNotifications("error", err.message) })
-            .finally(() => { context.setLoading(false); });
+        context.setLoading(false);
     }
 
     return (
         <AuthWrapper>
-            <StyledSection>
+            <StyledSection id={"section-styled-login"}>
                 <FadeWrapper height="auto">
                     <WrapperContainer2 height="auto" padding={30} flexDirection="column" justifyContent="center" alignItems="center">
                         <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al" />

@@ -8,13 +8,13 @@ const upload = require("../../middlewares/multer.config");
 const { validateFileExtension } = require("../../Utils/Files/validateFiles");
 
 const { getColumnNames } = require("../../Utils/getColumnNames");
-const { parseCSV } = require("../../Utils/Files/parseCSV");
 const { deleteFile } = require("../../Utils/files/deleteFile");
 const { getDate } = require("../../Utils/getDate");
 const { arrayToString } = require("../../Utils/arrayToString");
 const { validateFiles } = require("../../Utils/Files/validateFiles");
 const { insertValuesInTable } = require("../../Utils/Tables/insertValuesInTable");
 const { verifyUser } = require("../../middlewares/verifyUser");
+const { parseExcel } = require("../../Utils/Files/parseExcel");
 
 // POST
 router.post("/", verifyUser, upload.single("process-file"), async (request, response) => {
@@ -26,32 +26,32 @@ router.post("/", verifyUser, upload.single("process-file"), async (request, resp
 		const uploadedFile = request.file;
 
 		validateFiles(uploadedFile, table);
+
 		validateFileExtension(uploadedFile);
 
-
 		const filePath = path.join(__dirname, "../../csv-process", uploadedFile.filename);
+
 		const columns = await getColumnNames(table);
 
-
-		const csvInfo = await parseCSV(filePath, columns);
+		const fileInfo = await parseExcel(filePath, columns);
 
 		await deleteFile(filePath);
 
-		await insertValuesInTable(table, csvInfo.correctRows);
+		await insertValuesInTable(table, fileInfo.correctRows);
 
 		const endDate = getDate();
 
 		let csvLog = {
 			nameFile: request.body.fileName,
-			totalRows: csvInfo.totalRows,
+			totalRows: fileInfo.totalRows,
 			correctRowsCount:
-				csvInfo.correctRows.length == 0 ?
-				csvInfo.correctRows.length - 0 :
-				csvInfo.correctRows.length - 1,
+				fileInfo.correctRows.length == 0 ?
+					fileInfo.correctRows.length - 0 :
+					fileInfo.correctRows.length - 1,
 
-			incorrectRowsCount: csvInfo.incorrectRows.length,
-			incorrectRows: arrayToString(csvInfo.incorrectRows),
-			errors: csvInfo.error.length,
+			incorrectRowsCount: fileInfo.incorrectRows.length,
+			incorrectRows: arrayToString(fileInfo.incorrectRows),
+			errors: fileInfo.error.length,
 			startDate: startDate,
 			endDate: endDate,
 			table: table
@@ -64,7 +64,7 @@ router.post("/", verifyUser, upload.single("process-file"), async (request, resp
 		});
 	}
 	catch (err) {
-		return response.status(500).json({Error: err.message});
+		return response.status(500).json({ Error: err.message });
 	}
 })
 

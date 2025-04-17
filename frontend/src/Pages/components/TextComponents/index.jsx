@@ -7,7 +7,8 @@ const TextCard = ({
     width="100%", 
     className="", 
     fontSize=16, 
-    white=false
+    white=false,
+    style={},
 }) => {
     
     return(
@@ -16,6 +17,7 @@ const TextCard = ({
                 textAlign: textAlign, 
                 width: width,
                 fontSize: fontSize,
+                ...style
             }} 
             className={`text-card ${className} ${white ? "white-color" : "text-color"}`}>{children}</p>
     );

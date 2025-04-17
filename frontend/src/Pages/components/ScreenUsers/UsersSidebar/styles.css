@@ -1,0 +1,43 @@
+.side-menu-container {
+    height: calc(100vh - 70px) !important;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    overflow: hidden;
+
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--pallete-1) !important;
+}
+
+.side-menu-container svg {
+    fill: var(--lines-color);
+    stroke: var(--lines-color);
+
+    width: 30px;
+    height: 30px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.lines-background {
+    background-color: var(--lines-color) !important;
+    color: var(--white) !important;
+}
+.lines-background svg{
+    background-color: var(--white);
+    padding: 5px;
+
+    border-radius: 5px;
+}
+
+.no-wrap {
+    white-space: nowrap !important;
+}

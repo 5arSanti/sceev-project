@@ -36,12 +36,11 @@ const RegisterScreen = () => {
     }
 
     return(
-
         <AuthWrapper>
             <IsAuthWrapper notFound={true}>
-                <StyledSection height="auto">
-                    <FadeWrapper>
-                        <WrapperContainer2 padding={30} flexDirection="column" justifyContent="center" alignItems="center">
+                <StyledSection height="auto" id={"section-styled-register"}>
+                    <FadeWrapper height="auto">
+                        <WrapperContainer2 padding={30} flexDirection="column" justifyContent="start" alignItems="center">
                             <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al"/>
 
                             <WrapperContainer2 

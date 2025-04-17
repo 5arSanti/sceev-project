@@ -9,11 +9,11 @@ import { WrapperContainer1, WrapperContainer3 } from "../../WrapperContainers";
 
 const SectionEmpleador = ({selectedOfert={}}) => {
     return (
-        <SectionWrapper>
+        <SectionWrapper id={"section-empleador"}>
             <SectionTitle subTitle="La empresa que brindó esta oferta de empleo" title="Empleador"/>
 
             <WrapperContainer1 flexDirection="column" padding={0}>
-                <StyledSection image={empleadorImage} height={"90vh"}>
+                <StyledSection image={empleadorImage} height={"90vh"} id={"section-styled-empleador"}>
                     <MainSectionInfoCard
                         title={`${selectedOfert.Empleador}`}
                         subTitle={`El codigo del empleador corresponde al número ${selectedOfert.ID_Empleador}`}

@@ -13,7 +13,7 @@ const ProcessCSVInfoContainer = () => {
     const parsedDataLog = JSON.parse(stringifiedDataLog);
 
     return(
-        <SectionWrapper>
+        <SectionWrapper id={"section-process-csv"}>
             <SectionTitle 
                 title="Carga Eficiente de Datos" 
                 subTitle="Maximiza la rapidez y precisión al integrar tus archivos en la base de datos del SCEEV"

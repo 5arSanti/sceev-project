@@ -20,7 +20,7 @@ const DropCard = ({title, array=[], onClick, value, searchBox=true, seeAllOption
             <TextCard className='bold'>{title}</TextCard>
 
             <Dropdown className="dropdown-card-container">
-                <Dropdown.Toggle id="dropdown-card-basic" className='dropdown-card-button'>
+                <Dropdown.Toggle id={`dropdown-card-basic toggle-${title}`} className='dropdown-card-button'>
                     {(value == "" || !value) && "Todo" || value}
                 </Dropdown.Toggle>
 
@@ -41,12 +41,12 @@ const DropCard = ({title, array=[], onClick, value, searchBox=true, seeAllOption
                     
                     <ScrollableWrapper maxHeight={400}>
                         {seeAllOption &&
-                            <Dropdown.Item onClick={() => onClick("")}>
+                            <Dropdown.Item id={`option-todo-${title}`} onClick={() => onClick("")}>
                                 <TextCard>Todo</TextCard>
                             </Dropdown.Item>
                         }
                         {filteredArray?.map((item, index) => (
-                            <Dropdown.Item key={index} onClick={() => {
+                            <Dropdown.Item id={`option-${item}`} key={index} onClick={() => {
                                     onClick(item)
                                     setSearchValue("");
                                 }}>

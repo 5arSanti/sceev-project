@@ -14,7 +14,7 @@ const Home = () => {
         <AuthWrapper>
             <WrapperContainer2 flexDirection="column" padding={0} gap={0}>
 
-                <StyledSection image={mainHome}>
+                <StyledSection image={mainHome} id={"section-styled-home"}>
                     <SectionMainHome/>
                 </StyledSection>
                 

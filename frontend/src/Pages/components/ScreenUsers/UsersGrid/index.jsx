@@ -15,9 +15,16 @@ const UsersGrid = () => {
 
     const { users } = context.responseData || [];
 
-    return(
+    const formatedUsers = users?.map((user) => ({
+        "Nombres": user.names,
+        "Apellidos": user.surnames,
+        "Correo electronico": user.email,
+        "Tipo de usuario": user.userType,
+    }))
+
+    return (
         <WrapperContainer2 flexDirection="column" gap={20} padding={0}>
-            <ButtonCard 
+            <ButtonCard
                 title="Crear usuario"
                 onClick={() => navigate("/register")}
             >
@@ -25,11 +32,11 @@ const UsersGrid = () => {
             </ButtonCard>
 
 
-            <VerifyLength array={users}>
-                <TableContainer data={users}/>
+            <VerifyLength array={formatedUsers}>
+                <TableContainer data={formatedUsers} />
             </VerifyLength>
         </WrapperContainer2>
     );
-} 
+}
 
-export { UsersGrid}
+export { UsersGrid }

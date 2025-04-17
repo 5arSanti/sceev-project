@@ -9,7 +9,7 @@ const StatsDataScreen = () => {
 
     return (
         <AuthWrapper>
-            <StyledSection>
+            <StyledSection id={"section-styled-stats-data"}>
                 <MainSectionInfoCard
                     title="Visualizacion estadistica de Ofertas"
                     subTitle="Explora gráficos interactivos y estadísticas detalladas para un análisis preciso"

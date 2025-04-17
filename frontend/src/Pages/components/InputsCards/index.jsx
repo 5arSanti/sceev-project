@@ -3,22 +3,22 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./styles.css";
 
 const InputCard = ({
-    type="text", 
-    id, 
-    label, 
-    placeholder="placeholder", 
-    onChange, 
-    required=true, 
-    defaultValue="", 
-    className="input-container", 
-    haveLabel=true,
+    type = "text",
+    id,
+    label,
+    placeholder = "placeholder",
+    onChange,
+    required = true,
+    defaultValue = "",
+    className = "input-container",
+    haveLabel = true,
     icon
 }) => {
 
     return (
         <div className={`${className}`}>
             {haveLabel && <label htmlFor={id}>{label} {required && "*"}</label>}
-            
+
             <div className="icon-input-container">
                 {icon && icon}
 
@@ -27,7 +27,7 @@ const InputCard = ({
                     placeholder={placeholder}
                     name={id}
                     id={id}
-                    onChange={(event) => {onChange(event.target.value)}}
+                    onChange={(event) => { onChange(event.target.value) }}
                     required={required}
                     defaultValue={defaultValue}
                 />
@@ -37,52 +37,53 @@ const InputCard = ({
 }
 
 const OptionInputCard = ({
-    id, 
-    label, 
+    id,
+    label,
     array,
-    onChange, 
-    defaultValue="", 
-    none=false, 
-    padding=15,
-    required=false
+    onChange,
+    defaultValue = "",
+    none = false,
+    padding = 15,
+    required = false,
+    haveLabel = true,
 }) => {
 
-    return(
+    return (
         <div className="input-container">
-            <label htmlFor={id}>{label} </label>
-            <select 
-                name={id} 
+            {haveLabel && <label htmlFor={id}>{label} </label>}
+            <select
+                name={id}
                 id={id}
-                onChange={(event) => {onChange(event.target.value)}}
+                onChange={(event) => { onChange(event.target.value) }}
                 value={defaultValue}
-                style={{padding: padding}}
+                style={{ padding: padding }}
                 required={required}
             >
-                {none && 
+                {none &&
                     <option value="">Seleccionar</option>
                 }
                 {array && array?.map((item, index) => (
-                    <option 
+                    <option
                         key={index}
-                        value={item.id || item}
+                        value={item.id}
                     >
-                        {item.name || item}
+                        {item.name}
                     </option>
                 ))}
             </select>
-        </div> 
+        </div>
     );
 }
 
-const TextAreaCard = ({id, label, placeholder="placeholder", onChange, required=true, stateKey, defaultValue=""}) => {
-    return(
+const TextAreaCard = ({ id, label, placeholder = "placeholder", onChange, required = true, stateKey, defaultValue = "" }) => {
+    return (
         <div className="input-container">
             <label htmlFor={id}>{label} {required && "*"}</label>
             <textarea
                 placeholder={placeholder}
                 name={id}
                 id={id}
-                onChange={(event) => {onChange(event.target.value)}}
+                onChange={(event) => { onChange(event.target.value) }}
                 required
                 defaultValue={defaultValue}
             />
@@ -90,31 +91,31 @@ const TextAreaCard = ({id, label, placeholder="placeholder", onChange, required=
     );
 }
 
-const UploadFileCard = ({id, label="Cargar Archivo", onChange, filesArray, multiple=true, info="Archivos PDF (.pdf) o Excel (.xlsx)", accept=".pdf, .xlsx"}) => {
+const UploadFileCard = ({ id, label = "Cargar Archivo", onChange, filesArray, multiple = true, info = "Archivos PDF (.pdf) o Excel (.xlsx)", accept = ".pdf, .xlsx" }) => {
     const array = filesArray ? [...filesArray] : null;
 
-    return(
+    return (
         <label htmlFor={id} className="upload-file-container">
             <input
                 id={id}
                 name={id}
                 type="file"
                 accept={accept}
-                onChange={(event) => {onChange(event)}}
+                onChange={(event) => { onChange(event) }}
                 onClick={(event) => event.target.value = null}
                 multiple={multiple}
             />
             <span>
-                <AiOutlineCloudUpload/>
+                <AiOutlineCloudUpload />
             </span>
             <div className="upload-file-info-container">
                 <p>{label}</p>
                 {array && array?.length !== 0 ? [...filesArray]?.map((item, index) => (
                     <p className="info-text" key={index}>{`(${index + 1})`} {item.name}</p>
                 ))
-                :
-                <p>{info}</p>
-            }
+                    :
+                    <p>{info}</p>
+                }
             </div>
 
         </label>

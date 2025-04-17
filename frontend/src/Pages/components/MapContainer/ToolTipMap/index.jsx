@@ -38,6 +38,7 @@ const ToolTipMap = ({ hoveredDepartment={}, selectedDepartment }) => {
                         title="Borrar selección"
                         onClick={() => handleInputChange("Departamentos", "", setOfertsFilter)}
                         padding={5}
+                        className="clear-department-selection"
                     >
                         Borrar seleccion
                     </ButtonCard>

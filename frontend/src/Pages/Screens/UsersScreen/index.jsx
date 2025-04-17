@@ -9,11 +9,24 @@ import { WrapperContainer2 } from "../../components/WrapperContainers";
 import { UsersSideBar } from "../../components/ScreenUsers/UsersSidebar";
 import { ReactTable } from "../../components/TableContainer/Table";
 import { useParams } from "react-router-dom";
+import { handleDeleteData } from "../../../utils/handleData/handleDeleteData";
+import { handlePatchData } from "../../../utils/handleData/handlePatchData";
 
 const UsersScreen = () => {
     const { action } = useParams();
 
-    const { fetchData } = React.useContext(AppContext);
+    const { fetchData, setLoading } = React.useContext(AppContext);
+
+    const [values, setValues] = React.useState({
+        id: null,
+        email: null,
+        names: null,
+        surnames: null,
+        userType: null,
+        userTypeId: null,
+    })
+
+    console.log(values)
 
     React.useEffect(() => {
         const endpoints = [
@@ -26,22 +39,18 @@ const UsersScreen = () => {
 
     const { users, userTypes } = React.useContext(AppContext).responseData;
 
-    const formatedUsers = users?.map((user) => ({
-        "Numero de identificacion": user.id,
-        "Nombre": user.names,
-        "Apellido": user.surnames,
-        "Correo": user.email,
-        "Rol del usuario": user.userType
-    }))
+    const handleDelete = async ({ "Numero de identificacion": id }) => {
+        setLoading(true);
 
-    const handleDelete = (row) => {
-        console.log("Eliminar usuario:", row);
-        // Lógica para eliminar usuario
+        await handleDeleteData({ id }, "/users");
+
+        setLoading(false);
     };
 
-    const handleUpdate = (updatedRow) => {
-        console.log("Actualizar usuario:", updatedRow);
-        // Lógica para actualizar usuario
+    const handleUpdate = async (updatedValues) => {
+        setLoading(true);
+        await handlePatchData(updatedValues, "/users");
+        setLoading(false);
     };
 
     return (
@@ -59,10 +68,12 @@ const UsersScreen = () => {
                     <UsersSideBar />
 
                     <ReactTable
-                        data={formatedUsers}
+                        data={users}
                         onDelete={action === "delete" ? handleDelete : null}
                         onUpdate={action === "edit" ? handleUpdate : null}
                         userTypes={userTypes}
+                        values={values}
+                        setValues={setValues}
                     />
                 </WrapperContainer2>
             </IsAuthWrapper>

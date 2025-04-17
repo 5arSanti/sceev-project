@@ -1,10 +1,10 @@
 const handleInputChange = (key, value, setState) => {
-    const numericValue = parseInt(value) || value;
+    const parsedValue = !isNaN(value) && value.trim() !== "" ? Number(value) : value;
 
-    setState((prevValues) => ({ 
-        ...prevValues, 
-        [key]: numericValue
-     }));
+    setState((prevValues) => ({
+        ...prevValues,
+        [key]: parsedValue
+    }));
 };
 
-export { handleInputChange }
+export { handleInputChange };

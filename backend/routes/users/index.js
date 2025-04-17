@@ -12,10 +12,11 @@ router.get("/", verifyUser, async (request, response) => {
 		const query = `
 			SELECT
 				Cedula_Usuario AS id,
+				u.Correo AS email,
 				u.Nombre AS names,
 				u.Apellidos AS surnames,
-				u.Correo AS email,
-				tu.Nombre AS userType
+				tu.Nombre AS userType,
+				tu.ID_Tipo_Usuarios AS userTypeId
 
 			FROM Usuarios u
 			JOIN Tipo_Usuarios tu ON u.ID_Tipo_De_Usuario = tu.ID_Tipo_Usuarios
@@ -47,13 +48,13 @@ router.delete("/", verifyUser, async (request, response) => {
 
 router.patch("/", verifyUser, async (request, response) => {
 	try {
-		const { id, names, surnames, userTypeId } = request.body;
+		const { id, names, surnames, userTypeId, email } = request.body;
 
 		validateObjectValues(request.body);
 
 		const query = `
-			UPDATE Usuarios
-			SET Nombre = ${names}, Apellidos = ${surnames}, ID_Tipo_De_Usuario = ${userTypeId}
+			UPDATE Usuarios SET
+			Nombre = '${names}', Apellidos = '${surnames}', Correo = '${email}', ID_Tipo_De_Usuario = ${userTypeId}
 			WHERE Cedula_Usuario = ${id}
 		`;
 

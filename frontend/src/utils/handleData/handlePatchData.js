@@ -2,7 +2,7 @@ import { api } from "../api";
 import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 
-const handlePatchData = async (event, object, endpoint, callback=reloadLocation) => {
+const handlePatchData = async (object, endpoint, callback=reloadLocation) => {
     event.preventDefault();
 
     try {
@@ -11,6 +11,7 @@ const handlePatchData = async (event, object, endpoint, callback=reloadLocation)
         const options = {
             method: 'PATCH', 
             mode:'cors',
+            "credentials": 'include',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

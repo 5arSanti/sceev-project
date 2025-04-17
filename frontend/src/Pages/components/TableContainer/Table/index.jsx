@@ -6,25 +6,22 @@ import { ButtonCard } from "../../ButtonCard";
 import { MdOutlineSave } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
 import { GridContainer } from "../../GridContainer";
+import { InputCard, OptionInputCard } from "../../InputsCards";
+import { handleInputChange } from "../../../../utils/handleInputChange";
 
-const ReactTable = ({ data = [], onDelete, onUpdate, userTypes = [] }) => {
+const ReactTable = ({ data = [], onDelete, onUpdate, userTypes = [], values, setValues }) => {
 	const [editableRow, setEditableRow] = React.useState(null);
-	const [editedData, setEditedData] = React.useState({});
 
-	const columns = data.length > 0 ? Object.keys(data[0]) : [];
+	const columns = data.length > 0 ? Object.keys(data[0]).filter((col) => col !== "userTypeId") : [];
 
 	const handleEdit = (rowIndex, rowData) => {
 		setEditableRow(rowIndex);
-		setEditedData(rowData);
-	};
-
-	const handleInputChange = (e, column) => {
-		setEditedData({ ...editedData, [column]: e.target.value });
+		setValues(rowData);
 	};
 
 	const handleSave = () => {
 		if (onUpdate) {
-			onUpdate(editedData);
+			onUpdate(values);
 		}
 		setEditableRow(null);
 	};
@@ -46,22 +43,22 @@ const ReactTable = ({ data = [], onDelete, onUpdate, userTypes = [] }) => {
 						{columns.map((column, colIndex) => (
 							<td key={colIndex}>
 								{editableRow === rowIndex ? (
-									column === "Rol del usuario" ? (
-										<select
-											value={editedData[column]}
-											onChange={(e) => handleInputChange(e, column)}
-										>
-											{userTypes.map((type) => (
-												<option key={type.id} value={type.name}>
-													{type.name}
-												</option>
-											))}
-										</select>
+									column === "userType" ? (
+										<OptionInputCard
+											id={column}
+											haveLabel={false}
+											defaultValue={values[column]}
+											onChange={(value) => handleInputChange("userTypeId", value, setValues)}
+											array={userTypes}
+											padding={5}
+										/>
 									) : (
-										<input
+										<InputCard
+											id={column}
 											type="text"
-											value={editedData[column]}
-											onChange={(e) => handleInputChange(e, column)}
+											haveLabel={false}
+											defaultValue={values[column]}
+											onChange={(event) => handleInputChange(column, event, setValues)}
 										/>
 									)
 								) : (
@@ -84,7 +81,7 @@ const ReactTable = ({ data = [], onDelete, onUpdate, userTypes = [] }) => {
 										<ButtonCard title="Guardar cambios" padding={5} borderWidth={0} onClick={handleSave}>
 											<MdOutlineSave />
 										</ButtonCard>
-										<ButtonCard title="Cancelar" padding={5} borderWidth={0} onClick={handleSave}>
+										<ButtonCard title="Cancelar" padding={5} borderWidth={0} onClick={() => (setEditableRow(null))}>
 											<MdOutlineCancel />
 										</ButtonCard>
 									</GridContainer>

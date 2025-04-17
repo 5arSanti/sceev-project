@@ -44,7 +44,7 @@ const LoginScreen = () => {
 
     return (
         <AuthWrapper>
-            <StyledSection>
+            <StyledSection id={"section-styled-login"}>
                 <FadeWrapper height="auto">
                     <WrapperContainer2 height="auto" padding={30} flexDirection="column" justifyContent="center" alignItems="center">
                         <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al" />

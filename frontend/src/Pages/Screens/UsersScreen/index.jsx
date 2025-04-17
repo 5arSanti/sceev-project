@@ -56,7 +56,7 @@ const UsersScreen = () => {
     return (
         <AuthWrapper>
             <IsAuthWrapper notFound={true}>
-                <StyledSection>
+                <StyledSection id={"section-styled-users"}>
                     <MainSectionInfoCard
                         title="Usuarios"
                         subTitle="Gestion de informacion de usuarios precisa"

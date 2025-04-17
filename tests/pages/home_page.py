@@ -1,10 +1,7 @@
 from selenium.webdriver.common.by import By
 
-class LoginPage:
-    URL = "#/login"
-    USER = (By.ID, "username")
-    PASS = (By.ID, "password")
-    BTN = (By.CSS_SELECTOR, "button[type=submit]")
+class HomePage:
+    URL = "#/home"
 
     def __init__(self, driver, base_url):
         self.driver = driver

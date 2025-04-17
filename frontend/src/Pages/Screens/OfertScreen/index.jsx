@@ -51,7 +51,7 @@ const OfertScreen = () => {
 
     return(
         <AuthWrapper>
-            <StyledSection>
+            <StyledSection id={"section-styled-ofert"}>
                 <MainSectionInfoCard
                     icon={<IoMdBriefcase/>}
                     title={selectedOfert?.Titulo_Oferta}

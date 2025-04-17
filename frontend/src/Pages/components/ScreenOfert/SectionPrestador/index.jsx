@@ -12,7 +12,7 @@ const SectionPrestador = ({selectedOfert={}}) => {
         <SectionWrapper>
             <SectionTitle subTitle="La empresa que brindó esta oferta de empleo" title="Prestador"/>
             <WrapperContainer1 flexDirection="column" padding={0}>
-                <StyledSection image={prestadorImage} height={"90vh"}>
+                <StyledSection image={prestadorImage} height={"90vh"} id={"section-styled-prestador"}>
                     <MainSectionInfoCard
                         title={`${selectedOfert.Prestadores}`}
                         subTitle={`El codigo del prestador corresponde al numero ${selectedOfert.ID_Prestador}`}

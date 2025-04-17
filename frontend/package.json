@@ -1,6 +1,6 @@
 {
   "name": "sceev-frontend",
-  "version": "2.0.41",
+  "version": "2.0.42",
   "private": "false",
   "description": "Frontend for SCEEV project",
   "type": "module",

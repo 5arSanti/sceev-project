@@ -15,6 +15,14 @@ class HomePage:
     CLEAR_DEPARTMENT_SELECTION_BTN = (By.CLASS_NAME, "clear-department-selection")
     RESULTS_SCROLLABLE_WRAPPER = (By.CSS_SELECTOR, ".oferts-results-grid .scrollable-wrapper-container")
     FIRST_RESULT = (By.CSS_SELECTOR, ".oferts-results-grid .scrollable-wrapper-container a")
+    DROP_NIVEL_ESTUDIOS = (By.CSS_SELECTOR, "button[id*='toggle-Nivel_Estudios']")
+    OPTION_DOCTORADO = (By.CSS_SELECTOR, "a#option-Doctorado")
+    OPTION_TODO = (By.CSS_SELECTOR, "a#option-todo-Nivel_Estudios")
+    
+    HOME_BTN = (By.CSS_SELECTOR, "button[id*='home-page-pagination']")
+    BACK_BTN = (By.CSS_SELECTOR, "button[id*='back-page-pagination']")
+    NEXT_BTN = (By.CSS_SELECTOR, "button[id*='next-page-pagination']")
+    LAST_BTN = (By.CSS_SELECTOR, "button[id*='last-page-pagination']")
 
 
     def __init__(self, driver, base_url):

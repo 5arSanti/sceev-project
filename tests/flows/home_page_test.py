@@ -62,6 +62,40 @@ def test_scroll_to_interactive_map(driver, base_url):
     time.sleep(2)
     
     navbarComponent.go_back_home()
+    
     time.sleep(2)
+    
+    home.scroll_to_element_smooth(home.OFERTS_RESULTS)
+    time.sleep(1)
+    home.get_input_and_type_text(home.SEARCH_INPUT, "")
+    
+    time.sleep(1)
+    
+    home.wait_and_click(home.DROP_NIVEL_ESTUDIOS)
+    time.sleep(2)
+    home.wait_and_click(home.OPTION_DOCTORADO)
+    time.sleep(3)
+    home.wait_and_click(home.DROP_NIVEL_ESTUDIOS)
+    time.sleep(3)
+    home.wait_and_click(home.OPTION_TODO)
+    time.sleep(3)
+    
+    
+    home.wait_and_click(home.NEXT_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.NEXT_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.NEXT_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.BACK_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.LAST_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.BACK_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.NEXT_BTN)
+    time.sleep(2)
+    home.wait_and_click(home.HOME_BTN)
+    time.sleep(3)
     
     

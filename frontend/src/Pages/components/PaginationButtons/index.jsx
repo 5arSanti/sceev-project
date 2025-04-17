@@ -24,6 +24,7 @@ const PaginationButtons = ({data={}, setState}) => {
                 title="Volver a la primera pagina"
                 onClick={() => paginateTo("home")}
                 padding={15}
+                className="home-page-pagination"
             >
                 <MdFirstPage/>
             </ButtonCard>
@@ -31,6 +32,7 @@ const PaginationButtons = ({data={}, setState}) => {
                 title="Página anterior"
                 onClick={() => paginateTo("back")}
                 padding={15}
+                className="back-page-pagination"
             >
                 <IoIosArrowBack/>
             </ButtonCard>
@@ -44,6 +46,7 @@ const PaginationButtons = ({data={}, setState}) => {
                 title="Siguiente página"
                 onClick={() => paginateTo("next")}
                 padding={15}
+                className="next-page-pagination"
             >
                 <IoIosArrowForward/>
             </ButtonCard>
@@ -52,6 +55,7 @@ const PaginationButtons = ({data={}, setState}) => {
                 title="Ir a la ultima página"
                 onClick={() => paginateTo("last")}
                 padding={15}
+                className="last-page-pagination"
             >
                 <MdLastPage/>
             </ButtonCard>

@@ -1,6 +1,6 @@
 {
   "name": "sceev-backend",
-  "version": "2.1.42",
+  "version": "2.1.43",
   "private": "false",
   "description": "Backend for SCEEV project",
   "main": "index.js",

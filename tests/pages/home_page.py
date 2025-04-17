@@ -13,7 +13,9 @@ class HomePage:
     def open(self):
         self.driver.get(self.base + self.URL)
 
-    def scroll_to_interactive_map(self):
-        element = self.driver.find_element(*self.SECTION_INTERACTIVE_MAP)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
+    def scroll_to_element_smooth(self, locator):
+        element = self.driver.find_element(*locator)
+        self.driver.execute_script("""
+            arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        """, element)
+

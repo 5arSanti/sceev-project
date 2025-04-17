@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 class HomePage:
     URL = "#/home"
@@ -34,3 +37,10 @@ class HomePage:
         input_element = self.driver.find_element(*locator)
         input_element.clear()
         input_element.send_keys(text + Keys.ENTER)
+        
+    def wait_and_click(self, locator, timeout=10):
+        element = WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable(locator)
+        )
+        element.click()
+

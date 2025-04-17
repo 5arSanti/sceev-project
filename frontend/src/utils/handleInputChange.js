@@ -1,5 +1,5 @@
 const handleInputChange = (key, value, setState) => {
-    const parsedValue = !isNaN(value) && value.trim() !== "" ? Number(value) : value;
+    const parsedValue = !isNaN(value) && String(value).trim() !== "" ? Number(value) : value;
 
     setState((prevValues) => ({
         ...prevValues,

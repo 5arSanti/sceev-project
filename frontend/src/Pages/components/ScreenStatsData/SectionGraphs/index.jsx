@@ -23,7 +23,7 @@ const SectionGraphs = () => {
     }, [])
 
     return (
-        <SectionWrapper>
+        <SectionWrapper id={"section-graphs"}>
             <SectionTitle title="Informacion grafica" subTitle="Visualiza tus oportunidades..." />
 
             {graphCards?.map((item, index) => (

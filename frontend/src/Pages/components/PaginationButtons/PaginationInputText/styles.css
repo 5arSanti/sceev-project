@@ -11,7 +11,7 @@
 
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid var(--gov-accesibility-card);
+    border-bottom: 1px solid var(--lines-color);
 
     color: var(--text-color);
     outline: none;  
@@ -20,11 +20,17 @@
 }
 .pagination-input-container input:focus{
     background-color: var(--white-025);
-    border: 1px solid var(--gov-accesibility-card);
+    border: 1px solid var(--lines-color);
 }
 .pagination-input-container input:hover{
     background-color: var(--white-025);
 }
 .pagination-input-container input::placeholder{
     color: var(--text-color);
+}
+
+@media (max-width: 1300px) {
+    .pagination-input-container {
+        font-size: 12px !important;
+    }
 }

@@ -51,7 +51,7 @@ const OfertScreen = () => {
 
     return(
         <AuthWrapper>
-            <StyledSection>
+            <StyledSection id={"section-styled-ofert"}>
                 <MainSectionInfoCard
                     icon={<IoMdBriefcase/>}
                     title={selectedOfert?.Titulo_Oferta}
@@ -59,7 +59,7 @@ const OfertScreen = () => {
                 />
             </StyledSection>
 
-            <SectionWrapper>
+            <SectionWrapper id={"section-ofert"}>
                 <SectionTitle subTitle="Toda la información centralizada..." title="Detalles de la Oferta"/>
                 <GridContainer className="grid-125-075">
                     <WrapperContainer2 justifyContent="start" alignItems="start" flexDirection="column" gap={35}>
@@ -110,7 +110,7 @@ const OfertScreen = () => {
 
             </SectionWrapper>
 
-            <SectionWrapper>
+            <SectionWrapper id={"section-ofert-info"}>
                 <SectionTitle subTitle="Cantidad de Ofertas, tipo de oferta y mucho mas..." title="Información adicional"/>
 
                 <GridContainer className="grid-1-1-1">
@@ -144,7 +144,7 @@ const OfertScreen = () => {
                 </GridContainer>
             </SectionWrapper>
 
-            <SectionWrapper>
+            <SectionWrapper id={"section-ofert-location"}>
                 <SectionTitle subTitle="Visualiza tu proximo lugar de trabajo" title="Ubicación de la Oferta"/>
 
                 <GridContainer className="grid-05-15">

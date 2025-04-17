@@ -8,7 +8,7 @@ import "./styles.css";
 import { departmentColors } from "./departmentColors";
 import { handleInputChange } from "../../../../utils/handleInputChange";
 
-const MapCard = ({config, geoUrl, setState, state}) => {
+const MapCard = ({ config, geoUrl, setState, state }) => {
     const context = React.useContext(AppContext);
 
     const { setOfertsFilter } = context;
@@ -17,7 +17,7 @@ const MapCard = ({config, geoUrl, setState, state}) => {
     const departmentColorSelect = (properties) => {
 
         if (!state) {
-          return departmentColors[properties.NOMBRE_DPT];
+            return departmentColors[properties.NOMBRE_DPT];
         }
 
         if (state === properties.NOMBRE_DPT) {
@@ -25,10 +25,10 @@ const MapCard = ({config, geoUrl, setState, state}) => {
         }
 
         return "#D9D9D9";
-      };
+    };
 
 
-    return(
+    return (
         <ComposableMap
             projectionConfig={config}
             projection="geoMercator"
@@ -40,6 +40,7 @@ const MapCard = ({config, geoUrl, setState, state}) => {
                         <Geography
                             key={index}
                             geography={geo}
+                            name={geo.properties.NOMBRE_DPT}
                             fill={departmentColorSelect(geo.properties)}
                             stroke={"#FFF"}
                             onMouseEnter={() => {
@@ -48,7 +49,7 @@ const MapCard = ({config, geoUrl, setState, state}) => {
                                     total: totalByDepartment?.[geo.properties.NOMBRE_DPT],
                                 });
                             }}
-                            onMouseLeave={() => {setState(null)}}
+                            onMouseLeave={() => { setState(null) }}
                             onClick={() => {
                                 handleInputChange("Departamentos", geo.properties.NOMBRE_DPT, setOfertsFilter)
                             }}

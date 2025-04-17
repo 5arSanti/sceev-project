@@ -18,6 +18,7 @@ import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { TextCard } from "../../components/TextComponents";
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { AuthWrapper } from "../../components/AuthWrapper";
+import { handlePostData } from "../../../utils/handleData/handlePostData";
 
 const LoginScreen = () => {
     const context = React.useContext(AppContext);
@@ -35,24 +36,12 @@ const LoginScreen = () => {
     axios.defaults.withCredentials = true;
 
     const handleSubmit = async (event) => {
-        context.setLoading(true);
         event.preventDefault();
+        context.setLoading(true);
 
-        await axios.post(`${api}/auth/login`, values, { withCredentials: true })
-            .then(response => {
-                const { data } = response;
+        await handlePostData(event, values, "/auth/login", () => { navigate("/home") })
 
-                if (data.Status === "Success") {
-                    handleNotifications("success", data.message);
-                    navigate("/home");
-                } else {
-                    handleNotifications("error", data.Error)
-                }
-
-                return;
-            })
-            .catch(err => { handleNotifications("error", err.message) })
-            .finally(() => { context.setLoading(false); });
+        context.setLoading(false);
     }
 
     return (

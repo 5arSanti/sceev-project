@@ -4,11 +4,11 @@ from selenium.webdriver.common.keys import Keys
 class HomePage:
     URL = "#/home"
     SECTION_INTERACTIVE_MAP = (By.ID, "section-interactive-map")
-    DEPARTMENT = (By.NAME, "Tolima")
+    DEPARTMENT = (By.NAME, "Huila")
     SECTION_FILTER_RESUTLS = (By.ID, "section-filter-results")
-    
     SEARCH_INPUT = (By.NAME, "search")
     OFERTS_RESULTS = (By.CLASS_NAME, "oferts-results-grid")
+    CLEAR_DEPARTMENT_SELECTION_BTN = (By.CLASS_NAME, "clear-department-selection")
 
     def __init__(self, driver, base_url):
         self.driver = driver
@@ -23,7 +23,7 @@ class HomePage:
             arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
         """, element)
 
-    def get_element_by_id(self, locator):
+    def get_element(self, locator):
         return self.driver.find_element(*locator)
         
     

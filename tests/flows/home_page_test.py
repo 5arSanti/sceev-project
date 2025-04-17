@@ -17,7 +17,7 @@ def test_scroll_to_interactive_map(driver, base_url):
     
     time.sleep(1)
     
-    element = home.get_element_by_id(home.DEPARTMENT)
+    element = home.get_element(home.DEPARTMENT)
     home.click_on_element(element)    
 
     time.sleep(1)
@@ -29,6 +29,16 @@ def test_scroll_to_interactive_map(driver, base_url):
     
     home.scroll_to_element_smooth(home.OFERTS_RESULTS)
     
-    time.sleep(2)
+    time.sleep(1)
+    
+    home.scroll_to_element_smooth(home.SECTION_INTERACTIVE_MAP)
+    element = home.get_element(home.CLEAR_DEPARTMENT_SELECTION_BTN)
+    element = home.click_on_element(element)
+    
+    time.sleep(1)
+    
+    home.scroll_to_element_smooth(home.OFERTS_RESULTS)
+    
+    time.sleep(1)
     
     

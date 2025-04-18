@@ -21,6 +21,12 @@ const ProcessCSVForm = () => {
         files: null,
     });
 
+    const options = [
+        { id: 1, name: "Disciplinas"},
+        { id: 2, name: "Municipios"},
+        { id: 3, name: "Ofertas_Empleo_Desglosado"},
+    ]
+
     const handleFileUpload = async (event) => {
         context.setLoading(true);
         
@@ -31,7 +37,7 @@ const ProcessCSVForm = () => {
     
             const formData = new FormData();
 
-            formData.append("table", values.table);
+            formData.append("table", options?.find((item) => item.id === values.table)?.name);
 
             for (let i = 0; i < values.files.length; i++) {
                 formData.append('process-file', values.files[i]);
@@ -51,12 +57,6 @@ const ProcessCSVForm = () => {
             context.setLoading(false);
         }
     };
-
-    const options = [
-        { id: 1, name: "Disciplinas"},
-        { id: 2, name: "Municipios"},
-        { id: 3, name: "Ofertas_Empleo_Desglosado"},
-    ]
 
     
     return(

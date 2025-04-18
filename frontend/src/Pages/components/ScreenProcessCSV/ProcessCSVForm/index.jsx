@@ -52,6 +52,12 @@ const ProcessCSVForm = () => {
         }
     };
 
+    const options = [
+        { id: 1, name: "Disciplinas"},
+        { id: 2, name: "Municipios"},
+        { id: 3, name: "Ofertas_Empleo_Desglosado"},
+    ]
+
     
     return(
         <WrapperContainer1 padding={50} gap={15}>
@@ -76,7 +82,7 @@ const ProcessCSVForm = () => {
                             id={"user-types"}
                             label={"Seleccione la tabla correspondiente"}
                             none={true}
-                            array={["Disciplinas", "Municipios", "Ofertas_Empleo_Desglosado"]}
+                            array={options}
                             onChange={(event) => handleInputChange("table", event, setValues)}
                             defaultValue={values?.table}
                             required={true}

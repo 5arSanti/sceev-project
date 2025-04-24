@@ -5,16 +5,20 @@ from selenium.webdriver.common.by import By
 from pages.estadisticas_page import EstadisticasPage
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from pages.home_page import HomePage
 
     
 def test_scroll_to_interactive_map(driver, base_url):
+    home = HomePage(driver, base_url)
     estadisticas = EstadisticasPage(driver, base_url)
-
-    navbarComponent = NavbarComponent(driver)  
-    navbarComponent.go_to_statics()    
+    navbarComponent = NavbarComponent(driver) 
     
+    home.open()
+    
+    time.sleep(2)
+     
+    navbarComponent.go_to_statics()    
    
-    estadisticas.open()
     time.sleep(2)
 
     estadisticas.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION)

@@ -21,9 +21,6 @@ def test_scroll_to_interactive_map(driver, base_url):
    
     time.sleep(2)
 
-    estadisticas.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION)
-    time.sleep(2)
-
     estadisticas.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
 

@@ -6,7 +6,7 @@ import time
 
 def test_upload_flow():
     driver = create_driver()
-    base_url = "http://localhost:5173/"
+    base_url = "localhost:5173/"
     error_logger = ErrorLogger()  
 
     try:

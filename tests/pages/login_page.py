@@ -8,7 +8,7 @@ class LoginPage:
     def __init__(self, driver, base_url):
         self.driver = driver
         self.base = base_url
-        self.url = "http://localhost:5173/#/home"
+        self.url = "localhost:5173/#/home"
 
     def open(self):
         self.driver.get(self.base + self.url)

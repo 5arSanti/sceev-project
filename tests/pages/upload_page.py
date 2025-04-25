@@ -9,8 +9,8 @@ class UploadPage:
 
     def __init__(self, driver, base_url):
         self.driver = driver
-        self.base = base_url
-        self.url = "//localhost:5173/#/upload"
+        self.base =base_url
+        self.url = "localhost:5173/#/upload"
 
     def open(self):
         self.driver.get(self.base + self.url)

@@ -30,33 +30,38 @@ def test_scroll_to_interactive_map(driver, base_url):
     estadisticas.scroll_to_element_smooth(estadisticas.INPUT_TITULO)
     estadisticas.get_input_and_type_text(estadisticas.INPUT_TITULO, "Estadística de Prueba")
     time.sleep(2)
-
-    estadisticas.click_on_add()
+    
+    estadisticas.scroll_to_element_smooth(estadisticas.INPUTS_CONTAINER_GRID)
     time.sleep(2)
-
-    estadisticas.scroll_to_element_smooth(estadisticas.WRAPPER_CONT)
-    time.sleep(2)
-
+    
+    
+    
     estadisticas.click_on_dropdown_dv()
     time.sleep(1)
-    estadisticas.select_tipo_contrato()
-    time.sleep(2)
+    # estadisticas.select_tipo_contrato(estadisticas.Button_tipocontrato)
+    # time.sleep(2)
+
 
     estadisticas.click_on_dropdown_tg()
     time.sleep(1)
-    estadisticas.select_pie()
-    time.sleep(2)
+    # estadisticas.select_pie(estadisticas.button_tipopie)
+    # time.sleep(2)
+
 
     estadisticas.click_on_dropdown_og()
     time.sleep(1)
-    estadisticas.select_y()
-    time.sleep(2)
+    # estadisticas.select_y(estadisticas.button_tipoy)
+    # time.sleep(2)
+    
+ 
 
-    estadisticas.scroll_to_element_smooth(estadisticas.SECTION_DECO)
+    estadisticas.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
-
+    estadisticas.scroll_to_element_smooth()
+    time.sleep(2)
+    estadisticas.click_on_add()
+    time.sleep(2)
     estadisticas.click_on_delete()
     time.sleep(2)
 
-    estadisticas.scroll_to_element_smooth(estadisticas.INPUTS_CONTAINER_GRID)
-    time.sleep(2)
+

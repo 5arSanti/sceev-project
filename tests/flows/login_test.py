@@ -16,17 +16,17 @@ def test_open_login_page(driver, base_url):
 
     #PRIMERA PRUEBA INICIO DE SESIÓN INCORRECTO Y LUEGO CORRECTO
 
-    #navbarComponent.go_login()
-    #time.sleep(3)
+    navbarComponent.go_login()
+    time.sleep(3)
 
-    #login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
-    #time.sleep(3)
+    login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
+    time.sleep(3)
 
-    #login.get_input_and_type_text(login.PASSWORD_INPUT, "12345679")
-    #time.sleep(3)
+    login.get_input_and_type_text(login.PASSWORD_INPUT, "12345679")
+    time.sleep(3)
 
-    #login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")
-    #time.sleep(3)
+    login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")
+    time.sleep(3)
 
     #SEGUNDA PRUEBA INICIO DE SESIÓN CORRECTO SIN ERRORES
 
@@ -66,14 +66,14 @@ def test_open_login_page(driver, base_url):
 
     #CUARTA PRUEBA INICIO DE SESIÓN CORRECTO CON INGRESO A LA SECCIÓN DE USUARIOS
 
-    navbarComponent.go_login()
-    time.sleep(3)
+    # navbarComponent.go_login()
+    # time.sleep(3)
 
-    login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
-    time.sleep(3)
+    # login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
+    # time.sleep(3)
 
-    login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")
-    time.sleep(3)
+    # login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")
+    # time.sleep(3)
 
-    navbarComponent.go_users()
-    time.sleep(2)
+    # navbarComponent.go_users()
+    # time.sleep(2)

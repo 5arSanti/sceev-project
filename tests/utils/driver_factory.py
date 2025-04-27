@@ -8,4 +8,4 @@ def create_driver():
     opts.add_argument("--start-maximized")
     driver = webdriver.Chrome(options=opts)
     driver.implicitly_wait(5)
-    return driver
+    return driver 

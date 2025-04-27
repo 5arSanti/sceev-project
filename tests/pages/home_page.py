@@ -54,4 +54,4 @@ class HomePage:
         element = WebDriverWait(self.driver, timeout).until(
             EC.element_to_be_clickable(locator)
         )
-        element.click()
+        element.click() 

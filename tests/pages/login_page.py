@@ -17,6 +17,13 @@ class LoginPage:
         self.driver.get(self.URL)
 
     def get_input_and_type_text(self, locator, text):
+        """Busca un input, limpia su contenido y escribe el texto dado."""
         input_element = self.driver.find_element(*locator)
         input_element.clear()
         input_element.send_keys(text + Keys.ENTER)
+
+    def login(self, email, password):
+        """Hace login usando el correo y contraseña que recibe."""
+        self.open()
+        self.get_input_and_type_text(self.EMAIL_INPUT, email)
+        self.get_input_and_type_text(self.PASSWORD_INPUT, password)

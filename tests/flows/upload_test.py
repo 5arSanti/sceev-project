@@ -32,6 +32,42 @@ def test_login_and_upload(driver, base_url):
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(uploadPage.FILE_INPUT))
 
+    uploadPage.upload_file("C:\\Users\\USUARIO\\OneDrive\\Documentos\\5toSemestre\\IngenieriadeSoftwareIII\\Doc pruebas\\TC2_formato_no_permitido.txt")
+    time.sleep(2)
+
+    uploadPage.select_municipios()
+    time.sleep(2)
+
+    uploadPage.submit_upload()
+    time.sleep(2)
+
+    try:
+        error_message = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.ID, "upload-error-message"))
+        )
+        assert "Por favor, seleccione un archivo .xlsx válido" in error_message.text, f"Expected error message, but got: {error_message.text}"
+        print("Mensaje de error recibido: Archivo no permitido.")
+    except TimeoutException:
+        print("Error: No se mostró el mensaje de error para archivo no permitido.")
+    
+    uploadPage.upload_file("C:\\Users\\USUARIO\\OneDrive\\Documentos\\5toSemestre\\IngenieriadeSoftwareIII\\Doc pruebas\\TC3_archivo_vacio.xlsx")
+    time.sleep(2)
+
+    uploadPage.select_municipios()
+    time.sleep(2)
+
+    uploadPage.submit_upload()
+    time.sleep(2)
+
+    try:
+        empty_file_message = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.ID, "upload-error-message"))
+        )
+        assert "El archivo Excel está vacío" in empty_file_message.text, f"Expected empty file message, but got: {empty_file_message.text}"
+        print("Mensaje de error recibido: Archivo vacío.")
+    except TimeoutException:
+        print("Error: No se mostró el mensaje de error para archivo vacío.")
+
     uploadPage.upload_file("C:\\Users\\USUARIO\\OneDrive\\Documentos\\5toSemestre\\IngenieriadeSoftwareIII\\Doc pruebas\\TC1_carga_exitosa.xlsx")
     time.sleep(2)
 

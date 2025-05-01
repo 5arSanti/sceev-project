@@ -14,7 +14,7 @@ def test_scroll_to_interactive_map(driver, base_url):
     
     home.open()
     time.sleep(2)
-    navbarComponent.go_to_statics()    
+    navbarComponent.go_stats()    
     time.sleep(2)
     home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)

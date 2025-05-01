@@ -6,6 +6,7 @@ class NavbarComponent:
     NAV_LOGIN_BTN = (By.CSS_SELECTOR, "a.nav-buttons.animacion2[href='#/login']")
     NAV_UPLOAD_BTN = (By.CSS_SELECTOR, "a.nav-buttons.animacion2[href='#/upload']")
     NAV_USERS_BTN = (By.CSS_SELECTOR, "a.nav-buttons.animacion2[href='#/users']")
+    CLOSE_SESSION_BTN = (By.XPATH, "//button[contains(@class, 'nav-buttons') and contains(@class, 'animacion2') and text()='Cerrar Sesión']")
  
 
     def __init__(self, driver):
@@ -25,3 +26,6 @@ class NavbarComponent:
 
     def go_users(self):
         self.driver.find_element(*self.NAV_USERS_BTN).click()
+    
+    def close_session(self):
+        self.driver.find_element(*self.CLOSE_SESSION_BTN).click()

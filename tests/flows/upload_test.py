@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
 
-def test_login_and_upload(driver, base_url):
+def tests_login_and_upload(driver, base_url):
     navbarComponent = NavbarComponent(driver)
     uploadPage = UploadPage(driver, base_url)
     loginPage = LoginPage(driver)
@@ -33,7 +33,7 @@ def test_login_and_upload(driver, base_url):
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(uploadPage.FILE_INPUT))
 
-    uploadPage.upload_file(os.path.abspath(os.path.join("..", "data", "TC2_formato_no_permitido.txt")))
+    uploadPage.upload_file(os.path.abspath(os.path.join("tests", "data", "TC2_formato_no_permitido.txt")))
     time.sleep(2)
 
     uploadPage.select_municipios()
@@ -51,7 +51,7 @@ def test_login_and_upload(driver, base_url):
     except TimeoutException:
         print("Error: No se mostró el mensaje de error para archivo no permitido.")
     
-    uploadPage.upload_file(os.path.abspath(os.path.join("..", "data", "TC3_archivo_vacio.xlsx")))
+    uploadPage.upload_file(os.path.abspath(os.path.join("tests", "data", "TC3_archivo_vacio.xlsx")))
     time.sleep(2)
 
     uploadPage.select_municipios()
@@ -69,7 +69,7 @@ def test_login_and_upload(driver, base_url):
     except TimeoutException:
         print("Error: No se mostró el mensaje de error para archivo vacío.")
 
-    uploadPage.upload_file(os.path.abspath(os.path.join("..", "data", "TC1_carga_exitosa.xlsx")))
+    uploadPage.upload_file(os.path.abspath(os.path.join("tests", "data", "TC1_carga_exitosa.xlsx")))
     time.sleep(2)
 
     uploadPage.select_municipios()

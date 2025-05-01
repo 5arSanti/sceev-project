@@ -1,10 +1,11 @@
-import time
+import os
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from pages.upload_page import UploadPage
 from pages.nav_bar_components import NavbarComponent
 from pages.login_page import LoginPage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import time
 
 def test_upload_file_with_invalid_format(driver, base_url):
     navbarComponent = NavbarComponent(driver)
@@ -30,7 +31,7 @@ def test_upload_file_with_invalid_format(driver, base_url):
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(uploadPage.FILE_INPUT))
 
-    uploadPage.upload_file("C:\Users\USUARIO\OneDrive\Documentos\5toSemestre\IngenieriadeSoftwareIII\Doc pruebas\TC2_formato_no_permitido.txt")
+    uploadPage.upload_file(os.path.abspath(os.path.join("..", "data", "TC2_formato_no_permitido.txt")))
     time.sleep(2)
 
     error_message = uploadPage.get_error_message()
@@ -61,7 +62,7 @@ def test_upload_empty_excel_file(driver, base_url):
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(uploadPage.FILE_INPUT))
 
-    uploadPage.upload_file("C:\Users\USUARIO\OneDrive\Documentos\5toSemestre\IngenieriadeSoftwareIII\Doc pruebas\TC3_archivo_vacio.xlsx")
+    uploadPage.upload_file(os.path.abspath(os.path.join("..", "data", "TC3_archivo_vacio.xlsx")))
     time.sleep(2)
 
     error_message = uploadPage.get_error_message()

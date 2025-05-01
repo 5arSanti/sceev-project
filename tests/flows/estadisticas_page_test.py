@@ -13,18 +13,13 @@ def test_scroll_to_interactive_map(driver, base_url):
     navbarComponent = NavbarComponent(driver) 
     
     home.open()
-    
     time.sleep(2)
-     
     navbarComponent.go_to_statics()    
-   
     time.sleep(2)
-
     home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "section-styled-stats-data")))
-
 
     home.scroll_to_element_smooth(estadisticas.INPUT_TITULO)
     home.get_input_and_type_text(estadisticas.INPUT_TITULO, "Estadística de Prueba")
@@ -54,13 +49,25 @@ def test_scroll_to_interactive_map(driver, base_url):
     
  
 
+    home.scroll_to_element_smooth(estadisticas.ADD_GRAPH_BUTTON)
+    time.sleep(2)
+    home.wait_and_click(estadisticas.ADD_GRAPH_BUTTON)
+    time.sleep(2)
     home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
-    home.scroll_to_element_smooth()
+    home.wait_and_click(estadisticas.DELETE_GRAPH_BUTTON)
     time.sleep(2)
-    estadisticas.click_on_add()
+    
     time.sleep(2)
-    estadisticas.click_on_delete()
+    home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
+    time.sleep(2)
+    home.get_input_and_type_text(estadisticas.INPUT_TITULO, "Cambiando de nombre la grafica")
+    time.sleep(2)
+    home.wait_and_click(estadisticas.DROPDOWN_BTN_TG)
+    time.sleep(1)
+    home.wait_and_click(estadisticas.button_tipopolar)
+    time.sleep(2)
+    home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
 
 

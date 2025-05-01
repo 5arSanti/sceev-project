@@ -7,7 +7,6 @@ class EstadisticasPage:
     # principal
     URL = "#/stats"
     
-    
     section_locator = (By.ID, "section-styled-stats-data")
     NAVEGAR_SECCION_ESTADISTICAS = (By.ID, "section-graphs")
     INPUT_TITULO = (By.ID, "graph-title")
@@ -19,15 +18,16 @@ class EstadisticasPage:
     
     Button_tipocontrato = (By.CSS_SELECTOR, "a#option-Tipo_Contrato")
     button_tipopie= (By.CSS_SELECTOR, "a#option-line")
+    button_tipopolar= (By.CSS_SELECTOR, "a#option-polarArea")
     button_tipoy = (By.CSS_SELECTOR, "a#option-y")
     
-    SECTION_ADD_GRA = (By.CSS_SELECTOR, "button-card-container ")
+    SECTION_ADD_GRA = (By.CLASS_NAME, "button-card-container ")
     SECTION_DECO = (By.CLASS_NAME, "section-decoration")
+    
+    ADD_GRAPH_BUTTON = (By.XPATH, "//button[contains(@class, 'button-card-container') and contains(., 'Añadir nueva visualización gráfica')]")
+    
     INPUTS_CONTAINER_GRID = (By.CSS_SELECTOR, ".grid-container.grid-1-1-1")
-    ESTADISTICAS_BTN_AGREGAR = (By.CSS_SELECTOR, "button.button-card-container.add-graph-button")
-    ESTADISTICAS_BTN_BORRAR = (By.CSS_SELECTOR, "button.button-card-container.delete-graph-button")
-    ESTADISTICAS_BTN_GENERAL = (By.CSS_SELECTOR, "button.button-card-container")
-    ESTADISTICAS_BTN_GRAFICO = (By.CSS_SELECTOR, "button.button-card-container.graph-button")
+    DELETE_GRAPH_BUTTON = (By.XPATH, "//button[@title='Eliminar Grafica 2']")
     
     
 

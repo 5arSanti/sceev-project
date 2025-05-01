@@ -1,11 +1,10 @@
-import time
-from pages.nav_bar_component import NavbarComponent
-import time
 from selenium.webdriver.common.by import By
-from pages.estadisticas_page import EstadisticasPage
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from pages.nav_bar_component import NavbarComponent
+from pages.estadisticas_page import EstadisticasPage
 from pages.home_page import HomePage
+import time
 
     
 def test_scroll_to_interactive_map(driver, base_url):
@@ -21,43 +20,43 @@ def test_scroll_to_interactive_map(driver, base_url):
    
     time.sleep(2)
 
-    estadisticas.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
+    home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "section-styled-stats-data")))
 
 
-    estadisticas.scroll_to_element_smooth(estadisticas.INPUT_TITULO)
-    estadisticas.get_input_and_type_text(estadisticas.INPUT_TITULO, "Estadística de Prueba")
+    home.scroll_to_element_smooth(estadisticas.INPUT_TITULO)
+    home.get_input_and_type_text(estadisticas.INPUT_TITULO, "Estadística de Prueba")
     time.sleep(2)
     
-    estadisticas.scroll_to_element_smooth(estadisticas.INPUTS_CONTAINER_GRID)
+    home.scroll_to_element_smooth(estadisticas.INPUTS_CONTAINER_GRID)
     time.sleep(2)
     
     
     
-    estadisticas.click_on_dropdown_dv()
+    home.wait_and_click(estadisticas.DROPDOWN_BTN_DV)
     time.sleep(1)
-    # estadisticas.select_tipo_contrato(estadisticas.Button_tipocontrato)
-    # time.sleep(2)
+    home.wait_and_click(estadisticas.Button_tipocontrato)
+    time.sleep(2)
 
 
-    estadisticas.click_on_dropdown_tg()
+    home.wait_and_click(estadisticas.DROPDOWN_BTN_TG)
     time.sleep(1)
-    # estadisticas.select_pie(estadisticas.button_tipopie)
-    # time.sleep(2)
+    home.wait_and_click(estadisticas.button_tipopie)
+    time.sleep(2)
 
 
-    estadisticas.click_on_dropdown_og()
+    home.wait_and_click(estadisticas.DROPDOWN_BTN_OG)
     time.sleep(1)
-    # estadisticas.select_y(estadisticas.button_tipoy)
-    # time.sleep(2)
+    home.wait_and_click(estadisticas.button_tipoy)
+    time.sleep(2)
     
  
 
-    estadisticas.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
+    home.scroll_to_element_smooth(estadisticas.NAVEGAR_SECCION_ESTADISTICAS)
     time.sleep(2)
-    estadisticas.scroll_to_element_smooth()
+    home.scroll_to_element_smooth()
     time.sleep(2)
     estadisticas.click_on_add()
     time.sleep(2)

@@ -17,12 +17,9 @@ class EstadisticasPage:
     DROPDOWN_BTN_TG = (By.CSS_SELECTOR, "button[id='dropdown-card-basic toggle-Selecciona el tipo de grafico']")
     DROPDOWN_BTN_OG = (By.CSS_SELECTOR, "button[id='dropdown-card-basic toggle-Orientación de la gráfica']")
     
-    Button_tipocontrato = (By.XPATH, "//button[contains(text(), 'Tipo_Contrato')]")
-    button_tipopie= (By.XPATH, "//button[contains(text(), 'pie')]")
-    button_tipoy = (By.XPATH, "//button[contains(text(), 'y')]")
-    
-    
-    
+    Button_tipocontrato = (By.CSS_SELECTOR, "a#option-Tipo_Contrato")
+    button_tipopie= (By.CSS_SELECTOR, "a#option-line")
+    button_tipoy = (By.CSS_SELECTOR, "a#option-y")
     
     SECTION_ADD_GRA = (By.CSS_SELECTOR, "button-card-container ")
     SECTION_DECO = (By.CLASS_NAME, "section-decoration")
@@ -41,63 +38,6 @@ class EstadisticasPage:
 
     def open(self):
         self.driver.get(self.base + self.URL)
-
-    def scroll_to_element_smooth(self, locator):
-        element = self.driver.find_element(*locator)
-        self.driver.execute_script("""
-            arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
-        """, element)
-
-    def get_element(self, locator):
-        return self.driver.find_element(*locator)
-
-    def click_on_element(self, element):
-        element.click()
-
-    def get_input_and_type_text(self, locator, text):
-        input_element = self.driver.find_element(*locator)
-        input_element.clear()
-        input_element.send_keys(text + Keys.ENTER)
-
-    def wait_and_click(self, locator, timeout=10):
-        element = WebDriverWait(self.driver, timeout).until(
-            EC.element_to_be_clickable(locator)
-        )
-        element.click()
-
-
-    # # funciones de estadistica
-    # def click_on_add(self):
-    #     self.wait_and_click(self.ESTADISTICAS_BTN_GENERAL)
-
-    # def click_on_delete(self):
-        # self.wait_and_click(self.ESTADISTICAS_BTN_BORRAR)
-        # funciones de estadística
-        
-        
-    def click_on_dropdown_dv(self):
-       self.wait_and_click(self.DROPDOWN_BTN_DV)
-
-    def click_on_dropdown_tg(self):
-      self.wait_and_click(self.DROPDOWN_BTN_TG)
-
-    def click_on_dropdown_og(self):
-        self.wait_and_click(self.DROPDOWN_BTN_OG)
-
-
-
-    def click_on_element(self, element):
-            element.click()
-
-
-    def select_tipo_contrato(self):
-        self.wait_and_click(self.Button_tipocontrato)
-
-    def select_pie(self):
-        self.wait_and_click(self.button_tipopie)
-
-    def select_y(self):
-        self.wait_and_click(self.button_tipoy)
         
         
     def section_graphs(self):

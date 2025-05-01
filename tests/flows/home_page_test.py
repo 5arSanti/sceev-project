@@ -1,4 +1,3 @@
-import pytest
 from pages.home_page import HomePage
 from pages.ofert_details_page import OfertDetailsPage
 from pages.nav_bar_component import NavbarComponent

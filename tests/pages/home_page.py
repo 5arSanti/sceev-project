@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class HomePage:
-    
     URL = "#/home"
     SECTION_INTERACTIVE_MAP = (By.ID, "section-interactive-map")
     DEPARTMENT = (By.NAME, "Huila")

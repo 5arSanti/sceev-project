@@ -16,7 +16,7 @@ def test_scrape_offer(driver):
 
     home_page = HomePage(driver, base_url="http://localhost:5173")
     home_page.open()
-    home_page.scroll_to_element_smooth(HomePage.OFERTS_RESULTS)
+    home_page.scroll_to_element_smooth(HomePage.OFERTS_RESULTS) 
     time.sleep(2)
     home_page.wait_and_click(HomePage.FIRST_RESULT)
 

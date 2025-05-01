@@ -67,4 +67,4 @@ def test_upload_empty_excel_file(driver, base_url):
 
     error_message = uploadPage.get_error_message()
     assert "El archivo Excel está vacío." in error_message, f"Expected empty file message, but got: {error_message}"
-    print("Archivo vacío detectado correctamente!")
+    print("Archivo vacío detectado correctamente!") 

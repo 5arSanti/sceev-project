@@ -13,7 +13,6 @@ class LoginPage:
         self.driver = driver
 
     def open(self):
-        """Abre la página de inicio de sesión directamente."""
         self.driver.get(self.URL)
 
     def get_input_and_type_text(self, locator, text):

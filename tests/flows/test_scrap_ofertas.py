@@ -3,8 +3,6 @@ import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
-from bs4 import BeautifulSoup
 import csv
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
@@ -20,20 +18,21 @@ def test_scrape_home_offers(driver):
     home_page.open()
 
     home_page.scroll_to_element_smooth(HomePage.OFERTS_RESULTS)
-    time.sleep(2) 
+    time.sleep(2)
 
     offers_elements = driver.find_elements(By.CLASS_NAME, "wrapper-container2.results-card-container")
 
     for offer_element in offers_elements:
-        html_content = offer_element.get_attribute('outerHTML')
-        soup = BeautifulSoup(html_content, 'html.parser')
-
-        fecha_publicacion = extraer_dato(soup, "p.text-card.italic.text-color", "Fecha de Publicación")
-        cargo = extraer_dato(soup, "h2", "Cargo")
-        descripcion_cargo = extraer_dato(soup, "p.text-card.italic.text-color", "Descripción del Cargo")
-        prestador = extraer_dato(soup, "p.text-card.italic.text-color", "Prestador")
-        salario = extraer_dato(soup, "p.text-card.italic.text-color", "Salario")
-        codigo_oferta = extraer_dato(soup, "p.text-card.italic.text-color", "Código de la Oferta")
+        try:
+            fecha_publicacion = buscar_dato_selenium(offer_element, "p.text-card.italic.text-color", "Fecha de Publicación")
+            cargo = buscar_dato_selenium(offer_element, "h2", "Cargo")
+            descripcion_cargo = buscar_dato_selenium(offer_element, "p.text-card.italic.text-color", "Descripción del Cargo")
+            prestador = buscar_dato_selenium(offer_element, "p.text-card.italic.text-color", "Prestador")
+            salario = buscar_dato_selenium(offer_element, "p.text-card.italic.text-color", "Salario")
+            codigo_oferta = buscar_dato_selenium(offer_element, "p.text-card.italic.text-color", "Código de la Oferta")
+        except Exception as e:
+            print(f"Error al extraer los datos: {e}")
+            continue
 
         print(f"Fecha Publicación: {fecha_publicacion}")
         print(f"Cargo: {cargo}")
@@ -44,10 +43,14 @@ def test_scrape_home_offers(driver):
 
         guardar_en_csv(fecha_publicacion, cargo, descripcion_cargo, prestador, salario, codigo_oferta)
 
-def extraer_dato(soup, selector, tipo_dato):
+def buscar_dato_selenium(container, css_selector, tipo_dato):
     try:
-        return soup.select_one(selector).text.strip()
-    except AttributeError:
+        elementos = container.find_elements(By.CSS_SELECTOR, css_selector)
+        for el in elementos:
+            if tipo_dato.lower() in el.text.lower():
+                return el.text.strip()
+        return f"No encontrado ({tipo_dato})"
+    except Exception:
         return f"No encontrado ({tipo_dato})"
 
 def guardar_en_csv(fecha_publicacion, cargo, descripcion_cargo, prestador, salario, codigo_oferta):

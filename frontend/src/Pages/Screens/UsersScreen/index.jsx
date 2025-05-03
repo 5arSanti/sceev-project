@@ -37,7 +37,7 @@ const UsersScreen = () => {
 
     const { users, userTypes } = React.useContext(AppContext).responseData;
 
-    const handleDelete = async ({ "Numero de identificacion": id }) => {
+    const handleDelete = async ({ id }) => {
         setLoading(true);
 
         await handleDeleteData({ id }, "/users");

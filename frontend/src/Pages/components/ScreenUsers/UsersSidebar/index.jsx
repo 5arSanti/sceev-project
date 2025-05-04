@@ -49,7 +49,7 @@ const UsersSideBar = () => {
                     <MenuItem
                         icon={!activeMenu ? <LuArrowLeftFromLine /> : <LuArrowRightFromLine />}
                         onClick={() => { setActiveMenu(!activeMenu) }}
-                        className="end"
+                        className="menu-item-open-close"
                     >
                         {!activeMenu ? "Cerrar" : "Abrir"}
                     </MenuItem>

@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.nav_bar_components import NavbarComponent
 
 class LoginPage:
     URL = "http://localhost:5173/#/login"

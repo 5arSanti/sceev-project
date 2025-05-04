@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class HomePage:
-    
     URL = "#/home"
     SECTION_INTERACTIVE_MAP = (By.ID, "section-interactive-map")
     DEPARTMENT = (By.NAME, "Huila")
@@ -54,4 +53,6 @@ class HomePage:
         element = WebDriverWait(self.driver, timeout).until(
             EC.element_to_be_clickable(locator)
         )
-        element.click() 
+        element.click()
+
+

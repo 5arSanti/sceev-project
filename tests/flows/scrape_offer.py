@@ -60,6 +60,6 @@ def test_scrape_offer(driver):
     guardar_en_csv(fecha_publicacion, fecha_vencimiento, cargo, descripcion_cargo)
 
 def guardar_en_csv(fecha_publicacion, fecha_vencimiento, cargo, descripcion_cargo):
-    with open('oferta_scrapeadas.csv', mode='a', newline='', encoding='utf-8') as file:
+    with open('data/oferta_scrapeadas.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow([fecha_publicacion, fecha_vencimiento, cargo, descripcion_cargo])

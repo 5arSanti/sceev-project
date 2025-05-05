@@ -1,9 +1,11 @@
 import time
 import pytest
-import csv
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import csv
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 
@@ -16,20 +18,39 @@ def test_scrape_offer(driver):
 
     home_page = HomePage(driver, base_url="http://localhost:5173")
     home_page.open()
-    home_page.scroll_to_element_smooth(HomePage.OFERTS_RESULTS) 
-    time.sleep(2)
+
+    home_page.scroll_to_element_smooth(HomePage.OFERTS_RESULTS)
+    time.sleep(2) 
     home_page.wait_and_click(HomePage.FIRST_RESULT)
 
     WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.TAG_NAME, "h1"))
+        EC.presence_of_element_located((By.TAG_NAME, "h1")) 
     )
+    
+    html_content = driver.page_source
 
-    print("Buscando elementos...")
+    soup = BeautifulSoup(html_content, 'html.parser')
 
-    fecha_publicacion = obtener_texto_por_estilo(driver, "text-card bold text-color", "24px", index=0, tipo="Fecha de Publicación")
-    fecha_vencimiento = obtener_texto_por_estilo(driver, "text-card bold text-color", "24px", index=1, tipo="Fecha de Vencimiento")
-    cargo = obtener_texto_por_estilo(driver, "span-card undefined", "18px", tipo="Cargo")
-    descripcion_cargo = obtener_texto_por_estilo(driver, "text-card italic text-color", "16px", tipo="Descripción Cargo")
+   
+    try:
+        fecha_publicacion = soup.select_one("p.text-card.bold.text-color[style='text-align: center; width: 100%; font-size: 24px;']").text.strip()
+    except AttributeError:
+        fecha_publicacion = "No encontrada"
+    
+    try:
+        fecha_vencimiento = soup.select("p.text-card.bold.text-color[style='text-align: center; width: 100%; font-size: 24px;']")[1].text.strip()
+    except IndexError:
+        fecha_vencimiento = "No encontrada"
+    
+    try:
+        cargo = soup.select_one("span.span-card.undefined[style='font-size: 18px;']").text.strip()
+    except AttributeError:
+        cargo = "No encontrado"
+
+    try:
+        descripcion_cargo = soup.select_one("p.text-card.italic.text-color[style='text-align: start; width: 100%; font-size: 16px;']").text.strip()
+    except AttributeError:
+        descripcion_cargo = "No encontrada"
 
     print(f"Fecha Publicación: {fecha_publicacion}")
     print(f"Fecha Vencimiento: {fecha_vencimiento}")
@@ -38,18 +59,7 @@ def test_scrape_offer(driver):
 
     guardar_en_csv(fecha_publicacion, fecha_vencimiento, cargo, descripcion_cargo)
 
-def obtener_texto_por_estilo(driver, clase, font_size, tipo="", index=0):
-    try:
-        elementos = driver.find_elements(By.CSS_SELECTOR, f".{clase}[style*='font-size: {font_size}']")
-        print(f"Elementos encontrados para {tipo}: {len(elementos)}")  
-        if elementos:
-            return elementos[index].text.strip()
-        else:
-            return f"No encontrado ({tipo})"
-    except (IndexError, AttributeError):
-        return f"No encontrado ({tipo})"
-
 def guardar_en_csv(fecha_publicacion, fecha_vencimiento, cargo, descripcion_cargo):
-    with open('oferta_scrapeadas.csv', mode='a', newline='', encoding='utf-8') as file:
+    with open('ofertas_scrapeadas.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow([fecha_publicacion, fecha_vencimiento, cargo, descripcion_cargo])

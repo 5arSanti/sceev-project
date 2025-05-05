@@ -28,21 +28,15 @@ def test_scrape_home_offers(driver):
         html_content = offer_element.get_attribute('outerHTML')
         soup = BeautifulSoup(html_content, 'html.parser')
 
-        fecha_publicacion = extraer_dato(soup, "p.text-card.italic.text-color", "Fecha de Publicación")
-        cargo = extraer_dato(soup, "h2", "Cargo")
-        descripcion_cargo = extraer_dato(soup, "p.text-card.italic.text-color", "Descripción del Cargo")
-        prestador = extraer_dato(soup, "p.text-card.italic.text-color", "Prestador")
-        salario = extraer_dato(soup, "p.text-card.italic.text-color", "Salario")
         codigo_oferta = extraer_dato(soup, "p.text-card.italic.text-color", "Código de la Oferta")
+        nombre_oferta = extraer_dato(soup, "h2", "Nombre de la Oferta")  
+        sueldo = extraer_sueldo(soup)  
 
-        print(f"Fecha Publicación: {fecha_publicacion}")
-        print(f"Cargo: {cargo}")
-        print(f"Descripción Cargo: {descripcion_cargo}")
-        print(f"Prestador: {prestador}")
-        print(f"Salario: {salario}")
         print(f"Código de la Oferta: {codigo_oferta}")
+        print(f"Nombre de la Oferta: {nombre_oferta}")
+        print(f"Sueldo: {sueldo}")
 
-        guardar_en_csv(fecha_publicacion, cargo, descripcion_cargo, prestador, salario, codigo_oferta)
+        guardar_en_csv(codigo_oferta, nombre_oferta, sueldo)
 
 def extraer_dato(soup, selector, tipo_dato):
     try:
@@ -50,7 +44,18 @@ def extraer_dato(soup, selector, tipo_dato):
     except AttributeError:
         return f"No encontrado ({tipo_dato})"
 
-def guardar_en_csv(fecha_publicacion, cargo, descripcion_cargo, prestador, salario, codigo_oferta):
-    with open('ofertas_scrapeadas.csv', mode='a', newline='', encoding='utf-8') as file:
+def extraer_sueldo(soup):
+    try:
+        salario_label = soup.find('p', string='Salario.') 
+        if salario_label:
+            siguiente_p = salario_label.find_next('p', class_='text-card italic text-color')
+            if siguiente_p:
+                return siguiente_p.text.strip()  
+        return "No encontrado (Sueldo)"
+    except AttributeError:
+        return "No encontrado (Sueldo)"
+
+def guardar_en_csv(codigo_oferta, nombre_oferta, sueldo):
+    with open('data/ofertas_scrapeadas.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow([fecha_publicacion, cargo, descripcion_cargo, prestador, salario, codigo_oferta])
+        writer.writerow([codigo_oferta, nombre_oferta, sueldo])

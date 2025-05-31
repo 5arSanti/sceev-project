@@ -1,13 +1,16 @@
 {
   "name": "sceev-backend",
-  "version": "2.3.10",
+  "version": "2.3.11",
   "private": "false",
   "description": "Backend for SCEEV project",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --env-file=.env bin/www",
     "prod": "node --env-file=.env bin/www",
-    "start": "node bin/www"
+    "start": "node bin/www",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -28,6 +31,8 @@
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
   },

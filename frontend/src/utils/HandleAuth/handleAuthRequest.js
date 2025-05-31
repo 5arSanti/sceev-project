@@ -10,22 +10,21 @@ axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 const handleAuthRequest = async (context, navigate) => {
     const { setUser, setAuth } = context;
 
-    axios.get(`${api}/auth/`)
-        .then(response => {
-            const { data } = response;
+    try {
+        const response = await axios.get(`${api}/auth/`);
+        const { data } = response;
 
-            if(data.Status === "Success") {
-                setAuth(true);
-                setUser(data.user);
-            } else {
-                setAuth(false);
-            }
-        })
-        .catch(err => {
+        if(data.Status === "Success") {
+            setAuth(true);
+            setUser(data.user);
+        } else {
             setAuth(false);
-            handleNotifications("error", err.message)
-            navigate("/home");
-        })
+        }
+    } catch (err) {
+        setAuth(false);
+        handleNotifications("error", err.message);
+        navigate("/home");
+    }
 }
 
 export { handleAuthRequest };

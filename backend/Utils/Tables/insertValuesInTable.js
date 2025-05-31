@@ -13,14 +13,17 @@ const insertValuesInTable = async (tableName, correctRows) => {
 
 		const values = batch.map((item) => {
 			return `(${Object.values(item.data)
-				.map((value) => (typeof value === "string" ? `'${value}'` : value))
+				.map((value) => {
+					if (value === null) return 'null';
+					if (typeof value === "string") {
+						return `'${value.replace(/'/g, "''")}'`;
+					}
+					return value;
+				})
 				.join(", ")})`;
 		}).join(", ");
 
-		const query = `
-            INSERT INTO ${tableName} (${keys}) VALUES
-            ${values}
-        `;
+		const query = `INSERT INTO ${tableName} (${keys}) VALUES ${values}`;
 
 		await getQuery(query);
 	}

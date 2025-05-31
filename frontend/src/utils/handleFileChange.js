@@ -4,7 +4,7 @@ import { handleNotifications } from "./handleNotifications";
 const handleFileChange = (event, extensions, setState) => {
     let files = [...event.target.files];
 
-    if (!files) {
+    if (files.length === 0) {
         return handleNotifications("error", "Por favor, seleccione un archivo");
     }
 

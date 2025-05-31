@@ -9,32 +9,9 @@ const generateYearRange = (startYear, endYear) => {
     return reverseYears;
 };
 
-const actualYear = new Date().getFullYear();
-const actualMonth = new Date().getMonth() + 1;
-
-
-
-const getMonthsUntilCurrent = (year) => {
-    const monthsArray = {};
-
-    if (year == actualYear) {
-        for (let i = 1; i <= actualMonth; i++) {
-            monthsArray[i] = months[i];
-        }
-        return monthsArray;
-    } 
-    // Si el año pasado es anterior al año actual
-    else if (year < actualYear) {
-        for (let i = 1; i <= 12; i++) {
-            monthsArray[i] = months[i];
-        }
-        return monthsArray;
-    } 
-    
-    else {
-        handleNotifications("error", "Error configurando meses");
-    }
-}
+const getCurrentDate = () => new Date();
+const actualYear = getCurrentDate().getFullYear();
+const actualMonth = getCurrentDate().getMonth() + 1;
 
 const months = {
     1: "Enero",
@@ -51,14 +28,34 @@ const months = {
     12: "Diciembre"
 };
 
+const getMonthsUntilCurrent = (year) => {
+    const monthsArray = {};
+    const currentYear = getCurrentDate().getFullYear();
+    const currentMonth = getCurrentDate().getMonth() + 1;
+
+    if (year === currentYear) {
+        for (let i = 1; i <= currentMonth; i++) {
+            monthsArray[i] = months[i];
+        }
+        return monthsArray;
+    } 
+    else if (year < currentYear) {
+        for (let i = 1; i <= 12; i++) {
+            monthsArray[i] = months[i];
+        }
+        return monthsArray;
+    } 
+    else {
+        handleNotifications("error", "Error configurando meses");
+        return undefined;
+    }
+}
 
 const obtenerFechaActual = () => {
     const opciones = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-    const fecha = new Date();
+    const fecha = getCurrentDate();
     const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
-
     const fechaCapitalizada = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-  
     return fechaCapitalizada;
 }
 

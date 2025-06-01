@@ -25,13 +25,4 @@ router.get("/", async (request, response) => {
 	}
 })
 
-// router.get("/name", async (request, response) => {
-// 	try {
-// 		return response.json({filtersName: tableFilters});
-// 	}
-// 	catch (err) {
-// 		return response.status(500).json({ Error: err.message });
-// 	}
-// })
-
 module.exports = { router, tableFilters };

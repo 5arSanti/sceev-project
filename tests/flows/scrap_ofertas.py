@@ -11,6 +11,8 @@ import csv
 
 @pytest.mark.smoke
 def test_scrape_home_offers(driver):
+    SELECTOR = "p.text-card.italic.text-color"
+    
     login_page = LoginPage(driver)
     login_page.open()
     login_page.get_input_and_type_text(LoginPage.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
@@ -28,12 +30,12 @@ def test_scrape_home_offers(driver):
         html_content = offer_element.get_attribute('outerHTML')
         soup = BeautifulSoup(html_content, 'html.parser')
 
-        fecha_publicacion = extraer_dato(soup, "p.text-card.italic.text-color", "Fecha de Publicación")
-        cargo = extraer_dato(soup, "h2", "Cargo")
-        descripcion_cargo = extraer_dato(soup, "p.text-card.italic.text-color", "Descripción del Cargo")
-        prestador = extraer_dato(soup, "p.text-card.italic.text-color", "Prestador")
-        salario = extraer_dato(soup, "p.text-card.italic.text-color", "Salario")
-        codigo_oferta = extraer_dato(soup, "p.text-card.italic.text-color", "Código de la Oferta")
+        fecha_publicacion = extraer_dato(soup, SELECTOR, "Fecha de Publicación")
+        cargo = extraer_dato(soup, SELECTOR, "Cargo")
+        descripcion_cargo = extraer_dato(soup, SELECTOR, "Descripción del Cargo")
+        prestador = extraer_dato(soup, SELECTOR, "Prestador")
+        salario = extraer_dato(soup, SELECTOR, "Salario")
+        codigo_oferta = extraer_dato(soup, SELECTOR, "Código de la Oferta")
 
         print(f"Fecha Publicación: {fecha_publicacion}")
         print(f"Cargo: {cargo}")

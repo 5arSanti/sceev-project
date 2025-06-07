@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${DB_PASSWORD}
+      - MSSQL_PID=Express
+      - MSSQL_TCP_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/entrypoint.sh:/entrypoint.sh
+      - sqldata:/var/opt/mssql
+    networks:
+      - app-network
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "${DB_PASSWORD}" -C -Q "SELECT 1" || exit 1
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 120s
+    entrypoint: /bin/bash /entrypoint.sh
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=development
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_SERVER=${DB_SERVER}
+      - PORT=${BACKEND_PORT}
+      - API_STRUCTURE=${API_STRUCTURE}
+      - LOGIN_TOKEN=${LOGIN_TOKEN}
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=development
+      - VITE_API_STRUCTURE=${API_STRUCTURE}
+      - VITE_API_DOMAIN=${API_DOMAIN}
+    ports:
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  sqldata: 

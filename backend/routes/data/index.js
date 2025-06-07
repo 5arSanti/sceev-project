@@ -5,16 +5,16 @@ const path = require("path");
 
 const upload = require("../../middlewares/multer.config");
 
-const { validateFileExtension } = require("../../Utils/Files/validateFiles");
+const { validateFileExtension } = require("../../Utils/files/validateFiles");
 
 const { getColumnNames } = require("../../Utils/getColumnNames");
 const { deleteFile } = require("../../Utils/files/deleteFile");
 const { getDate } = require("../../Utils/getDate");
 const { arrayToString } = require("../../Utils/arrayToString");
-const { validateFiles } = require("../../Utils/Files/validateFiles");
+const { validateFiles } = require("../../Utils/files/validateFiles");
 const { insertValuesInTable } = require("../../Utils/Tables/insertValuesInTable");
 const { verifyUser } = require("../../middlewares/verifyUser");
-const { parseExcel } = require("../../Utils/Files/parseExcel");
+const { parseExcel } = require("../../Utils/files/parseExcel");
 
 // POST
 router.post("/", verifyUser, upload.single("process-file"), async (request, response) => {

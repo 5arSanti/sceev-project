@@ -1,4 +1,4 @@
-const { readFolder } = require('../Files/readFolder');
+const { readFolder } = require('../files/readFolder');
 const fs = require('fs');
 
 // Mock fs module

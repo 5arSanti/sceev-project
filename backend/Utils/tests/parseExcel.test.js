@@ -1,4 +1,4 @@
-const { parseExcel } = require('../Files/parseExcel');
+const { parseExcel } = require('../files/parseExcel');
 const xlsx = require('xlsx');
 
 // Mock xlsx module

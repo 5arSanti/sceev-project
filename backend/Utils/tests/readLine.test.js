@@ -1,4 +1,4 @@
-const { readLine } = require('../Files/readLine');
+const { readLine } = require('../files/readLine');
 const { insertInDatabase } = require('../insertInDatabase');
 
 // Mock dependencies

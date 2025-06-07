@@ -1,14 +1,14 @@
-const { readFile } = require('../Files/readFile');
+const { readFile } = require('../files/readFile');
 const { getColumnNames } = require('../getColumnNames');
-const { readLine } = require('../Files/readLine');
-const { deleteFile } = require('../Files/deleteFile');
+const { readLine } = require('../files/readLine');
+const { deleteFile } = require('../files/deleteFile');
 const fs = require('fs');
 const readline = require('readline');
 
 // Mock dependencies
 jest.mock('../getColumnNames');
-jest.mock('../Files/readLine');
-jest.mock('../Files/deleteFile');
+jest.mock('../files/readLine');
+jest.mock('../files/deleteFile');
 jest.mock('fs');
 jest.mock('readline');
 

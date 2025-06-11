@@ -3,6 +3,8 @@ from pages.nav_bar_component import NavbarComponent
 from pages.login_page import LoginPage
 import time
 
+EMAIL = "juanp-marqueza@unilibre.edu.co"
+
 def test_open_login_page(driver, base_url):
     """Prueba que la página de login se abre correctamente."""
     navbarComponent = NavbarComponent(driver)
@@ -19,7 +21,7 @@ def test_open_login_page(driver, base_url):
     navbarComponent.go_login()
     time.sleep(3)
 
-    login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
+    login.get_input_and_type_text(login.EMAIL_INPUT, EMAIL)
     time.sleep(3)
 
     login.get_input_and_type_text(login.PASSWORD_INPUT, "12345679")
@@ -36,7 +38,7 @@ def test_open_login_page(driver, base_url):
     navbarComponent.go_login()
     time.sleep(3)
 
-    login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
+    login.get_input_and_type_text(login.EMAIL_INPUT, EMAIL)
     time.sleep(3)
 
     login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")
@@ -50,7 +52,7 @@ def test_open_login_page(driver, base_url):
     navbarComponent.go_login()
     time.sleep(3)
 
-    login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
+    login.get_input_and_type_text(login.EMAIL_INPUT, EMAIL)
     time.sleep(3)
 
     login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")
@@ -76,7 +78,7 @@ def test_open_login_page(driver, base_url):
     navbarComponent.go_login()
     time.sleep(3)
 
-    login.get_input_and_type_text(login.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
+    login.get_input_and_type_text(login.EMAIL_INPUT, EMAIL)  
     time.sleep(3)
 
     login.get_input_and_type_text(login.PASSWORD_INPUT, "12345678")

@@ -2,8 +2,8 @@ const express = require("express");
 
 const { validateObjectValues } = require("../../Utils/Validate/validateObjectValues");
 const { transformQueryParams } = require("../../Utils/transformQueryParams");
-const { formatGraphValues } = require("../../Utils/graphs/formatGraphValues");
-const { formatValuesForGraph } = require("../../Utils/graphs/formatValuesForGraph");
+const { formatGraphValues } = require("../../Utils/Graphs/formatGraphValues");
+const { formatValuesForGraph } = require("../../Utils/Graphs/formatValuesForGraph");
 
 const router = express.Router();
 

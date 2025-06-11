@@ -11,6 +11,8 @@ from pages.home_page import HomePage
 
 @pytest.mark.smoke
 def test_scrape_offer(driver):
+    NOT_FOUND = 'No encontrada'
+    
     login_page = LoginPage(driver)
     login_page.open()
     login_page.get_input_and_type_text(LoginPage.EMAIL_INPUT, "juanp-marqueza@unilibre.edu.co")
@@ -35,22 +37,22 @@ def test_scrape_offer(driver):
     try:
         fecha_publicacion = soup.select_one("p.text-card.bold.text-color[style='text-align: center; width: 100%; font-size: 24px;']").text.strip()
     except AttributeError:
-        fecha_publicacion = "No encontrada"
+        fecha_publicacion = NOT_FOUND
     
     try:
         fecha_vencimiento = soup.select("p.text-card.bold.text-color[style='text-align: center; width: 100%; font-size: 24px;']")[1].text.strip()
     except IndexError:
-        fecha_vencimiento = "No encontrada"
+        fecha_vencimiento = NOT_FOUND
     
     try:
         cargo = soup.select_one("span.span-card.undefined[style='font-size: 18px;']").text.strip()
     except AttributeError:
-        cargo = "No encontrado"
+        cargo = NOT_FOUND
 
     try:
         descripcion_cargo = soup.select_one("p.text-card.italic.text-color[style='text-align: start; width: 100%; font-size: 16px;']").text.strip()
     except AttributeError:
-        descripcion_cargo = "No encontrada"
+        descripcion_cargo = NOT_FOUND
 
     print(f"Fecha Publicación: {fecha_publicacion}")
     print(f"Fecha Vencimiento: {fecha_vencimiento}")

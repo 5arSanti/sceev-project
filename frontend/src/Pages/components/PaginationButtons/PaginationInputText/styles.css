@@ -1,36 +1,148 @@
-.white-space {
+/* Estilos mejorados para el input de paginación */
+
+.pagination-input-container {
+    background: var(--white);
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    border-radius: 12px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(199, 125, 255, 0.05);
+}
+
+.pagination-input-container:hover {
+    border-color: rgba(199, 125, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(199, 125, 255, 0.1);
+}
+
+.pagination-label {
+    color: var(--lines-color2);
+    margin: 0;
+    font-weight: 500;
     white-space: nowrap;
 }
-.pagination-input-container input{
-    width: 40px;
-    max-width: 100px;
 
+.pagination-input {
+    width: 50px;
+    height: 30px;
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    border-radius: 8px;
     text-align: center;
-    padding: 3px 0px;
-    margin: 0 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pallete-1);
+    background: var(--white);
+    transition: all 0.3s ease;
+}
 
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid var(--lines-color);
+.pagination-input:focus {
+    outline: none;
+    border-color: var(--pallete-1);
+    box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.1);
+}
 
+.pagination-input::placeholder {
+    color: var(--pallete-1);
+    font-weight: 600;
+}
+
+.pagination-total {
     color: var(--text-color);
-    outline: none;  
-
-    transition: all 0.2s ease;
-}
-.pagination-input-container input:focus{
-    background-color: var(--white-025);
-    border: 1px solid var(--lines-color);
-}
-.pagination-input-container input:hover{
-    background-color: var(--white-025);
-}
-.pagination-input-container input::placeholder{
-    color: var(--text-color);
+    margin: 0;
+    white-space: nowrap;
 }
 
-@media (max-width: 1300px) {
+.pagination-total strong {
+    color: var(--pallete-1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
     .pagination-input-container {
-        font-size: 12px !important;
+        padding: 8px 12px;
+        gap: 6px !important;
+    }
+    
+    .pagination-input {
+        width: 45px;
+        height: 28px;
+        font-size: 12px;
+    }
+    
+    .pagination-label,
+    .pagination-total {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pagination-input-container {
+        padding: 8px 10px;
+        gap: 6px !important;
+        border-radius: 10px;
+    }
+    
+    .pagination-input {
+        width: 42px;
+        height: 26px;
+        font-size: 11px;
+        border-radius: 6px;
+    }
+    
+    .pagination-label,
+    .pagination-total {
+        font-size: 11px;
+    }
+    
+    .pagination-label {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-input-container {
+        padding: 6px 8px;
+        gap: 4px !important;
+        border-radius: 8px;
+        flex-wrap: nowrap;
+    }
+    
+    .pagination-input {
+        width: 38px;
+        height: 24px;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+    
+    .pagination-label,
+    .pagination-total {
+        font-size: 10px;
+    }
+    
+    .pagination-label {
+        display: none; /* Ocultar en móviles para ahorrar espacio */
+    }
+}
+
+@media (max-width: 360px) {
+    .pagination-input-container {
+        padding: 4px 6px;
+        gap: 3px !important;
+        border-radius: 6px;
+        min-width: 70px;
+    }
+    
+    .pagination-input {
+        width: 32px;
+        height: 22px;
+        font-size: 9px;
+        border-radius: 4px;
+    }
+    
+    .pagination-total {
+        font-size: 9px;
+    }
+    
+    .pagination-label {
+        display: none;
     }
 }

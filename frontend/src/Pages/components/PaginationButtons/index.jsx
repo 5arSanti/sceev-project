@@ -1,5 +1,3 @@
-import React from "react";
-
 import { PaginationInputText } from "./PaginationInputText";
 
 import { MdFirstPage } from "react-icons/md";
@@ -9,58 +7,80 @@ import { MdLastPage } from "react-icons/md";
 import { WrapperContainer2 } from "../WrapperContainers";
 import { handlePagination } from "../../../utils/handlePagination";
 import { ButtonCard } from "../ButtonCard";
+import PropTypes from 'prop-types';
 
 import "./styles.css";
 
-const PaginationButtons = ({data={}, setState}) => {
+const PaginationButtons = ({ data = {}, setState }) => {
 
-    const paginateTo = (type="") => {
+    const paginateTo = (type = "") => {
         handlePagination(type, setState, data?.totalPages, data?.currentPage);
     }
 
-    return(
-        <WrapperContainer2 padding={0} className="graph-pagination-buttons">
+    const isFirstPage = data?.currentPage === 1;
+    const isLastPage = data?.currentPage === data?.totalPages;
+
+    return (
+        <WrapperContainer2 flexDirection="row" justifyContent="center" alignItems="center" padding={5} gap={8} className="enhanced-pagination-buttons">
+            {/* Botón primera página */}
             <ButtonCard
-                title="Volver a la primera pagina"
+                title="Ir a la primera página"
                 onClick={() => paginateTo("home")}
-                padding={15}
-                className="home-page-pagination"
+                padding={10}
+                className={`pagination-btn first-page-btn ${isFirstPage ? 'disabled' : ''}`}
+                disabled={isFirstPage}
             >
-                <MdFirstPage/>
+                <MdFirstPage />
             </ButtonCard>
+            
+            {/* Botón página anterior */}
             <ButtonCard
                 title="Página anterior"
                 onClick={() => paginateTo("back")}
-                padding={15}
-                className="back-page-pagination"
+                padding={10}
+                className={`pagination-btn prev-page-btn ${isFirstPage ? 'disabled' : ''}`}
+                disabled={isFirstPage}
             >
-                <IoIosArrowBack/>
+                <IoIosArrowBack />
             </ButtonCard>
 
-            <PaginationInputText
-                data={data}
-                setState={setState}
-            />
+            {/* Input de página */}
+            <div className="pagination-input-wrapper">
+                <PaginationInputText
+                    data={data}
+                    setState={setState}
+                    className="enhanced-pagination-input"
+                />
+            </div>
 
+            {/* Botón página siguiente */}
             <ButtonCard
                 title="Siguiente página"
                 onClick={() => paginateTo("next")}
-                padding={15}
-                className="next-page-pagination"
+                padding={10}
+                className={`pagination-btn next-page-btn ${isLastPage ? 'disabled' : ''}`}
+                disabled={isLastPage}
             >
-                <IoIosArrowForward/>
+                <IoIosArrowForward />
             </ButtonCard>
 
+            {/* Botón última página */}
             <ButtonCard
-                title="Ir a la ultima página"
+                title="Ir a la última página"
                 onClick={() => paginateTo("last")}
-                padding={15}
-                className="last-page-pagination"
+                padding={10}
+                className={`pagination-btn last-page-btn ${isLastPage ? 'disabled' : ''}`}
+                disabled={isLastPage}
             >
-                <MdLastPage/>
+                <MdLastPage />
             </ButtonCard>
         </WrapperContainer2>
     );
 }
+
+PaginationButtons.propTypes = {
+    data: PropTypes.object,
+    setState: PropTypes.func
+};
 
 export { PaginationButtons };

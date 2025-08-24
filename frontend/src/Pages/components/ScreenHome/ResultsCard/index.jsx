@@ -1,5 +1,6 @@
 import moment from "moment";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import { GridContainer } from "../../GridContainer";
 import { ScrollableWrapper } from "../../ScrollableWrapper";
@@ -47,7 +48,7 @@ const ResultsCard = ({ item = {}, index = 1 }) => {
         <Link to={`/ofert/${item.Codigo_Oferta}`} style={{ width: "100%" }}>
             <div className="enhanced-results-card">
                 <div className="card-header">
-                    <WrapperContainer2 justifyContent="space-between" alignItems="flex-start" padding={0} gap={15}>
+                    <WrapperContainer2 justifyContent="space-between" alignItems="flex-start" padding={0} gap={18}>
                         <WrapperContainer2 alignItems="center" gap={12} padding={0} className="job-title-section">
                             <div className="job-icon">
                                 {getJobTypeIcon(item.Titulo_Oferta)}
@@ -71,10 +72,12 @@ const ResultsCard = ({ item = {}, index = 1 }) => {
                 </div>
 
                 <div className="card-main-info">
-                    <GridContainer className="grid-1-1" gap={15}>
+                    <GridContainer className="grid-1-1" gap={18}>
                         <div className="salary-info">
-                            <WrapperContainer2 alignItems="center" gap={8} padding={0}>
-                                <span className="info-icon">💰</span>
+                            <WrapperContainer2 flexDirection="column" gap={4} padding={0} alignItems="flex-start">
+                                <TextCard fontSize={11} className="info-label">
+                                    💰 <strong>Salario Ofrecido</strong>
+                                </TextCard>
                                 <TextCard fontSize={16} className="salary-text">
                                     <strong>{formatSalary(item.Salario_Ingresado)}</strong>
                                 </TextCard>
@@ -82,8 +85,10 @@ const ResultsCard = ({ item = {}, index = 1 }) => {
                         </div>
 
                         <div className="company-info">
-                            <WrapperContainer2 alignItems="center" gap={8} padding={0}>
-                                <span className="info-icon">🏢</span>
+                            <WrapperContainer2 flexDirection="column" gap={4} padding={0} alignItems="flex-start">
+                                <TextCard fontSize={11} className="info-label">
+                                    🏢 <strong>Empresa Contratante</strong>
+                                </TextCard>
                                 <TextCard fontSize={14} className="company-text">
                                     {item.Prestadores}
                                 </TextCard>
@@ -93,10 +98,10 @@ const ResultsCard = ({ item = {}, index = 1 }) => {
                 </div>
 
                 <div className="card-description">
-                    <WrapperContainer2 alignItems="center" gap={8} padding={0} className="description-header">
+                    <WrapperContainer2 alignItems="center" gap={8} padding={0} marginBottom={12} className="description-header">
                         <span className="info-icon">📝</span>
                         <TextCard fontSize={14} className="description-label">
-                            <strong>Descripción:</strong>
+                            <strong>Descripción del Puesto:</strong>
                         </TextCard>
                     </WrapperContainer2>
 
@@ -123,5 +128,10 @@ const ResultsCard = ({ item = {}, index = 1 }) => {
         </Link>
     );
 }
+
+ResultsCard.propTypes = {
+    item: PropTypes.object,
+    index: PropTypes.number
+};
 
 export { ResultsCard };

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../../../Context";
 
 import { handleLogout } from "../../../utils/handleData/handleLogout";
@@ -18,6 +18,7 @@ import "./styles.css";
 
 
 const NavButtons = ({ className = "nav-buttons animacion2" }) => {
+    const navigate = useNavigate();
     const { auth, windowWidth } = React.useContext(AppContext)
 
     const seeDetails = windowWidth > 800;
@@ -37,7 +38,7 @@ const NavButtons = ({ className = "nav-buttons animacion2" }) => {
 
                 <button
                     className={`${className}`}
-                    onClick={handleLogout}
+                    onClick={() => handleLogout(navigate)}
                 >
                     Cerrar Sesión
                     <IoLogOutOutline />

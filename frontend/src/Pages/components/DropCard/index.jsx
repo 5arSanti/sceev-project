@@ -9,7 +9,7 @@ import { IoSearch } from "react-icons/io5";
 
 import "./styles.css";
 
-const DropCard = ({title, array=[], onClick, value, searchBox=true, seeAllOption=true}) => {
+const DropCard = ({title, array=[], onClick, value, searchBox=true, seeAllOption=true, haveLabel=true}) => {
 
     const [searchValue, setSearchValue] = React.useState("");
 
@@ -17,7 +17,7 @@ const DropCard = ({title, array=[], onClick, value, searchBox=true, seeAllOption
 
     return (
         <WrapperContainer2 padding={0} flexDirection='column' justifyContent='start' alignItems='start' gap={10}>
-            <TextCard className='bold'>{title}</TextCard>
+            {haveLabel && <TextCard className='bold'>{title}</TextCard>}
 
             <Dropdown className="dropdown-card-container">
                 <Dropdown.Toggle id={`dropdown-card-basic toggle-${title}`} className='dropdown-card-button'>

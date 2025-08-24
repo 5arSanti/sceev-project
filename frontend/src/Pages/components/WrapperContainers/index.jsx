@@ -24,7 +24,8 @@ const WrapperContainer2 = ({
         justifyContent="start", 
         alignItems="center", 
         className="",
-        height="100%"
+        height="100%",
+        width="100%"
     }) => {
     return(
         <div className={`wrapper-container2 ${className}`} style={{
@@ -35,7 +36,8 @@ const WrapperContainer2 = ({
             gap: gap,
             justifyContent: justifyContent,
             alignItems: alignItems,
-            height: height
+            height: height,
+            width: width
         }}>
             {children}
         </div>

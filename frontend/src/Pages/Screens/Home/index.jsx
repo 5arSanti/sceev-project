@@ -5,6 +5,7 @@ import { StyledSection } from "../../components/StyledSection";
 import { mainHome } from "../../../assets";
 
 import { SectionMainHome } from "../../components/ScreenHome/SectionMainHomeInfo";
+import { SectionProjectPurpose } from "../../components/ScreenHome/SectionProjectPurpose";
 import { SectionAboutProject } from "../../components/ScreenHome/SectionAboutProject";
 import { SectionInteractiveMap } from "../../components/ScreenHome/SectionInteractiveMap";
 import { SectionFiltersResults } from "../../components/ScreenHome/SectionResults";
@@ -17,6 +18,8 @@ const Home = () => {
                 <StyledSection image={mainHome} id={"section-styled-home"}>
                     <SectionMainHome/>
                 </StyledSection>
+                
+                <SectionProjectPurpose/>
                 
                 <SectionInteractiveMap/>
                 

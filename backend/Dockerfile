@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE ${PORT:-3080}
 
-CMD ["node", "bin/www"] 
+CMD ["npm", "run", "dev"] 

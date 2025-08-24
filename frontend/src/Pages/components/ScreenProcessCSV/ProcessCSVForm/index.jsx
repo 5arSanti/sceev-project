@@ -22,19 +22,19 @@ const ProcessCSVForm = () => {
     });
 
     const options = [
-        { id: 1, name: "Disciplinas"},
-        { id: 2, name: "Municipios"},
-        { id: 3, name: "Ofertas_Empleo_Desglosado"},
+        { id: 1, name: "Disciplinas" },
+        { id: 2, name: "Municipios" },
+        { id: 3, name: "Ofertas_Empleo_Desglosado" },
     ]
 
     const handleFileUpload = async (event) => {
         context.setLoading(true);
-        
+
         try {
             event.preventDefault();
 
             validateFile(values?.files);
-    
+
             const formData = new FormData();
 
             formData.append("table", options?.find((item) => item.id === values.table)?.name);
@@ -42,7 +42,7 @@ const ProcessCSVForm = () => {
             for (let i = 0; i < values.files.length; i++) {
                 formData.append('process-file', values.files[i]);
             }
-    
+
             await handlePostFile(event, formData, "/data", (data) => {
                 if (data?.csvLog) {
                     localStorage.setItem("data-log", JSON.stringify(data?.csvLog));
@@ -50,7 +50,7 @@ const ProcessCSVForm = () => {
                 reloadLocation();
             });
 
-        } 
+        }
         catch (err) {
             return handleNotifications("error", err.message);
         } finally {
@@ -58,10 +58,10 @@ const ProcessCSVForm = () => {
         }
     };
 
-    
-    return(
+
+    return (
         <WrapperContainer1 padding={50} gap={15}>
-            <form style={{width: "100%"}} encType="multipart/form-data" className="upload-form-container" onSubmit={handleFileUpload}>
+            <form style={{ width: "100%" }} encType="multipart/form-data" className="upload-form-container" onSubmit={handleFileUpload}>
                 <GridContainer className="grid-075-125">
                     <UploadFileCard
                         id={"process-file"}
@@ -76,7 +76,7 @@ const ProcessCSVForm = () => {
                             Por favor seleccione un archivo
                         </SubTitle>
 
-                        <FormTextRecommendations/>
+                        <FormTextRecommendations />
 
                         <OptionInputCard
                             id={"user-types"}
@@ -88,7 +88,7 @@ const ProcessCSVForm = () => {
                             required={true}
                         />
 
-                        <ButtonCard 
+                        <ButtonCard
                             title="Guardar y Publicar Archivo"
                             type="submit"
                         >

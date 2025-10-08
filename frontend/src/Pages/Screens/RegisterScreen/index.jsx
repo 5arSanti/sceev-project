@@ -16,6 +16,8 @@ import { GridContainer } from "../../components/GridContainer";
 const RegisterScreen = () => {
     const context = React.useContext(AppContext);
 
+    const { windowWidth } = context;
+
     const [values, setValues] = React.useState({
         id: null,
         name: null,
@@ -38,7 +40,7 @@ const RegisterScreen = () => {
     return(
         <AuthWrapper>
             <IsAuthWrapper notFound={true}>
-                <StyledSection height="auto" id={"section-styled-register"}>
+                <StyledSection height={windowWidth > 1200 ? "auto" : "150vh"} id={"section-styled-register"}>
                     <FadeWrapper height="auto">
                         <WrapperContainer2 padding={30} flexDirection="column" justifyContent="start" alignItems="center">
                             <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al"/>

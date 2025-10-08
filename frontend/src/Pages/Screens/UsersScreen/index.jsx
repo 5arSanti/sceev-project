@@ -13,72 +13,76 @@ import { handleDeleteData } from "../../../utils/handleData/handleDeleteData";
 import { handlePatchData } from "../../../utils/handleData/handlePatchData";
 
 const UsersScreen = () => {
-    const { action } = useParams();
+  const { action } = useParams();
 
-    const { fetchData, setLoading } = React.useContext(AppContext);
+  const { fetchData, setLoading } = React.useContext(AppContext);
 
-    const [values, setValues] = React.useState({
-        id: null,
-        email: null,
-        names: null,
-        surnames: null,
-        userType: null,
-        userTypeId: null,
-    })
+  const [values, setValues] = React.useState({
+    id: null,
+    email: null,
+    names: null,
+    surnames: null,
+    userType: null,
+    userTypeId: null,
+  });
 
-    React.useEffect(() => {
-        const endpoints = [
-            "/users",
-            "/users/types",
-        ]
+  React.useEffect(() => {
+    const endpoints = ["/users", "/users/types"];
 
-        fetchData(endpoints)
-    }, []);
+    fetchData(endpoints);
+  }, []);
 
-    const { users, userTypes } = React.useContext(AppContext).responseData;
+  const { users, userTypes } = React.useContext(AppContext).responseData;
 
-    const handleDelete = async ({ id }) => {
-        setLoading(true);
+  const handleDelete = async ({ id }) => {
+    setLoading(true);
 
-        await handleDeleteData({ id }, "/users");
+    await handleDeleteData({ id }, "/users");
 
-        setLoading(false);
-    };
+    setLoading(false);
+  };
 
-    const handleUpdate = async (updatedValues) => {
-        setLoading(true);
-        
-        await handlePatchData(updatedValues, "/users");
-        
-        setLoading(false);
-    };
+  const handleUpdate = async (updatedValues) => {
+    setLoading(true);
 
-    return (
-        <AuthWrapper>
-            <IsAuthWrapper notFound={true}>
-                <StyledSection id={"section-styled-users"}>
-                    <MainSectionInfoCard
-                        title="Usuarios"
-                        subTitle="Gestion de informacion de usuarios precisa"
-                        icon={<FaUsers />}
-                    />
-                </StyledSection>
+    await handlePatchData(updatedValues, "/users");
 
-                <WrapperContainer2 gap={5} padding={"50px 0px"} justifyContent="start" alignItems="start">
-                    <UsersSideBar />
+    setLoading(false);
+  };
 
-                    <ReactTable
-                        data={users}
-                        onDelete={action === "delete" ? handleDelete : null}
-                        onUpdate={action === "edit" ? handleUpdate : null}
-                        userTypes={userTypes}
-                        values={values}
-                        setValues={setValues}
-                    />
-                </WrapperContainer2>
-            </IsAuthWrapper>
-        </AuthWrapper>
-    );
-}
+  return (
+    <AuthWrapper>
+      <IsAuthWrapper notFound={true}>
+        <StyledSection id={"section-styled-users"}>
+          <MainSectionInfoCard
+            title="Usuarios"
+            subTitle="Gestion de informacion de usuarios precisa"
+            icon={<FaUsers />}
+          />
+        </StyledSection>
+
+        <WrapperContainer2
+          gap={5}
+          padding={"50px 0px"}
+          justifyContent="start"
+          alignItems="start"
+        >
+          <UsersSideBar />
+
+          <div style={{ width: "100%", height: "100%", overflowX: "auto" }}>
+            <ReactTable
+              data={users}
+              onDelete={action === "delete" ? handleDelete : null}
+              onUpdate={action === "edit" ? handleUpdate : null}
+              userTypes={userTypes}
+              values={values}
+              setValues={setValues}
+            />
+          </div>
+        </WrapperContainer2>
+      </IsAuthWrapper>
+    </AuthWrapper>
+  );
+};
 
 export { UsersScreen };

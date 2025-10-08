@@ -40,7 +40,7 @@ const NavButtons = ({ className = "nav-buttons animacion2" }) => {
                     className={`${className}`}
                     onClick={() => handleLogout(navigate)}
                 >
-                    Cerrar Sesión
+                    {seeDetails ? "Cerrar Sesión" : ""}
                     <IoLogOutOutline />
                 </button>
             </IsAuthWrapper>

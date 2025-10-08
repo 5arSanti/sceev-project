@@ -9,7 +9,7 @@ const UploadScreen = () => {
     return (
         <AuthWrapper>
             <IsAuthWrapper notFound={true}>
-                <StyledSection height="auto" id={"section-styled-upload"}>
+                <StyledSection height="100vh" id={"section-styled-upload"}>
                     <MainSectionInfoCard
                         title="Carga de datos e información"
                         subTitle="Realice el cargue de ofertas y vacantes de empleo"

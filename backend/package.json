@@ -5,8 +5,8 @@
   "description": "Backend for SCEEV project",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --env-file=.env bin/www",
-    "prod": "node --env-file=.env bin/www",
+    "dev": "nodemon bin/www",
+    "prod": "node bin/www",
     "start": "node bin/www",
     "test": "jest",
     "test:watch": "jest --watch",

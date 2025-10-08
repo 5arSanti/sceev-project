@@ -24,7 +24,7 @@ const MapContainer = ({ selectedDepartment }) => {
     }
 
     return(
-        <WrapperContainer2 padding={0}>
+        <WrapperContainer2 padding={0} flexDirection="column">
             <ToolTipMap hoveredDepartment={hoveredDepartment} selectedDepartment={selectedDepartment}/>
 
             <MapCard 

@@ -71,5 +71,6 @@
 @media (max-width: 800px) {
     .tool-tip-container {
         top: 0px;
+        position: static;
     }
 }

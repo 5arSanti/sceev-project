@@ -4,6 +4,12 @@ const { getColumnNames } = require("../getColumnNames");
 const { readLine } = require("./readLine");
 const { deleteFile } = require("./deleteFile");
 
+/**
+ * Lee un archivo (stream) y procesa cada línea insertando en DB.
+ * Elimina el archivo tras finalizar y retorna el log agregado.
+ * @param {{ path: string }} file - Objeto `multer` del archivo subido
+ * @returns {Promise<{addedRows:number, duplicateRows:number, errorRows:number}>}
+ */
 const readFile = async (file) => {
 	try {
 		const columns = await getColumnNames();

@@ -1,6 +1,12 @@
 const { getQuery } = require("../../database/query");
 const { formatDistinctToArray } = require("../formatDistincToArray");
 
+/**
+ * Genera un mapa etiqueta->conteo para una columna dada en la tabla.
+ * @param {string} column - Columna a agrupar/contar
+ * @param {string} [conditions] - Condiciones adicionales para filtrar
+ * @returns {Promise<Record<string, number>>}
+ */
 const formatGraphValues = async (column, conditions) => {
 
 	const columnValues = await formatDistinctToArray(column, "Ofertas_empleo_completo");

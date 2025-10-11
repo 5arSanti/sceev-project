@@ -3,6 +3,11 @@ import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 import { api } from "../api";
 
+/**
+ * Envía DELETE con cuerpo { id } y maneja notificaciones/recarga.
+ * @param {{id: string|number}} item
+ * @param {string} endpoint
+ */
 const handleDeleteData = async (item, endpoint) => {
     axios.delete(`${api}${endpoint}`, {
             data: { id: item.id }

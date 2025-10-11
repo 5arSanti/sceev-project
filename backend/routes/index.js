@@ -19,6 +19,10 @@ const dataRouter = require("./data/index.js")
 const ofertsRouter = require("./oferts/index.js");
 
 
+/**
+ * Registra todas las rutas principales del API y sus prefijos de versión.
+ * @param {import('express').Express} app - Instancia de la aplicación Express
+ */
 const routerApi = (app) => {
 	const router = express.Router();
 	app.use(`/${process.env.API_STRUCTURE}/v1`, router);

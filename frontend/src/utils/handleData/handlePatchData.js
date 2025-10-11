@@ -2,6 +2,12 @@ import { api } from "../api";
 import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 
+/**
+ * Envía PATCH JSON al backend y maneja notificaciones/recarga.
+ * @param {Record<string, any>} object
+ * @param {string} endpoint
+ * @param {() => void} [callback]
+ */
 const handlePatchData = async (object, endpoint, callback=reloadLocation) => {
     event.preventDefault();
 

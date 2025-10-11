@@ -1,5 +1,12 @@
 const xlsx = require("xlsx");
 
+/**
+ * Parsea un archivo Excel y valida columnas requeridas.
+ * Clasifica filas en correctas/incorrectas y retorna métricas.
+ * @param {string} filePath - Ruta absoluta del archivo
+ * @param {string[]} columns - Columnas obligatorias
+ * @returns {Promise<{totalRows:number, correctRows:any[], incorrectRows:any[], error:any[]}>}
+ */
 const parseExcel = async (filePath, columns) => {
 	try {
 		const excelInfo = {

@@ -1,3 +1,6 @@
+/**
+ * Valida que exista archivo y opciones requeridas en el cliente.
+ */
 const validateFiles = (file, option, secondOption) => {
     try {
         validateFile(file);
@@ -9,6 +12,9 @@ const validateFiles = (file, option, secondOption) => {
     }
 }
 
+/**
+ * Verifica que el archivo exista y no esté vacío (cliente).
+ */
 const validateFile = (file) => {
     const message = "Por favor, seleccione un archivo";
 
@@ -21,6 +27,9 @@ const validateFile = (file) => {
     return;
 }
 
+/**
+ * Verifica que una opción exista y no sea cadena vacía (cliente).
+ */
 const validateFileOption = (option) => {
     const message = "Por favor, seleccione el lugar de publicación.";
 

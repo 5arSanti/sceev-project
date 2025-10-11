@@ -1,5 +1,9 @@
 const moment = require("moment");
 
+/**
+ * Retorna la fecha/hora actual formateada dd/mm/yyyy hh:mm:ss.
+ * @returns {string}
+ */
 const getDate = () => {
 	const date = new Date();
 

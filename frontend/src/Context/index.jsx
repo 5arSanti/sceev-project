@@ -7,6 +7,10 @@ import { handleNotifications } from "../utils/handleNotifications";
 
 export const AppContext = React.createContext();
 
+/**
+ * Proveedor global de estado de la app y utilidades de datos/autenticación.
+ * Ejecuta cargas iniciales y expone setters/estados en el contexto.
+ */
 const AppProvider = ({children}) => {
     AppProvider.propTypes = {
         children: PropTypes.node.isRequired,
@@ -22,6 +26,11 @@ const AppProvider = ({children}) => {
     // RESPONSE:
     const [responseData, setResponseData] = React.useState({});
 
+    /**
+     * Obtiene datos de múltiples endpoints y los mezcla en el estado indicado.
+     * @param {string[]} endpoints
+     * @param {(updater: any) => void} [setState]
+     */
     const fetchData = async (endpoints, setState=setResponseData) => {
         try {
             setLoading(true);

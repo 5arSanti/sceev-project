@@ -1,5 +1,10 @@
 const { getQuery } = require("../../database/query");
 
+/**
+ * Obtiene valores de la columna `Nombre` para múltiples tablas y los agrupa.
+ * @param {string[]} columns - Tablas a consultar
+ * @returns {Promise<Record<string, string[]>>}
+ */
 const getValuesByTable = async (columns) => {
 	const formattedFilters = {}
 

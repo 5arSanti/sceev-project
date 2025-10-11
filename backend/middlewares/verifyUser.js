@@ -1,5 +1,9 @@
 const jwt = require("jsonwebtoken");
 
+/**
+ * Valida el token y agrega la info de usuario al request sin exigir autenticación estricta.
+ * Útil para endpoints que sólo necesitan leer el usuario si existe.
+ */
 const handleUserInfo = (request, response, next) => {
 	const token = request.cookies.authToken;
 
@@ -15,6 +19,10 @@ const handleUserInfo = (request, response, next) => {
 	})
 }
 
+/**
+ * Middleware de autenticación: exige token JWT válido.
+ * Retorna 401 si no hay token o si es inválido.
+ */
 const verifyUser = (request, response, next) => {
 	const token = request.cookies.authToken;
 

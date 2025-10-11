@@ -1,3 +1,7 @@
+/**
+ * Retorna la fecha y hora actual con formato YYYY-MM-DD HH:mm:ss.
+ * @returns {string}
+ */
 const obtenerFechaHoraHoy = () => {
 	const fechaActual = new Date();
 	const anio = fechaActual.getFullYear();

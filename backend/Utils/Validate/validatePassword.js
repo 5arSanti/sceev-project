@@ -1,3 +1,7 @@
+/**
+ * Valida longitud mínima y coincidencia de contraseñas.
+ * @throws Error si la contraseña es inválida
+ */
 const validatePassword = (password, confirmPassword) => {
 	const [stringifiedPassword, stringifiedConfirmPassword] = [String(password), String(confirmPassword)]
 

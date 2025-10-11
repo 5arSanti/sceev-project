@@ -4,6 +4,9 @@ const moment = require("moment");
 
 let splitValue = "_$$_";
 
+/**
+ * Configuración de almacenamiento para archivos subidos (Excel) con nombre fechado.
+ */
 let storage = multer.diskStorage({
 	destination: (request, file, callback) => {
 		callback(null, `./csv-process`);
@@ -22,6 +25,9 @@ let storage = multer.diskStorage({
 	}
 })
 
+/**
+ * Filtro de tipos de archivo permitidos (sólo .xlsx y .xls).
+ */
 const fileFilter = (_, file, callback) => {
 	const allowedMimeTypes = [
 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -35,6 +41,9 @@ const fileFilter = (_, file, callback) => {
 	}
 };
 
+/**
+ * Middleware de carga de archivos con almacenamiento y filtro configurados.
+ */
 let upload = multer({
 	storage: storage,
 	fileFilter: fileFilter

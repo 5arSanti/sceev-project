@@ -2,6 +2,11 @@ import { api } from "../api";
 import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 
+/**
+ * Descarga un recurso como blob desde un endpoint dado.
+ * @param {string} endpoint
+ * @returns {Promise<Blob>}
+ */
 const handleGetFile = async (endpoint) => {
     try {
         const response = await fetch(`${api}/${endpoint}`, {
@@ -19,6 +24,10 @@ const handleGetFile = async (endpoint) => {
     }
 }
 
+/**
+ * Envía DELETE a `file/{endpoint}` y maneja notificaciones/recarga.
+ * @param {string} endpoint
+ */
 const handleDeleteFile = async (endpoint) => {
     try {
         const response = await fetch(`${api}/file/${endpoint}`, {

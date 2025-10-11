@@ -1,6 +1,13 @@
 const { insertInDatabase } = require("../insertInDatabase");
 
 
+/**
+ * Procesa línea por línea un stream `readline.Interface` e inserta en DB.
+ * Acumula resultados y retorna conteos agregados.
+ * @param {import('readline').Interface} rl
+ * @param {string[]} columns
+ * @returns {Promise<{addedRows:number, duplicateRows:number, errorRows:number}>}
+ */
 const readLine = (rl, columns) => {
 	return new Promise((resolve, reject) => {
 		const rows = [];

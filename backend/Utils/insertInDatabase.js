@@ -1,6 +1,13 @@
 const { postQuery, getQuery } = require("../database/query");
 
 
+/**
+ * Inserta una fila en `Ofertas_Empleo_Desglosado` si no existe por `CODIGO_VACANTE`.
+ * Rellena valores faltantes con null y usa placeholders seguros.
+ * @param {any[]} values - Valores de la fila a insertar
+ * @param {string[]} columns - Columnas objetivo
+ * @returns {Promise<'added'|'duplicate'|'error'>}
+ */
 const insertInDatabase = async (values, columns) => {
 
 	try {

@@ -1,3 +1,7 @@
+/**
+ * Valida existencia de archivo y opciones requeridas.
+ * @throws Error si faltan datos
+ */
 const validateFiles = (file, option, secondOption) => {
     try {
         validateFile(file);
@@ -9,6 +13,9 @@ const validateFiles = (file, option, secondOption) => {
     }
 }
 
+/**
+ * Verifica que el archivo exista y no esté vacío.
+ */
 const validateFile = (file) => {
     const message = "Por favor, seleccione un archivo";
 
@@ -21,6 +28,9 @@ const validateFile = (file) => {
     return;
 }
 
+/**
+ * Verifica que una opción de archivo exista y no sea cadena vacía.
+ */
 const validateFileOption = (option) => {
     const message = "Por favor, seleccione el lugar de publicación.";
 
@@ -33,6 +43,9 @@ const validateFileOption = (option) => {
     return;
 }
 
+/**
+ * Verifica que la extensión del archivo sea csv.
+ */
 const validateFileExtension = (file) => {
 	const extension = file.filename.split('.').pop();
 

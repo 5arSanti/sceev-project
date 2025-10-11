@@ -3,6 +3,14 @@ import { handleNotifications } from "../handleNotifications";
 import { reloadLocation } from "../realoadLocation";
 
 
+/**
+ * Envía un POST JSON al backend y muestra notificaciones según el resultado.
+ * @param {Event} event
+ * @param {Record<string, any>} object
+ * @param {string} endpoint
+ * @param {(data?: any) => void} [callback]
+ * @param {Record<string, string>} [headers]
+ */
 const handlePostData = async (event, object, endpoint, callback = reloadLocation, headers = {}) => {
     event.preventDefault();
 
@@ -40,6 +48,13 @@ const handlePostData = async (event, object, endpoint, callback = reloadLocation
 
 
 
+/**
+ * Envía un POST con FormData para carga de archivos.
+ * @param {Event} event
+ * @param {FormData} object
+ * @param {string} endpoint
+ * @param {(data?: any) => void} [callback]
+ */
 const handlePostFile = async (event, object, endpoint, callback = reloadLocation) => {
     event.preventDefault();
     try {

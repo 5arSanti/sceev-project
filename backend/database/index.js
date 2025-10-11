@@ -20,6 +20,10 @@ let connectionAttempts = 0;
 const MAX_ATTEMPTS = 10;
 const RETRY_INTERVAL = 20000;
 
+/**
+ * Establece la conexión a MSSQL con reintentos exponenciales controlados.
+ * Reinicia el contador en conexiones exitosas y reintenta ante errores.
+ */
 const connectToDatabase = async () => {
     try {
         await sql.connect(sqlConfig);

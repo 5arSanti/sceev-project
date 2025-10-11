@@ -1,5 +1,10 @@
 const { getQuery } = require("../../database/query");
 
+/**
+ * Inserta filas en lotes en una tabla, escapando comillas simples en strings.
+ * @param {string} tableName - Tabla destino
+ * @param {{data: Record<string, any>}[]} correctRows - Filas válidas a insertar
+ */
 const insertValuesInTable = async (tableName, correctRows) => {
 	if (!correctRows || correctRows.length === 0) {
 		return;

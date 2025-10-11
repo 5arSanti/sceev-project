@@ -42,6 +42,7 @@
 
 
 
+/* <=950px: header compacto, navegación colapsada */
 @media (max-width: 950px) {
     .navbar {
         display: none;

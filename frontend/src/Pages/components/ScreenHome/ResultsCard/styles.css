@@ -165,6 +165,7 @@
     font-style: italic;
 }
 
+/* <=768px (tablet/landscape): reduce rejilla y tipografía */
 @media (max-width: 768px) {
     .enhanced-results-card {
         padding: 15px;
@@ -196,6 +197,7 @@
     }
 }
 
+/* <=480px (móvil): apila contenido y ajusta espacios */
 @media (max-width: 480px) {
     .enhanced-results-card {
         padding: 12px;
@@ -257,6 +259,7 @@
     }
 }
 
+/* <=360px (móvil pequeño): compacta al máximo la card */
 @media (max-width: 360px) {
     .enhanced-results-card {
         padding: 10px;

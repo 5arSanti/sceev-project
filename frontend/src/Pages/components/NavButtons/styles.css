@@ -57,6 +57,7 @@
 	outline-offset: max(0.188rem, 0.15em);
 }
 
+/* <=700px: botones de navegación más pequeños y apilados */
 @media (max-width: 700px) {
 	.nav-buttons-container {
 		gap: 5px;

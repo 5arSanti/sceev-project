@@ -56,6 +56,10 @@
 }
 
 
+/*
+  Breakpoint: <=1150px
+  Fuerza una sola columna para mejorar legibilidad en pantallas medianas/pequeñas.
+*/
 @media(max-width: 1150px) {
     .grid-container {
         grid-template-columns: 1fr !important;

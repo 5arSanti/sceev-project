@@ -16,6 +16,7 @@
     border-top: 1px solid var(--pallete-2);
 }
 
+/* <=1100px: estrecha secciones y ajusta padding para tablets */
 @media (max-width: 1100px) {
     .secondary-section-wrapper {
         padding: 30px !important;

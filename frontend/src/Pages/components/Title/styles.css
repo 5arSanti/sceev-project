@@ -21,11 +21,13 @@
     font-weight: 600;
 }
 
+/* <=800px: reduce tamaño de títulos */
 @media (max-width: 800px) {
     .title {
         font-size: 20px;
     }
 }
+/* <=450px: títulos más compactos en móviles pequeños */
 @media (max-width: 450px) {
     .title {
         font-size: 16px;

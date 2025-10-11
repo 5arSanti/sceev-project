@@ -150,6 +150,7 @@
     }
 }
 
+/* <=768px (tablet/landscape): reduce padding del botón de ayuda */
 @media (max-width: 768px) {
     .search-help-popup {
         min-width: 380px;
@@ -174,6 +175,7 @@
     }
 }
 
+/* <=480px (móvil): icono más pequeño y texto más compacto */
 @media (max-width: 480px) {
     .search-help-popup {
         min-width: 320px;
@@ -219,6 +221,7 @@
     }
 }
 
+/* <=360px (móvil pequeño): oculta elementos no esenciales */
 @media (max-width: 360px) {
     .search-help-popup {
         min-width: 300px;

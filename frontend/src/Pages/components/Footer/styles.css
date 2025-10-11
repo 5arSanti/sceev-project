@@ -20,6 +20,7 @@
     font-style: italic;
 }
 
+/* <=660px: footer en columna y tipografía menor */
 @media(max-width: 660px){
     .footer-info{
         padding: 10px 0 40px 0;
@@ -30,6 +31,7 @@
         width: 30%;
     }
 }
+/* <=500px: reduce márgenes/paddings del footer */
 @media(max-width: 500px){
     .footer{
         padding: 50px 30px;

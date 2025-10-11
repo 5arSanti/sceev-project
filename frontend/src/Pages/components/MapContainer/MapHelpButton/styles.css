@@ -163,6 +163,7 @@
 /* Responsive Design */
 
 /* Tablets y pantallas medianas */
+/* <=1024px (tablet): botón más pequeño y reubicado */
 @media (max-width: 1024px) {
     .help-popup {
         min-width: 380px;
@@ -171,6 +172,7 @@
 }
 
 /* Tablets */
+/* <=768px: reduce dimensiones y margen */
 @media (max-width: 768px) {
     .help-popup {
         min-width: 350px;
@@ -196,6 +198,7 @@
 }
 
 /* Móviles */
+/* <=480px: optimiza para pantallas móviles */
 @media (max-width: 480px) {
     .help-popup {
         min-width: 300px;
@@ -239,6 +242,7 @@
 }
 
 /* Móviles muy pequeños */
+/* <=360px: mínimos absolutos del botón */
 @media (max-width: 360px) {
     .help-popup {
         min-width: 280px;
@@ -284,6 +288,7 @@
 }
 
 /* Landscape móviles */
+/* <=500px de alto y landscape: evita solapamientos en pantallas bajas */
 @media (max-height: 500px) and (orientation: landscape) {
     .help-popup {
         max-height: 95vh;

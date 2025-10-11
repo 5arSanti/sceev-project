@@ -99,6 +99,10 @@
     padding-left: 8px;
 }
 
+/*
+  Breakpoint: <=1024px (tablet)
+  Compacta filtros y ajusta espaciados.
+*/
 @media (max-width: 1024px) {
     .enhanced-filters-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -106,6 +110,10 @@
     }
 }
 
+/*
+  Breakpoint: <=768px (tablet/landscape)
+  Pasa a layout en columna y controles apilados.
+*/
 @media (max-width: 768px) {
     .filters-header-section {
         flex-direction: column !important;
@@ -135,6 +143,10 @@
     }
 }
 
+/*
+  Breakpoint: <=480px (móvil)
+  Reduce tamaños y paddings para caber en pantallas pequeñas.
+*/
 @media (max-width: 480px) {
     .search-section {
         padding: 10px;
@@ -176,6 +188,10 @@
     }
 }
 
+/*
+  Breakpoint: <=360px (móvil pequeño)
+  Ajustes mínimos para dispositivos muy estrechos.
+*/
 @media (max-width: 360px) { 
     .search-section,
     .filters-tips {

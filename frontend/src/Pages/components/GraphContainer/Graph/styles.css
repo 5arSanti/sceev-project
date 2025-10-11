@@ -9,6 +9,10 @@ canvas {
     min-height: 600px;
 }
 
+/*
+  Breakpoint: <=1150px
+  Ajusta layout de gráficos para una sola columna o ancho completo.
+*/
 @media(max-width: 1150px) {
     .graph-container {
         width: 100%;

@@ -111,6 +111,7 @@
     max-width: 400px;
 }
 
+/* <=1024px (tablet): ajusta distribución de resultados */
 @media (max-width: 1024px) {
     .search-vertical-layout {
         gap: 20px;
@@ -122,6 +123,7 @@
     }
 }
 
+/* <=768px (tablet/landscape): apila cards y reduce gaps */
 @media (max-width: 768px) {
     .search-vertical-layout {
         gap: 18px;
@@ -152,6 +154,7 @@
     }
 }
 
+/* <=480px (móvil): tamaños mínimos y paddings reducidos */
 @media (max-width: 480px) {
     .filters-panel-top,
     .results-panel-bottom {
@@ -199,6 +202,7 @@
     }
 }
 
+/* <=360px (móvil pequeño): ajustes para caber en pantallas muy estrechas */
 @media (max-width: 360px) {
     .filters-panel-top,
     .results-panel-bottom {

@@ -23,6 +23,7 @@
   height: 25px;
 }
 
+/* <=768px (tablet/landscape): controles de configuración en columna */
 @media (max-width: 768px) {
   .delete-graph-button {
     position: static;

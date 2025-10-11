@@ -41,6 +41,7 @@
     background-color: var(--all-info-container-color);
 }
 
+/* <=500px: contenedor principal con padding reducido */
 @media (max-width: 500px) {
     .drop-date-container {
         flex-direction: column-reverse;

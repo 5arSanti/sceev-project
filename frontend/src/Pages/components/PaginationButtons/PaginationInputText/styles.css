@@ -56,6 +56,7 @@
 }
 
 /* Responsive */
+/* Breakpoint: <=1024px (tablet) */
 @media (max-width: 1024px) {
     .pagination-input-container {
         padding: 8px 12px;
@@ -74,6 +75,7 @@
     }
 }
 
+/* Breakpoint: <=768px (tablet/landscape) */
 @media (max-width: 768px) {
     .pagination-input-container {
         padding: 8px 10px;
@@ -98,6 +100,7 @@
     }
 }
 
+/* Breakpoint: <=480px (móvil) */
 @media (max-width: 480px) {
     .pagination-input-container {
         padding: 6px 8px;
@@ -123,6 +126,7 @@
     }
 }
 
+/* Breakpoint: <=360px (móvil pequeño) */
 @media (max-width: 360px) {
     .pagination-input-container {
         padding: 4px 6px;

@@ -2,6 +2,10 @@
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./styles.css";
 
+/**
+ * Input de texto con etiqueta opcional e ícono embebido.
+ * Breakpoints: layout vertical fluido mediante CSS de `.input-container`.
+ */
 const InputCard = ({
     type = "text",
     id,
@@ -36,6 +40,10 @@ const InputCard = ({
     );
 }
 
+/**
+ * Select con opciones dinámicas y valor por defecto controlado.
+ * Breakpoints: hereda estilos responsivos del contenedor.
+ */
 const OptionInputCard = ({
     id,
     label,
@@ -75,6 +83,10 @@ const OptionInputCard = ({
     );
 }
 
+/**
+ * Área de texto con etiqueta y validación requerida.
+ * Breakpoints: permite redimensionar verticalmente (CSS) en pantallas pequeñas.
+ */
 const TextAreaCard = ({ id, label, placeholder = "placeholder", onChange, required = true, stateKey, defaultValue = "" }) => {
     return (
         <div className="input-container">
@@ -91,6 +103,10 @@ const TextAreaCard = ({ id, label, placeholder = "placeholder", onChange, requir
     );
 }
 
+/**
+ * Botón/tarjeta de carga de archivos con vista previa simple de nombres.
+ * Breakpoints: caja flexible y centrada; ícono escalable por CSS.
+ */
 const UploadFileCard = ({ id, label = "Cargar Archivo", onChange, filesArray, multiple = true, info = "Archivos PDF (.pdf) o Excel (.xlsx)", accept = ".pdf, .xlsx" }) => {
     const array = filesArray ? [...filesArray] : null;
 

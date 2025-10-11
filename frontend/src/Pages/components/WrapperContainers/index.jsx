@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 import "./styles.css";
 
+/**
+ * Contenedor flexible con fondo y borde lateral para agrupar contenido.
+ * Breakpoints: estilos propios; no fuerza columnas. Usa props de flex para layout.
+ */
 const WrapperContainer1 = ({children, flexDirection = "row", padding = 20, gap = 15, justifyContent="start", alignItems="center"}) => {
     return(
         <div className="wrapper-container1 shadow-style border-left-style" style={{
@@ -15,6 +19,10 @@ const WrapperContainer1 = ({children, flexDirection = "row", padding = 20, gap =
     );
 }
 
+/**
+ * Contenedor flexible transparente y relativo; admite alto y ancho configurables.
+ * Breakpoints: estilos propios; no define media queries aquí.
+ */
 const WrapperContainer2 = ({
         children, 
         flexDirection = "row", 
@@ -44,6 +52,10 @@ const WrapperContainer2 = ({
     );
 }
 
+/**
+ * Contenedor con borde y hover para resaltar bloques interactivos.
+ * Breakpoints: sin media queries; mantiene flex y alineación.
+ */
 const WrapperContainer3 = ({
     children, 
     flexDirection = "row", 
@@ -71,6 +83,10 @@ const WrapperContainer3 = ({
     );
 }
 
+/**
+ * Contenedor de sección con padding configurable y fondo de sección.
+ * Breakpoints: sin media queries aquí; se adapta vía props y CSS global.
+ */
 const WrapperContainer4 = ({children, flexDirection = "row", padding = 20, paddingVertical=50, paddingHorizontal=30, gap = 15, justifyContent="start", alignItems="start"}) => {
     return(
         <div className="wrapper-container4" style={{

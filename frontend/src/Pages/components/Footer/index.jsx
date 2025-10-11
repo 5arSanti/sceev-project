@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import { GridContainer } from "../GridContainer";
 import { WrapperContainer2 } from "../WrapperContainers";
 import { Title } from "../Title";
-import { AnchorCard, TextCard } from "../TextComponents";
+import { TextCard } from "../TextComponents";
 
-import { MdOpenInNew } from "react-icons/md";
 import { VersionCard } from "../VersionCard";
 
 import "./styles.css";

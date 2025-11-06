@@ -4,7 +4,7 @@ import "./styles.css"
 const StyledSection = ({
     children,
     image,
-    height = "100vh",
+    height = "90vh",
     id
 }) => {
 

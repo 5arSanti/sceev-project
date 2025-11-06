@@ -12,6 +12,7 @@ import { FadeWrapper } from "../../components/FadeWrapper";
 import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
 import { TextCard } from "../../components/TextComponents";
 import { GridContainer } from "../../components/GridContainer";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const RegisterScreen = () => {
     const context = React.useContext(AppContext);
@@ -33,20 +34,23 @@ const RegisterScreen = () => {
 
         context.setLoading(true);
         await handlePostData(event, values, "/auth/register");
-        
+
         context.setLoading(false);
     }
 
-    return(
+    return (
         <AuthWrapper>
+            <div style={{ paddingTop: "50px", width: "100%" }}>
+                <Breadcrumb />
+            </div>
             <IsAuthWrapper notFound={true}>
                 <StyledSection height={windowWidth > 1200 ? "auto" : "150vh"} id={"section-styled-register"}>
                     <FadeWrapper height="auto">
                         <WrapperContainer2 padding={30} flexDirection="column" justifyContent="start" alignItems="center">
-                            <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al"/>
+                            <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al" />
 
-                            <WrapperContainer2 
-                                className="login-container" 
+                            <WrapperContainer2
+                                className="login-container"
                                 flexDirection="column"
                                 padding={"50px 75px"} gap={30}
                                 height="auto"
@@ -113,7 +117,7 @@ const RegisterScreen = () => {
                                         defaultValue={values?.userType}
                                         required={true}
                                     />
-                                    
+
                                     <button type="submit">Guardar Usuario</button>
                                 </form>
                             </WrapperContainer2>

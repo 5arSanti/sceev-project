@@ -4,6 +4,7 @@ import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
 
 import { SlGraph } from "react-icons/sl";
 import { SectionGraphs } from "../../components/ScreenStatsData/SectionGraphs";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const StatsDataScreen = () => {
 
@@ -16,6 +17,8 @@ const StatsDataScreen = () => {
                     icon={<SlGraph/>}
                 />
             </StyledSection>
+
+            <Breadcrumb />
             
             <SectionGraphs/>
 

@@ -11,6 +11,7 @@ import { ReactTable } from "../../components/TableContainer/Table";
 import { useParams } from "react-router-dom";
 import { handleDeleteData } from "../../../utils/handleData/handleDeleteData";
 import { handlePatchData } from "../../../utils/handleData/handlePatchData";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const UsersScreen = () => {
   const { action } = useParams();
@@ -60,6 +61,8 @@ const UsersScreen = () => {
             icon={<FaUsers />}
           />
         </StyledSection>
+
+        <Breadcrumb />
 
         <WrapperContainer2
           gap={5}

@@ -17,6 +17,7 @@ import { TextCard } from "../../components/TextComponents";
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { AuthWrapper } from "../../components/AuthWrapper";
 import { handlePostData } from "../../../utils/handleData/handlePostData";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const LoginScreen = () => {
     const context = React.useContext(AppContext);
@@ -44,7 +45,12 @@ const LoginScreen = () => {
 
     return (
         <AuthWrapper>
+            <div style={{ paddingTop: "50px", width: "100%" }}>
+                <Breadcrumb />
+            </div>
+
             <StyledSection id={"section-styled-login"}>
+
                 <FadeWrapper height="auto">
                     <WrapperContainer2 height="auto" padding={30} flexDirection="column" justifyContent="center" alignItems="center">
                         <SectionTitle white={true} title="SCEEV" subTitle="Bienvenido al" />

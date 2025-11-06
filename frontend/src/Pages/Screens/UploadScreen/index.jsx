@@ -4,6 +4,7 @@ import { StyledSection } from "../../components/StyledSection";
 import { MainSectionInfoCard } from "../../components/MainSectionInfoCard";
 
 import { FaDatabase } from "react-icons/fa";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const UploadScreen = () => {
     return (
@@ -16,6 +17,8 @@ const UploadScreen = () => {
                         icon={<FaDatabase/>}
                     />
                 </StyledSection>
+
+                <Breadcrumb />
                 
                 <ProcessCSVInfoContainer/>
             </IsAuthWrapper>

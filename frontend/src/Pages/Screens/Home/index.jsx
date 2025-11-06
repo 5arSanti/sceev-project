@@ -9,6 +9,7 @@ import { SectionProjectPurpose } from "../../components/ScreenHome/SectionProjec
 import { SectionAboutProject } from "../../components/ScreenHome/SectionAboutProject";
 import { SectionInteractiveMap } from "../../components/ScreenHome/SectionInteractiveMap";
 import { SectionFiltersResults } from "../../components/ScreenHome/SectionResults";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const Home = () => {
     return (
@@ -18,6 +19,8 @@ const Home = () => {
                 <StyledSection image={mainHome} id={"section-styled-home"}>
                     <SectionMainHome/>
                 </StyledSection>
+                
+                <Breadcrumb/>
                 
                 <SectionProjectPurpose/>
                 

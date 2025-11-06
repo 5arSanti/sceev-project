@@ -31,6 +31,7 @@ import { FaPenAlt } from "react-icons/fa";
 import { IoMdSchool } from "react-icons/io";
 import { MdPhonelink } from "react-icons/md";
 import { FaWheelchair } from "react-icons/fa";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const OfertScreen = () => {
     const { id } = useParams();
@@ -58,6 +59,8 @@ const OfertScreen = () => {
                     subTitle={"A continuacion, puede encontrar toda la informacion correspondiente a la oferta seleccionada"}
                 />
             </StyledSection>
+
+            <Breadcrumb />
 
             <SectionWrapper id={"section-ofert"}>
                 <SectionTitle subTitle="Toda la información centralizada..." title="Detalles de la Oferta"/>
